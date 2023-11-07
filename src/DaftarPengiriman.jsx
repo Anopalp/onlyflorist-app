@@ -13,11 +13,13 @@ const DaftarPengiriman = () => {
 	return (
 		<div>
 			{datas.length === 0 ? (
-				<div>Tidak ada pengiriman</div>
+				<div className='position-absolute top-50 start-50 translate-middle fs-2 --bs-danger-text-emphasis'>
+					Tidak ada pengiriman
+				</div>
 			) : (
-				<table className='table table-hover table-striped'>
-					<thead>
-						<tr>
+				<table className='table table-hover table-striped w-75 mx-auto'>
+					<thead className='text-center align-middle'>
+						<tr className='table-primary'>
 							<th>ID Pengiriman</th>
 							<th>Alamat Pengiriman</th>
 							<th>No. Telp Pelanggan</th>
