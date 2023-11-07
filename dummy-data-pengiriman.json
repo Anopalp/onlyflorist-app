@@ -1,0 +1,184 @@
+{
+	"pengiriman": [
+		{
+			"id": "d52fb9ea-2c7e-4a82-9b91-7e84d179b1c5",
+			"alamatPengiriman": "Suite 63",
+			"jenisBunga": "Anett",
+			"noTelpPelanggan": "708-212-4820",
+			"catatan": "Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit.",
+			"kurir": "Berti",
+			"statusPengiriman": "picked up"
+		},
+		{
+			"id": "9e2b2c2e-2bc4-435c-9e28-d607727e549f",
+			"alamatPengiriman": "Apt 135",
+			"jenisBunga": "Kaitlyn",
+			"noTelpPelanggan": "902-775-8302",
+			"catatan": "Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh. Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros. Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat. In congue. Etiam justo. Etiam pretium iaculis justo.",
+			"kurir": "Geneva",
+			"statusPengiriman": "picked up"
+		},
+		{
+			"id": "1456dbb3-fcd2-4ae8-a50b-11c276e40083",
+			"alamatPengiriman": "11th Floor",
+			"jenisBunga": "Rosella",
+			"noTelpPelanggan": "690-140-7235",
+			"catatan": "Aliquam non mauris. Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet.",
+			"kurir": "Lorens",
+			"statusPengiriman": "picked up"
+		},
+		{
+			"id": "7f33e91e-79c4-4794-a47c-4791f1815217",
+			"alamatPengiriman": "Room 1330",
+			"jenisBunga": "Brynn",
+			"noTelpPelanggan": "781-978-5410",
+			"catatan": "Vivamus tortor. Duis mattis egestas metus. Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh. Quisque id justo sit amet sapien dignissim vestibulum.",
+			"kurir": "Puff",
+			"statusPengiriman": "on hold"
+		},
+		{
+			"id": "0d17df23-3c2b-44bc-a46f-abadc1329396",
+			"alamatPengiriman": "Room 1334",
+			"jenisBunga": "Louella",
+			"noTelpPelanggan": "251-767-3932",
+			"catatan": "Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh. Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros. Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat. In congue.",
+			"kurir": "Rhianna",
+			"statusPengiriman": "on the way"
+		},
+		{
+			"id": "9b1243ad-9f61-44fe-96e0-b9ca041b9f85",
+			"alamatPengiriman": "19th Floor",
+			"jenisBunga": "Janice",
+			"noTelpPelanggan": "699-399-7082",
+			"catatan": "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.",
+			"kurir": "Daniele",
+			"statusPengiriman": "on the way"
+		},
+		{
+			"id": "e1d705f6-310b-41ca-8e87-fbea20bc8237",
+			"alamatPengiriman": "2nd Floor",
+			"jenisBunga": "Kaycee",
+			"noTelpPelanggan": "422-454-2742",
+			"catatan": "Praesent blandit.",
+			"kurir": "Tine",
+			"statusPengiriman": "delivered"
+		},
+		{
+			"id": "a0149d8f-aa99-41c1-acdd-130eafbb0df5",
+			"alamatPengiriman": "PO Box 49607",
+			"jenisBunga": "Iolande",
+			"noTelpPelanggan": "390-444-4804",
+			"catatan": "Ut tellus. Nulla ut erat id mauris vulputate elementum.",
+			"kurir": "Sean",
+			"statusPengiriman": "on hold"
+		},
+		{
+			"id": "bd6d2d26-dec4-422a-9450-f45ec5a2c0af",
+			"alamatPengiriman": "Room 734",
+			"jenisBunga": "Vivianna",
+			"noTelpPelanggan": "503-275-8386",
+			"catatan": "Nulla suscipit ligula in lacus. Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam.",
+			"kurir": "Finley",
+			"statusPengiriman": "picked up"
+		},
+		{
+			"id": "c937ea7f-fe95-46b1-9c01-5315922bf6a4",
+			"alamatPengiriman": "Suite 72",
+			"jenisBunga": "Aida",
+			"noTelpPelanggan": "623-461-6497",
+			"catatan": "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros. Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat. In congue.",
+			"kurir": "Gabie",
+			"statusPengiriman": "on hold"
+		},
+		{
+			"id": "5b35348e-ff2f-4996-9eef-48afffd4110b",
+			"alamatPengiriman": "Apt 495",
+			"jenisBunga": "Renae",
+			"noTelpPelanggan": "123-893-3378",
+			"catatan": "Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem. Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus. Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+			"kurir": "Doug",
+			"statusPengiriman": "picked up"
+		},
+		{
+			"id": "fd9b3e39-e6c3-489f-8cf6-138c97ab0603",
+			"alamatPengiriman": "Apt 653",
+			"jenisBunga": "Talya",
+			"noTelpPelanggan": "324-624-7313",
+			"catatan": "Nulla nisl. Nunc nisl.",
+			"kurir": "Elena",
+			"statusPengiriman": "on hold"
+		},
+		{
+			"id": "15e3b6e3-563b-4892-a962-1894edc84ba6",
+			"alamatPengiriman": "PO Box 23965",
+			"jenisBunga": "Winnie",
+			"noTelpPelanggan": "547-893-9035",
+			"catatan": "Integer ac neque. Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus. In sagittis dui vel nisl. Duis ac nibh.",
+			"kurir": "Helen-elizabeth",
+			"statusPengiriman": "delivered"
+		},
+		{
+			"id": "35391d4c-0a87-47b5-be4f-39568079c7f6",
+			"alamatPengiriman": "Apt 337",
+			"jenisBunga": "Lenna",
+			"noTelpPelanggan": "866-435-9733",
+			"catatan": "Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat. Praesent blandit.",
+			"kurir": "Lela",
+			"statusPengiriman": "on the way"
+		},
+		{
+			"id": "ef6292fc-e3ed-4277-8789-937f6a814a23",
+			"alamatPengiriman": "Room 227",
+			"jenisBunga": "Alexine",
+			"noTelpPelanggan": "878-760-6222",
+			"catatan": "Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo. Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis. Sed ante.",
+			"kurir": "Sashenka",
+			"statusPengiriman": "picked up"
+		},
+		{
+			"id": "71377ad7-df60-41bc-b817-04f58482caf6",
+			"alamatPengiriman": "Apt 1967",
+			"jenisBunga": "Bryn",
+			"noTelpPelanggan": "789-823-5426",
+			"catatan": "Morbi quis tortor id nulla ultrices aliquet. Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti. Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.",
+			"kurir": "Annabella",
+			"statusPengiriman": "on the way"
+		},
+		{
+			"id": "82891409-ebbb-43d9-a28b-7307b367a1bc",
+			"alamatPengiriman": "Suite 13",
+			"jenisBunga": "Marthena",
+			"noTelpPelanggan": "693-166-9305",
+			"catatan": "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis. Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus. Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.",
+			"kurir": "Dreddy",
+			"statusPengiriman": "delivered"
+		},
+		{
+			"id": "86e7c7c1-aa97-4e22-9d29-70834888c1f2",
+			"alamatPengiriman": "Apt 1506",
+			"jenisBunga": "Donica",
+			"noTelpPelanggan": "660-260-1639",
+			"catatan": "In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.",
+			"kurir": "Felic",
+			"statusPengiriman": "delivered"
+		},
+		{
+			"id": "ed4c294d-ad55-4e55-be43-5058e4fc802e",
+			"alamatPengiriman": "Apt 1436",
+			"jenisBunga": "Henrie",
+			"noTelpPelanggan": "606-674-1855",
+			"catatan": "Proin risus.",
+			"kurir": "Marcos",
+			"statusPengiriman": "on hold"
+		},
+		{
+			"id": "95c03a99-c03c-42f1-ae6c-3b773f8deb72",
+			"alamatPengiriman": "Suite 61",
+			"jenisBunga": "Gracie",
+			"noTelpPelanggan": "349-881-1661",
+			"catatan": "In hac habitasse platea dictumst.",
+			"kurir": "Lavinie",
+			"statusPengiriman": "picked up"
+		}
+	]
+}
