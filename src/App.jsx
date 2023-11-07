@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import DaftarPengiriman from './DaftarPengiriman'
 
 function App() {
