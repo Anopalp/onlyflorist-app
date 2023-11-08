@@ -34,7 +34,9 @@ const DaftarPengirimanManajer = () => {
 					>
 						+
 					</button>
-					{isTambah ? <TambahPengiriman close={closePopUp} /> : null}
+					{isTambah ? (
+						<TambahPengiriman close={closePopUp} datas={datas} />
+					) : null}
 					<table className='table table-hover table-striped'>
 						<thead className='text-center align-middle'>
 							<tr className='table-primary'>
