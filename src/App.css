@@ -1,0 +1,17 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: azure;
+    color: dimgray;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.grid-container{
+    display: grid;
+    grid-template-columns: 1fr, 1fr, 1fr;
+    grid-template-rows: 0.2fr, 3fr;
+    grid-template-areas: 
+        'header, header, header'
+        'main, main, main';
+    height: 10vh;
+}
