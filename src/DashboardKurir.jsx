@@ -28,11 +28,12 @@ function DashboardKurir() {
               <Button variant="secondary" className='ongoing-button'>Ongoing</Button>
               <Button variant="secondary" className='done-button'>Done</Button>
             </div>
-            <Button variant="secondary" className='see-more-button'>See More</Button>
+            <div>
+              <Button variant="secondary" className='see-more-button'>See More</Button>
+            </div>
           </div>
         </div>
       </div>
-      <ButtonDetailPengiriman/>
     </div>
   )
 }
