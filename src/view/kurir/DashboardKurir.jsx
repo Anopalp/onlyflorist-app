@@ -1,14 +1,15 @@
 import React from 'react'
 import "../dashboardStyles.css";
 import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
 
 
 function DashboardKurir() {
   return (
     <div>
-      <div className='judul-dashboard'>
+      {/* <div className='judul-dashboard'>
         <h1>OnlyFlorist</h1>
-      </div>
+      </div> */}
       <p className='sapaan'>Hai nama, daftar pengiriman kamu hari ini adalah</p>
       <div className='pengiriman-container'>
         <div className='pengiriman-info'>
@@ -29,7 +30,8 @@ function DashboardKurir() {
               <Button variant="secondary" className='done-button'>Done</Button>
             </div>
             <div>
-              <Button variant="secondary" className='see-more-button'>See More</Button>
+              {/* <Button variant="secondary" className='see-more-button'>See More</Button> */}
+              <Link to={'/daftar-pengiriman-kurir'} className='btn btn-secondary'>See More</Link>
             </div>
           </div>
         </div>

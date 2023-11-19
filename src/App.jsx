@@ -10,6 +10,8 @@ import './App.css'
 // import Create from './Create'
 // import Update from './Update'
 // import Read from './Read'
+import Header from './view/header'
+import Login from './view/Login'
 import DashboardKurir from './view/kurir/DashboardKurir'
 import DashboardManajer from './view/manajer/DashboardManajer'
 import DaftarPengirimanKurir from './view/kurir/DaftarPengirimanKurir'
@@ -21,8 +23,9 @@ function App() {
 	return (
 		<BrowserRouter>
 		{/* <Appheader></Appheader> */}
+		<Header></Header>
 		  <Routes>
-			{/* <Route path='/' element={<Login />}></Route> */}
+			<Route path='/login' element={<Login />}></Route>
 			<Route path='/' element={<DashboardKurir />}></Route>
 			<Route path='/dashboard-manajer' element={<DashboardManajer />}></Route>
 			<Route path='/daftar-pengiriman-kurir' element={<DaftarPengirimanKurir />}></Route>
