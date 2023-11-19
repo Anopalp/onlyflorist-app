@@ -10,6 +10,9 @@ import DaftarPengirimanKurir from './DaftarPengirimanKurir'
 import Create from './Create'
 import Update from './Update'
 import Read from './Read'
+import DashboardKurir from './DashboardKurir'
+import DashboardManager from './DashboardManager'
+
 
 function App() {
   
@@ -19,6 +22,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Login />}></Route>
         <Route path='/dashboard-kurir' element={<DashboardKurir />}></Route>
+		<Route path='/dashboard-manager' element={<DashboardManager />}></Route>
         <Route path='/daftar-pengiriman-kurir' element={<DaftarPengirimanKurir />}></Route>
         <Route path='/account-kurir' element={<AccountKurir />}></Route>
         <Route path='/create' element={<Create />}></Route>
