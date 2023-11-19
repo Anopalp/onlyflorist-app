@@ -45,40 +45,40 @@ function Update() {
   return (
     <div className='d-flex w-100 vh-100 justify-content-center align-items-center bg-light'>
         <div className='w-50 border bg-white shadow px-5 pt-3 pb-5 rounded'>
-            <h1>Perbarui Pengiriman</h1>
+            <h2 className='text-center my-3'>Perbarui Pengiriman</h2>
             <form onSubmit={handleUpdate}>
                 <div className='mb-2'>
-                    <label htmlFor='alamatPengiriman'>Alamat</label>
-                    <input type="text" name='name' className='form-control' placeholder='Masukkan Alamat'
-                    value={values.alamatPengiriman}
-                    onChange={e => setValues({...values, alamatPengiriman: e.target.value})}/>
+                    <strong htmlFor='id'>ID Pengiriman</strong>
+                    <output className='form-control'>{values.id}</output>
                 </div>
                 <div className='mb-2'>
-                    <label htmlFor='jenisBunga'>Bunga</label>
-                    <input type="text" name='jenisBunga' className='form-control' placeholder='Masukkan Jenis Bunga'
-                    value={values.jenisBunga}
-                    onChange={e => setValues({...values, jenisBunga: e.target.value})}/>
+                    <strong htmlFor='alamatPengiriman'>Alamat Pengiriman</strong>
+                    <output className='form-control'>{values.alamatPengiriman}</output>
                 </div>
                 <div className='mb-2'>
-                    <label htmlFor='noTelpPelanggan'>Telp</label>
-                    <input type="text" name='noTelpPelanggan' className='form-control' placeholder='Masukkan Nomor Telp'
-                    value={values.noTelpPelanggan}
-                    onChange={e => setValues({...values, noTelpPelanggan: e.target.value})}/>
+                    <strong htmlFor='jenisBunga'>Jenis Bunga</strong>
+                    <output className='form-control'>{values.jenisBunga}</output>
                 </div>
                 <div className='mb-2'>
-                    <label htmlFor='catatan'>Catatan</label>
-                    <input type="text" name='catatan' className='form-control' placeholder='Masukkan Catatan'
-                    value={values.catatan}
-                    onChange={e => setValues({...values, catatan: e.target.value})}/>
+                    <strong htmlFor='noTelpPelanggan'>No. Telp Pelanggan</strong>
+                    <output className='form-control'>{values.noTelpPelanggan}</output>
                 </div>
                 <div className='mb-2'>
-                    <label htmlFor='kurir'>Kurir</label>
-                    <input type="text" name='kurir' className='form-control' placeholder='Masukkan Kurir'
-                    value={values.kurir}
-                    onChange={e => setValues({...values, kurir: e.target.value})}/>
+                    <strong htmlFor='catatan'>Catatan</strong>
+                    <output className='form-control'>{values.catatan}</output>
+                </div>
+                <div className='mb-2'>
+                    <strong htmlFor='kurir'>Kurir</strong>
+                    <output className='form-control'>{values.kurir}</output>
+                </div>
+                <div className='mb-2'>
+                    <strong htmlFor='laporanMasalah'>Laporan Masalah</strong>
+                    <input type="text" name='name' className='form-control' placeholder='Masukkan laporan masalah'
+                    value={values.laporanMasalah}
+                    onChange={e => setValues({...values, laporanMasalah: e.target.value})}/>
                 </div>
                 <div className='mb-4'>
-                    <label htmlFor='status'>Status</label>
+                    <strong htmlFor='status'>Status Pengiriman</strong>
                     {/* <input type="text" name='status' className='form-control' placeholder='Masukkan Status'
                     value={values.statusPengiriman}
                     onChange={e => setValues({...values, statusPengiriman: e.target.value})}/> */}

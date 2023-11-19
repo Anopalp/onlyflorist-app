@@ -16,8 +16,8 @@ function DaftarPengirimanKurir() {
     
     return (
         <div className='d-flex flex-column justify-content-left align-items-center bg-light vh-100'>
-            <h3>Halo, ini daftar pengirimanmu!</h3>
-            <div className='w-75 h-75 rouded bg-white border shadow px-4 table-responsive'>
+            <h3 className='my-3'>Halo, ini daftar pengirimanmu!</h3>
+            <div className='w-75 h-75 rounded bg-white border shadow px-2 table-responsive'>
                 {/* <div className='d-flex justify-content-end '>
                     <Link to="/create" className='btn btn-success'>Add +</Link>
                 </div> */}
@@ -25,11 +25,11 @@ function DaftarPengirimanKurir() {
                     <thead className='bg-light sticky-top'>
                         <tr>
                             <th>ID</th>
-                            <th>Alamat</th>
+                            <th>Alamat Pelanggan</th>
                             <th>Bunga</th>
                             <th>Telp</th>
                             <th>Kurir</th>
-                            <th>Status</th>
+                            <th>Status Pengiriman</th>
                             <th></th>
                         </tr>
                     </thead>
