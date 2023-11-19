@@ -1,5 +1,5 @@
 import React from 'react'
-import "./dashboardStyles.css";
+import "../dashboardStyles.css";
 import Button from 'react-bootstrap/Button';
 
 
