@@ -22,7 +22,7 @@ function DaftarPengirimanKurir() {
                     <Link to="/create" className='btn btn-success'>Add +</Link>
                 </div> */}
                 <table className="table table-striped table-hover">
-                    <thead className='bg-light sticky-top'>
+                    <thead className='bg-light sticky-top' >
                         <tr>
                             <th>ID</th>
                             <th>Alamat Pelanggan</th>

@@ -4,9 +4,6 @@ import Button from 'react-bootstrap/Button';
 function DashboardManajer() {
   return (
     <div>
-      <div className='judul-dashboard'>
-        <h1>OnlyFlorist</h1>
-      </div>
       <p className='sapaan'>Hai nama, daftar pengiriman kamu hari ini adalah</p>
       <div className='pengiriman-container'>
         <div className='pengiriman-info'>
