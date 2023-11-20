@@ -1,7 +1,7 @@
 import React from 'react';
 import { MDBFooter } from 'mdb-react-ui-kit';
 
-export default function App() {
+export default function Footer() {
   return (
     <MDBFooter bgColor='light' className='text-center text-lg-start text-muted mt-5'>
       <div className='text-center p-4' style={{ backgroundColor: 'rgba(0, 0, 0, 0.25)' }}>

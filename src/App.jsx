@@ -11,6 +11,7 @@ import './App.css'
 // import Update from './Update'
 // import Read from './Read'
 import Header from './view/header'
+import Footer from './view/footer'
 import Login from './view/Login'
 import DashboardKurir from './view/kurir/DashboardKurir'
 import DashboardManajer from './view/manajer/DashboardManajer'
@@ -38,6 +39,7 @@ function App() {
 			{/* <Route path='/account-kurir' element={<AccountKurir />}></Route>
 			<Route path='/create' element={<Create />}></Route> */}
 		  </Routes>
+		<Footer></Footer>
 		</BrowserRouter>
 	  )
 	  
