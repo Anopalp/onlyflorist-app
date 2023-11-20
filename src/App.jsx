@@ -17,6 +17,8 @@ import DashboardManajer from './view/manajer/DashboardManajer'
 import DaftarPengirimanKurir from './view/kurir/DaftarPengirimanKurir'
 import Read from './view/kurir/Read'
 import Update from './view/kurir/Update'
+import LayarDaftarKurir from './view/manajer/LayarDaftarKurir'
+import DaftarPengirimanManajer from './view/manajer/DaftarPengirimanManajer'
 
 function App() {
   
@@ -31,6 +33,8 @@ function App() {
 			<Route path='/daftar-pengiriman-kurir' element={<DaftarPengirimanKurir />}></Route>
 			<Route path='/daftar-pengiriman-kurir/update/:id' element={<Update />}></Route>
 			<Route path='/daftar-pengiriman-kurir/read/:id' element={<Read />}></Route>
+			<Route path='/daftar-pengiriman-manajer' element={<DaftarPengirimanManajer />}></Route>
+			<Route path='/daftar-kurir' element={<LayarDaftarKurir />}></Route>
 			{/* <Route path='/account-kurir' element={<AccountKurir />}></Route>
 			<Route path='/create' element={<Create />}></Route> */}
 		  </Routes>
