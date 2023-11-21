@@ -1,6 +1,40 @@
-import React from "react";
+/* eslint-disable */
+import React, { useState } from "react";
+import supabase from "../../config/supabaseClient";
 
 function AddAccount() {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [nama_lengkap, setNamaLengkap] = useState('');
+  const [nik, setNik] = useState('');
+  const [tanggal_lahir, setTanggalLahir] = useState('');
+  const [phone, setPhone] = useState('');
+  const [alamat, setAddress] = useState('');
+  const [formError, setFormError] = useState(null);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+
+    if (!username || !password || !nama_lengkap || !nik || !tanggal_lahir || !phone || !alamat) {
+      setFormError('Please fill in all the fields correctly');
+      return
+    }
+
+    const { data, error } = await supabase
+      .from('dataKurir')
+      .insert([{username, password, nama_lengkap, nik, phone, alamat, tanggal_lahir}])
+
+      if (error) {
+        console.log(error);
+        setFormError('Please fill in all the fields correctly');
+      }
+      if (data) {
+        console.log(data);
+        setFormError(null);
+      }
+      window.location.reload();
+  }
+
   return (
     <div>
       <div className="button">
@@ -21,9 +55,11 @@ function AddAccount() {
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
+              
               <h1 className="modal-title fs-5" id="exampleModalLabel">
                 Modal title
               </h1>
+
               <button
                 type="button"
                 className="btn-close"
@@ -31,61 +67,97 @@ function AddAccount() {
                 aria-label="Close"
               ></button>
             </div>
+            
+            <form onSubmit={handleSubmit}>
+              <div className="modal-body">
+              
 
-            <div className="modal-body">
-              <div className="left-side">
+                <div className="form-floating mb-3">
+                  <label htmlFor="username">Username</label>
+                  <input 
+                    type="text" 
+                    className="form-control" 
+                    id="floatingUsername" 
+                    placeholder="Username"
+                    onChange={(e) => setUsername(e.target.value)}
+                    />
+                </div>
 
-              <div class="form-floating mb-3">
-                <input type="username" class="form-control" id="floatingUsername" placeholder="Username"/>
-                <label for="floatingInput">Username</label>
+                <div className="form-floating">
+                  <label htmlFor="password">Password</label>
+                  <input 
+                    type="password" 
+                    className="form-control" 
+                    id="floatingPassword" 
+                    placeholder="Password"
+                    onChange={(e) => setPassword(e.target.value)}
+                    />
+                </div>
+
+                <div className="form-floating">
+                  <label htmlFor="nama_lengkap">Nama Lengkap</label>
+                  <input 
+                    type="text" 
+                    className="form-control" 
+                    id="floatingFullname" 
+                    placeholder="Nama Lengkap"
+                    onChange={(e) => setNamaLengkap(e.target.value)}
+                    />
+                </div>
+
+                <div className="form-floating">
+                  <label htmlFor="nik">NIK</label>
+                  <input 
+                    type="text" 
+                    className="form-control" 
+                    id="floatingNik" 
+                    placeholder="NIK"
+                    onChange={(e) => setNik(e.target.value)}
+                    />
+                </div>
+
+                <div>
+                  <label htmlFor="tanggal_lahir">Tanggal Lahir</label>
+                  <input type="date"
+                  onChange={(e) => setTanggalLahir(e.target.value)}
+                  />
+                </div>
+
+                <div className="form-floating">
+                  <label htmlFor="phone">Phone</label>
+                  <input 
+                    type="number" 
+                    className="form-control" 
+                    id="floatingPhone" 
+                    placeholder="Phone"
+                    onChange={(e) => setPhone(e.target.value)}
+                  />
+                </div>
+
+                <div className="form-floating">
+                <label htmlFor="alamat">Alamat</label>
+                  <input 
+                    type="text" 
+                    className="form-control" 
+                    id="floatingAddress" 
+                    placeholder="Alamat"
+                    onChange={(e) => setAddress(e.target.value)}
+                  />
+                </div>
+              
               </div>
 
-              <div class="form-floating">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Password"/>
-                <label for="floatingPassword">Password</label>
-              </div>
-
-              <div class="form-floating">
-                <input type="fullname" class="form-control" id="floatingFullname" placeholder="Fullname"/>
-                <label for="floatingPassword">Nama Lengkap</label>
-              </div>
-
-              <div class="form-floating">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Password"/>
-                <label for="floatingPassword">Password</label>
-              </div>
-
-              <div>
-                <label for="datiInput">Tanggal Lahir</label>
-                <input type="date"/>
-              </div>
-
-              <div class="form-floating">
-                <input type="phone" class="form-control" id="floatingPhone" placeholder="Phone"/>
-                <label for="floatingPhone">Phone</label>
-              </div>
-
-              <div class="form-floating">
-                <input type="address" class="form-control" id="floatingAddress" placeholder="Address"/>
-                <label for="floatingAddress">Address</label>
-              </div>
+              <div className="modal-footer">
+                <button type="submit" className="btn btn-primary">
+                  Save Account
+                </button>
 
               </div>
               
-            </div>
+              {formError && <p className="error">{formError}</p>}
+            </form>
 
-            <div className="modal-footer">
-              <button
-                type="button"
-                className="btn btn-secondary"
-                data-bs-dismiss="modal"
-              >
-                Close
-              </button>
-              <button type="button" className="btn btn-primary">
-                Save changes
-              </button>
-            </div>
+            
           </div>
         </div>
       </div>

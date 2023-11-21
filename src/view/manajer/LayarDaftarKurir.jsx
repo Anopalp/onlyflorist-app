@@ -1,15 +1,43 @@
-import React from "react";
-import dataKurir from "/data_kurir.json";
-// import Header from "./Header";
+/* eslint-disable */
+import React, { useEffect, useState } from "react";
 import Table from "./Table";
 import AddAccount from "./AddAccount";
+import supabase from "../../config/supabaseClient";
 
 function LayarDaftarKurir() {
+    const [fetchError, setFetchError] = useState(null);
+    const [dataKurir, setDataKurir] = useState(null);
+
+    useEffect(() => {
+        const fetchDataKurir = async () => {
+          const { data, error } = await supabase
+            .from('dataKurir')
+            .select()
+    
+            if (error) {
+              setFetchError('Could not fetch dataKurir');
+              setDataKurir(null);
+              console.log(error);
+            }
+            if (data) {
+              setDataKurir(data);
+              setFetchError(null);
+            }
+        }
+    
+        fetchDataKurir();
+    
+    }, []);
+
     return (
-        <div>
-            {/* <Header/> */}
-            <AddAccount/>
-            <Table dataKurir={dataKurir}></Table>
+        <div className="page home">
+            {fetchError && (<p>{fetchError}</p>)}
+            {dataKurir && (
+                <div className="dataKurir">
+                    <AddAccount/>
+                    <Table dataKurir={dataKurir}/>
+                </div>
+            )}
         </div>
     );
 }

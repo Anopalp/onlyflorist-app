@@ -1,11 +1,42 @@
-// Assuming you're using React and JSX syntax
+/* eslint-disable */
 
-// eslint-disable-next-line no-unused-vars
 import React, { useState } from "react";
+import supabase from "../../config/supabaseClient";
+
 
 // Separate Modal component
 function CustomModal({ user }) {
   const { username, nama_lengkap, nik, phone } = user;
+
+  const handleDelete = async () => {
+    try {
+      const { dataPengiriman } = await supabase
+        .from('dataPengiriman')
+        .delete()
+        .eq('kurir', username);
+  
+      const { dataCoba, errorDataCoba } = await supabase
+        .from('coba2_dataPengiriman')
+        .delete()
+        .eq('kurir', username);
+  
+      const { data, error } = await supabase
+        .from('dataKurir')
+        .delete()
+        .eq('username', username);
+  
+      if (error) {
+        console.log(error);
+      }
+  
+      if (data) {
+        console.log(data);
+      }
+      window.location.reload();
+    } catch (error) {
+      console.error('Error deleting user:', error);
+    }
+  };
 
   return (
     <div
@@ -44,15 +75,8 @@ function CustomModal({ user }) {
             </p>
           </div>
           <div className="modal-footer">
-            <button
-              type="button"
-              className="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Close
-            </button>
-            <button type="button" className="btn btn-primary">
-              Save changes
+            <button type="button" className="btn btn-primary" onClick={handleDelete}>
+              Delete
             </button>
           </div>
         </div>

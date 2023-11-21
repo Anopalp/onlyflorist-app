@@ -15,6 +15,7 @@
 		"@mui/icons-material": "^5.14.16",
 		"@mui/material": "^5.14.17",
 		"@mui/styled-engine-sc": "^6.0.0-alpha.5",
+		"@supabase/supabase-js": "^2.38.5",
 		"axios": "^1.6.0",
 		"bootstrap": "^5.3.2",
 		"json-server": "^0.17.4",
@@ -29,6 +30,7 @@
 		"web-vitals": "^2.1.4"
 	},
 	"devDependencies": {
+		"@babel/preset-react": "^7.23.3",
 		"@types/react": "^18.2.15",
 		"@types/react-dom": "^18.2.7",
 		"@vitejs/plugin-react": "^4.0.3",
