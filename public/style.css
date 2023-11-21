@@ -139,3 +139,8 @@ div.table::-webkit-scrollbar-thumb {
     display: flex;
     justify-content: center;
 }
+
+.bg-image{
+    background-image: url('https://mdbcdn.b-cdn.net/img/Photos/Others/images/76.webp');
+    height: 100vh;
+}

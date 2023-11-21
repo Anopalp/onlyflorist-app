@@ -6,33 +6,55 @@ import { Link } from 'react-router-dom';
 
 function DashboardKurir() {
   return (
-    <div>
-      {/* <div className='judul-dashboard'>
-        <h1>OnlyFlorist</h1>
-      </div> */}
-      <p className='sapaan'>Hai nama, daftar pengiriman kamu hari ini adalah</p>
-      <div className='pengiriman-container'>
-        <div className='pengiriman-info'>
-          <div className='card-container'>
-            <div className='judul-container'>
-              <h3>Pengiriman yang masih berjalan</h3>
-            </div>
-            <div className='card-grid'>
-              <Card />
-              <Card />
-              <Card />
-              <Card />
+    <div
+    class="bg-image">
+      <h4 class="text-center p-3">Halo Sumarno, selamat Pagi!</h4>
+      <div class="card-container w-75 mx-auto my-5">
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="card w-75 text-center mx-auto my-5">
+              <img src="..\src\assets\Sansevieria.png" class="card-img-top" alt="Bunga" />
+              <div class="card-body">
+                <h5 class="card-title">Sansevieria</h5>
+                <p>Budi P</p>
+                <p>Jl. Tubagus Islamiyyah no.9</p>
+                <p>Sumarno</p>
+                <p>086542293839</p>
+                <a href="#" class="btn btn-primary">Lihat Detail</a>
+              </div>
             </div>
           </div>
-          <div className='buttons-container'>
-            <div>
-              <Button variant="secondary" className='ongoing-button'>Ongoing</Button>
-              <Button variant="secondary" className='done-button'>Done</Button>
+          <div class="col-lg-4">
+            <div class="card w-75 text-center mx-auto my-5">
+              <img src="..\src\assets\Sansevieria.png" class="card-img-top" alt="Bunga" />
+              <div class="card-body">
+                <h5 class="card-title">Sansevieria</h5>
+                <p>Carica Papaya</p>
+                <p>Jl. Tubagus Islamiyyah no.18</p>
+                <p>Sumarno</p>
+                <p>086542729739</p>
+                <a href="#" class="btn btn-primary">Lihat Detail</a>
+              </div>
             </div>
-            <div>
-              {/* <Button variant="secondary" className='see-more-button'>See More</Button> */}
-              <Link to={'/daftar-pengiriman-kurir'} className='btn btn-secondary'>See More</Link>
+          </div>
+          <div class="col-lg-4">
+            <div class="card w-75 text-center mx-auto my-5">
+              <img src="..\src\assets\Sansevieria.png" class="card-img-top" alt="Bunga" />
+              <div class="card-body">
+                <h5 class="card-title">Sansevieria</h5>
+                <p>Carica Papaya</p>
+                <p>Jl. Tubagus Islamiyyah no.18</p>
+                <p>Sumarno</p>
+                <p>086542729739</p>
+                <a href="#" class="btn btn-primary">Lihat Detail</a>
+              </div>
             </div>
+          </div>
+          <div class="buttons-container">
+            <div>
+              <Link to={'/daftar-pengiriman-kurir'} class='btn btn-secondary'>See More</Link>
+            </div>
+            {/* <a href='/daftar-pengiriman-kurir' class="btn btn-primary">see more</a> */}
           </div>
         </div>
       </div>
