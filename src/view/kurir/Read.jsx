@@ -16,8 +16,8 @@ function Read({close, id}) {
     <div className='modal d-block' tabIndex='-1' role='dialog' id='modalSignin'>
         <div className='modal-dialog modal-dialog-centered' role='document'>
             <div className='modal-content rounded-4 shadow'>
-                <div className='modal-header p-5 pb-4 border-bottom-0'>
-                    <h1 className='fw-bold mb-0 fs-2'>Detail Pengiriman</h1>
+                <div className='modal-header p-1 pb-4 border-bottom-0'>
+                    <h1 className='fw-bold mb-0 fs-2 text-center'>Detail Pengiriman</h1>
                     <button
                         type='button'
                         className='btn-close'
