@@ -42,8 +42,8 @@ const DaftarPengirimanManajer = () => {
 				</div>
 			) : (
 				<div className='d-flex flex-column justify-content-left align-items-center bg-light vh-100'>
-					<h3 className='my-3'>Halo, ini daftar pengirimanmu!</h3>
-					<div className='w-75 h-75 rounded-4 bg-light border shadow px-2 table-responsive'>
+					<h3 className='my-3' style={{fontSize:30, fontWeight: 'bold'}}>Daftar Pengiriman</h3>
+					<div className='z-0 w-75 h-75 rounded-4 bg-light border shadow px-2 table-responsive'>
 						<div className='d-flex my-2'>
 							<button
 								className='btn btn-primary ms-auto'

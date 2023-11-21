@@ -34,7 +34,6 @@ function LayarDaftarKurir() {
             {fetchError && (<p>{fetchError}</p>)}
             {dataKurir && (
                 <div className="dataKurir">
-                    <AddAccount/>
                     <Table dataKurir={dataKurir}/>
                 </div>
             )}

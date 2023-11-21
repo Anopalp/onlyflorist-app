@@ -37,10 +37,10 @@ function AddAccount() {
 
   return (
     <div>
-      <div className="button">
+      <div className="button d-flex my-2">
         <div className="bleft"></div>
-        <button className="button-28" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            + Tambah Kurir
+        <button className="btn btn-primary ms-auto" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Add +
         </button>
         <div className="bright"></div>
       </div>
