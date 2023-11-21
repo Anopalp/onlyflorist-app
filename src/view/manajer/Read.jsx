@@ -54,15 +54,18 @@ function Read({close, id}) {
                     <strong>Kurir</strong>
                     <output className='form-control'>{data.kurir}</output>
                 </div>
-                <div className='mb-3'>
-                    <strong>Laporan Masalah</strong>
-                    <output className='form-control'>{data.laporanMasalah}</output>
-                </div>
+                {data.laporanMasalah != null ? (
+                    <div className='mb-3'>
+                        <strong>Laporan Masalah</strong>
+                        <output className='form-control'>{data.laporanMasalah}</output>
+                    </div>
+                ) : null            
+                }
                 <div className='mb-4'>
                     <strong>Status Pengiriman</strong>
                     <output className='form-control'>{data.statusPengiriman}</output>
                 </div>
-                <Link to={'/daftar-pengiriman-kurir/update/' + id} className='btn btn-lg rounded-3 btn-success'>Edit</Link>
+                {/* <Link to={'/daftar-pengiriman-kurir/update/' + id} className='btn btn-lg rounded-3 btn-success'>Edit</Link> */}
             </div>
         </div>
     </div>

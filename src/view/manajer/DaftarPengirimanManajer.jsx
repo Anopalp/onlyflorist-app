@@ -1,10 +1,13 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import TambahPengiriman from './TambahPengiriman'
+import Read from './Read'
 
 const DaftarPengirimanManajer = () => {
 	const [datas, setDatas] = useState([])
 	const [isTambah, setIsTambah] = useState(false)
+	const [isDetail, setIsDetail] = useState(false)
+    const [selectedId, setSelectedId] = useState(null)
 
 	useEffect(() => {
 		axios
@@ -17,9 +20,19 @@ const DaftarPengirimanManajer = () => {
 		setIsTambah(true)
 	}
 
-	const closePopUp = () => {
+	const handleDetailPengiriman = (id) => {
+		setIsDetail(true)
+        setSelectedId(id)
+	}
+
+	const closePopUpTambahPengiriman = () => {
 		setIsTambah(false)
 	}
+
+	const closePopUpDetailPengiriman = () => {
+		setIsDetail(false)
+	}
+
 
 	return (
 		<div>
@@ -40,7 +53,10 @@ const DaftarPengirimanManajer = () => {
 							</button>
 						</div>
 						{isTambah ? (
-							<TambahPengiriman close={closePopUp} datas={datas} />
+							<TambahPengiriman close={closePopUpTambahPengiriman} datas={datas} />
+						) : null}
+						{isDetail ? (
+							<Read close={closePopUpDetailPengiriman} id={selectedId}/>
 						) : null}
 						<table className='table table-hover table-striped'>
 							<thead className='bg-light sticky-top align-middle'>
@@ -55,7 +71,7 @@ const DaftarPengirimanManajer = () => {
 							</thead>
 							<tbody>
 								{datas.map((data) => (
-									<tr key={data.id}>
+									<tr key={data.id} onClick={() => handleDetailPengiriman(data.id)}>
 										<td>{data.id}</td>
 										<td>{data.alamatPengiriman}</td>
 										<td>{data.noTelpPelanggan}</td>
