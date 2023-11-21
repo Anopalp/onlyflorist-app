@@ -37,7 +37,7 @@ function DaftarPengirimanKurir() {
 					<Read close={closePopUp} id={selectedId}/>
 				) : null}
                 <table className="table table-striped table-hover">
-                    <thead className='bg-light sticky-top' >
+                    <thead className='bg-light sticky-top align-middle' >
                         <tr className='table-primary'>
                             <th>ID</th>
                             <th>Alamat Pelanggan</th>

@@ -50,7 +50,7 @@ function DashboardManajer() {
           </div>
           <div class="buttons-container">
             <div>
-              <Link to={'/daftar-pengiriman-kurir'} class='btn btn-secondary'>See More</Link>
+              <Link to={'/daftar-pengiriman-manajer'} class='btn btn-secondary'>See More</Link>
             </div>
             {/* <a href='/daftar-pengiriman-kurir' class="btn btn-primary">see more</a> */}
           </div>
