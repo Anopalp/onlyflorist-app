@@ -8,6 +8,7 @@ import AddAccount from "./AddAccount";
 // Separate Modal component
 function CustomModal({ user }) {
   const { username, nama_lengkap, nik, phone } = user;
+  
 
   const handleDelete = async () => {
     try {

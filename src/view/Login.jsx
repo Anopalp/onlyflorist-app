@@ -68,7 +68,7 @@ export default function Login() {
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
             />
-            <Link to="/dashboard-kurir">
+            <Link to="/dashboard-manajer">
               <Button
                 type="submit"
                 fullWidth
