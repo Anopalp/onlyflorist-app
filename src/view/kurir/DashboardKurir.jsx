@@ -6,13 +6,15 @@ import { Link } from 'react-router-dom';
 
 function DashboardKurir() {
   return (
-    <div
-    class="bg-image">
+    <div>
       <h4 class="text-center p-3">Halo Sumarno, selamat Pagi!</h4>
       <div class="card-container w-75 mx-auto my-5">
+      <div>
+          <h3>Pengiriman teratas</h3>
+        </div>
         <div class="row">
           <div class="col-lg-4">
-            <div class="card w-75 text-center mx-auto my-5">
+            <div class="card w-75 text-center mx-auto my-auto">
               <img src="..\src\assets\Sansevieria.png" class="card-img-top" alt="Bunga" />
               <div class="card-body">
                 <h5 class="card-title">Sansevieria</h5>
@@ -25,7 +27,7 @@ function DashboardKurir() {
             </div>
           </div>
           <div class="col-lg-4">
-            <div class="card w-75 text-center mx-auto my-5">
+            <div class="card w-75 text-center mx-auto my-auto">
               <img src="..\src\assets\Sansevieria.png" class="card-img-top" alt="Bunga" />
               <div class="card-body">
                 <h5 class="card-title">Sansevieria</h5>
@@ -38,7 +40,7 @@ function DashboardKurir() {
             </div>
           </div>
           <div class="col-lg-4">
-            <div class="card w-75 text-center mx-auto my-5">
+            <div class="card w-75 text-center mx-auto my-auto">
               <img src="..\src\assets\Sansevieria.png" class="card-img-top" alt="Bunga" />
               <div class="card-body">
                 <h5 class="card-title">Sansevieria</h5>
@@ -50,7 +52,7 @@ function DashboardKurir() {
               </div>
             </div>
           </div>
-          <div class="buttons-container">
+          <div class="buttons-container mt-3">
             <div>
               <Link to={'/daftar-pengiriman-kurir'} class='btn btn-secondary'>See More</Link>
             </div>
