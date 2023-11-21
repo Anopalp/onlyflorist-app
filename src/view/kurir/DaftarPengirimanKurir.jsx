@@ -3,16 +3,28 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { IconButton } from '@mui/material'
 import { Info } from '@mui/icons-material'
+import Read from './Read'
 
 function DaftarPengirimanKurir() {
     
     const [data, setData] = useState([])
+    const [isDetail, setIsDetail] = useState(false)
+    const [selectedId, setSelectedId] = useState(null)
     
     useEffect(()=> {
         axios.get('http://localhost:3000/pengiriman')
         .then(res => setData(res.data))
         .catch(err => console.log(err));
     }, [])
+
+    const handleDetailPengiriman = (id) => {
+		setIsDetail(true)
+        setSelectedId(id)
+	}
+
+	const closePopUp = () => {
+		setIsDetail(false)
+	}
     
     return (
         <div className='d-flex flex-column justify-content-left align-items-center bg-light vh-100'>
@@ -21,6 +33,9 @@ function DaftarPengirimanKurir() {
                 {/* <div className='d-flex justify-content-end '>
                     <Link to="/create" className='btn btn-success'>Add +</Link>
                 </div> */}
+                {isDetail ? (
+					<Read close={closePopUp} id={selectedId}/>
+				) : null}
                 <table className="table table-striped table-hover">
                     <thead className='bg-light sticky-top' >
                         <tr>
@@ -36,7 +51,7 @@ function DaftarPengirimanKurir() {
                     <tbody>
                         {
                             data.map((d, i) => (
-                                <tr key={i}>
+                                <tr key={i} onClick={() => handleDetailPengiriman(d.id)}>
                                     <td>{d.id}</td>
                                     <td>{d.alamatPengiriman}</td>
                                     <td>{d.jenisBunga}</td>

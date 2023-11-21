@@ -9,7 +9,7 @@ function LayarDaftarKurir() {
         <div>
             {/* <Header/> */}
             <AddAccount/>
-            Test
+            <Table dataKurir={dataKurir}></Table>
         </div>
     );
 }

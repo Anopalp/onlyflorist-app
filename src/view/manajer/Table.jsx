@@ -67,11 +67,11 @@ function InnerData({ user, onUserClick }) {
   return (
     <tr onClick={() => onUserClick(user)}>
       <td>
-        <img
+        {/* <img
           className="profpic"
           src={require(`../images/${username}.jpg`)}
           alt={`no Img`}
-        />
+        /> */}
       </td>
       <td>{username}</td>
       <td>{nama_lengkap}</td>
