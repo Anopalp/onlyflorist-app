@@ -44,7 +44,7 @@ function Update() {
 
   return (
     <div className='d-flex w-100 vh-100 justify-content-center align-items-center bg-light'>
-        <div className='w-50 border bg-white shadow px-4 pt-3 pb-5 rounded-4'>
+        <div className='w-50 border bg-white shadow p-3 rounded-4'>
                 <div className='modal-header p-1 pb-4 border-bottom-0'>
                     <h1 className='fw-bold mb-0 fs-2 text-center'>Update Pengiriman</h1>
                     <Link to={"/daftar-pengiriman-kurir/"}>
@@ -58,31 +58,31 @@ function Update() {
                     </Link>
                 </div>
             <form onSubmit={handleUpdate}>
-                <div className='mb-2'>
+                <div className='mb-3'>
                     <strong htmlFor='id'>ID Pengiriman</strong>
                     <output className='form-control'>{values.id}</output>
                 </div>
-                <div className='mb-2'>
+                <div className='mb-3'>
                     <strong htmlFor='alamatPengiriman'>Alamat Pengiriman</strong>
                     <output className='form-control'>{values.alamatPengiriman}</output>
                 </div>
-                <div className='mb-2'>
+                <div className='mb-3'>
                     <strong htmlFor='jenisBunga'>Jenis Bunga</strong>
                     <output className='form-control'>{values.jenisBunga}</output>
                 </div>
-                <div className='mb-2'>
+                <div className='mb-3'>
                     <strong htmlFor='noTelpPelanggan'>No. Telp Pelanggan</strong>
                     <output className='form-control'>{values.noTelpPelanggan}</output>
                 </div>
-                <div className='mb-2'>
+                <div className='mb-3'>
                     <strong htmlFor='catatan'>Catatan</strong>
                     <output className='form-control'>{values.catatan}</output>
                 </div>
-                <div className='mb-2'>
+                <div className='mb-3'>
                     <strong htmlFor='kurir'>Kurir</strong>
                     <output className='form-control'>{values.kurir}</output>
                 </div>
-                <div className='mb-2'>
+                <div className='mb-3'>
                     <strong htmlFor='laporanMasalah'>Laporan Masalah</strong>
                     <input type="text" name='name' className='form-control' placeholder='Masukkan laporan masalah'
                     value={values.laporanMasalah}
@@ -101,7 +101,7 @@ function Update() {
                         ))}
                     </select>
                 </div>
-                <button className='btn btn-success'>Update</button>
+                <button className='btn btn-lg rounded-3 btn-success'>Update</button>
             </form>
         </div>
     </div>
