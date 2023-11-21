@@ -39,7 +39,7 @@ function AddAccount() {
     <div>
       <div className="button d-flex my-2">
         <div className="bleft"></div>
-        <button className="btn btn-primary ms-auto" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button className="btn btn-primary ms-auto px-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
           Add +
         </button>
         <div className="bright"></div>

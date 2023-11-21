@@ -53,7 +53,7 @@ function RiwayatPengirimanManajer() {
                     <thead className='bg-light sticky-top align-middle' >
                         <tr className='table-primary'>
                             <th>ID</th>
-                            <th>Alamat Pelanggan</th>
+                            <th>Alamat Pengiriman</th>
                             <th>Bunga</th>
                             <th>Telp</th>
                             <th>Kurir</th>

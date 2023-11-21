@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 // import { Link } from 'react-router-dom'
 // import { IconButton } from '@mui/material'
 // import { Info } from '@mui/icons-material'
-import Read from './Read'
+import ReadRiwayat from './ReadRiwayat'
 
 function RiwayatPengirimanKurir() {
     
@@ -34,7 +34,7 @@ function RiwayatPengirimanKurir() {
                     <Link to="/create" className='btn btn-success'>Add +</Link>
                 </div> */}
                 {isDetail ? (
-					<Read close={closePopUp} id={selectedId}/>
+					<ReadRiwayat close={closePopUp} id={selectedId}/>
 				) : null}
                 <table className="table table-striped table-hover">
                     <thead className='bg-light sticky-top align-middle' >
@@ -43,7 +43,7 @@ function RiwayatPengirimanKurir() {
                             <th>Alamat Pelanggan</th>
                             <th>Bunga</th>
                             <th>Telp</th>
-                            <th>Kurir</th>
+                            <th>Catatan</th>
                             <th>Status Pengiriman</th>
                             <th></th>
                         </tr>
@@ -60,7 +60,7 @@ function RiwayatPengirimanKurir() {
                                         <td>{d.alamatPengiriman}</td>
                                         <td>{d.jenisBunga}</td>
                                         <td>{d.noTelpPelanggan}</td>
-                                        <td>{d.kurir}</td>
+                                        <td style={{width: '600px'}}>{d.catatan}</td>
                                         <td>{d.statusPengiriman}</td>
                                         <td>
                                             {/* <Link to={'/read/' + (d.id)} className='btn btn-sm btn-info me-2'>Detail</Link>

@@ -50,7 +50,7 @@ const DaftarPengirimanManajer = () => {
 					<div className='z-0 w-75 h-75 rounded-4 bg-light border shadow px-2 table-responsive'>
 						<div className='d-flex my-2'>
 							<button
-								className='btn btn-primary ms-auto'
+								className='btn btn-primary ms-auto px-4'
 								onClick={handleTambahPengiriman}
 							>
 								Add +
@@ -74,10 +74,10 @@ const DaftarPengirimanManajer = () => {
 						<table className='table table-hover table-striped'>
 							<thead className='bg-light sticky-top align-middle'>
 								<tr className='table-primary'>
-									<th>ID Pengiriman</th>
+									<th>ID</th>
 									<th>Alamat Pengiriman</th>
-									<th>No. Telp Pelanggan</th>
-									<th>Catatan Pengiriman</th>
+									<th>Bunga</th>
+									<th>Telp</th>
 									<th>Kurir</th>
 									<th>Status Pengiriman</th>
 								</tr>
@@ -95,8 +95,8 @@ const DaftarPengirimanManajer = () => {
 									<tr key={data.id} onClick={() => handleDetailPengiriman(data.id)}>
 										<td>{data.id}</td>
 										<td>{data.alamatPengiriman}</td>
+										<td>{data.jenisBunga}</td>
 										<td>{data.noTelpPelanggan}</td>
-										<td>{data.catatan}</td>
 										<td>{data.kurir}</td>
 										<td>{data.statusPengiriman}</td>
 									</tr>

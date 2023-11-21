@@ -43,7 +43,7 @@ function DaftarPengirimanKurir() {
                             <th>Alamat Pelanggan</th>
                             <th>Bunga</th>
                             <th>Telp</th>
-                            <th>Kurir</th>
+                            <th>Catatan</th>
                             <th>Status Pengiriman</th>
                             <th></th>
                         </tr>
@@ -56,7 +56,7 @@ function DaftarPengirimanKurir() {
                                     <td>{d.alamatPengiriman}</td>
                                     <td>{d.jenisBunga}</td>
                                     <td>{d.noTelpPelanggan}</td>
-                                    <td>{d.kurir}</td>
+                                    <td style={{width: '600px'}}>{d.catatan}</td>
                                     <td>{d.statusPengiriman}</td>
                                     <td>
                                         {/* <Link to={'/read/' + (d.id)} className='btn btn-sm btn-info me-2'>Detail</Link>
