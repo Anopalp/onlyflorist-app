@@ -1,5 +1,6 @@
 // Assuming you're using React and JSX syntax
 
+// eslint-disable-next-line no-unused-vars
 import React, { useState } from "react";
 
 // Separate Modal component
@@ -19,7 +20,7 @@ function CustomModal({ user }) {
         <div className="modal-content">
           <div className="modal-header">
             <h5 className="modal-title" id={`${username}Label`}>
-              {nama_lengkap}'s Details
+              {nama_lengkap} Details
             </h5>
             <button
               type="button"
@@ -67,11 +68,7 @@ function InnerData({ user, onUserClick }) {
   return (
     <tr onClick={() => onUserClick(user)}>
       <td>
-        <img
-          className="profpic"
-          src={require(`../images/${username}.jpg`)}
-          alt={`no Img`}
-        />
+        
       </td>
       <td>{username}</td>
       <td>{nama_lengkap}</td>
@@ -82,6 +79,7 @@ function InnerData({ user, onUserClick }) {
 }
 
 function Table({ dataKurir }) {
+  // eslint-disable-next-line no-unused-vars
   const [selectedUser, setSelectedUser] = useState(null);
 
   const handleUserClick = (user) => {
