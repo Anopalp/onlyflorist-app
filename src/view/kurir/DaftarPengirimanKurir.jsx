@@ -29,7 +29,7 @@ function DaftarPengirimanKurir() {
     return (
         <div className='d-flex flex-column justify-content-left align-items-center bg-light vh-100'>
             <h3 className='my-3'>Halo, ini daftar pengirimanmu!</h3>
-            <div className='w-75 h-75 rounded bg-white border shadow px-2 table-responsive'>
+            <div className='w-75 h-75 rounded-4 bg-light border shadow px-2 table-responsive'>
                 {/* <div className='d-flex justify-content-end '>
                     <Link to="/create" className='btn btn-success'>Add +</Link>
                 </div> */}
@@ -38,7 +38,7 @@ function DaftarPengirimanKurir() {
 				) : null}
                 <table className="table table-striped table-hover">
                     <thead className='bg-light sticky-top' >
-                        <tr>
+                        <tr className='table-primary'>
                             <th>ID</th>
                             <th>Alamat Pelanggan</th>
                             <th>Bunga</th>
@@ -51,7 +51,7 @@ function DaftarPengirimanKurir() {
                     <tbody>
                         {
                             data.map((d, i) => (
-                                <tr key={i} onClick={() => handleDetailPengiriman(d.id)}>
+                                <tr key={i} onClick={() => handleDetailPengiriman(d.id)} >
                                     <td>{d.id}</td>
                                     <td>{d.alamatPengiriman}</td>
                                     <td>{d.jenisBunga}</td>
@@ -61,14 +61,14 @@ function DaftarPengirimanKurir() {
                                     <td>
                                         {/* <Link to={'/read/' + (d.id)} className='btn btn-sm btn-info me-2'>Detail</Link>
                                         <Link to={'/update/' + (d.id)} className='btn btn-sm btn-primary me-2'>Edit</Link> */}
-                                        <Link to={'/daftar-pengiriman-kurir/read/' + (d.id)}>
+                                        {/* <Link to={'/daftar-pengiriman-kurir/read/' + (d.id)}>
                                             <IconButton 
                                             color="black" 
                                             style={{display: 'flex', justifyContent: 'right'}}>
                                             <Info>
                                             </Info>
                                             </IconButton>
-                                        </Link>
+                                        </Link> */}
                                     </td>
                                 </tr>
                             ))
