@@ -10,6 +10,7 @@ import './App.css'
 // import Create from './Create'
 // import Update from './Update'
 // import Read from './Read'
+import Navbar from './view/Navbar'
 import Header from './view/header'
 import Footer from './view/footer'
 import Login from './view/Login'
@@ -27,7 +28,8 @@ function App() {
 	return (
 		<BrowserRouter>
 		{/* <Appheader></Appheader> */}
-		<Header></Header>
+		{/* <Header></Header> */}
+		<Navbar/>
 		  <Routes>
 			<Route path='/' element={<Login />}></Route>
 			<Route path='/dashboard-kurir' element={<DashboardKurir />}></Route>
