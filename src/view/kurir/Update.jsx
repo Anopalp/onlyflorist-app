@@ -44,8 +44,19 @@ function Update() {
 
   return (
     <div className='d-flex w-100 vh-100 justify-content-center align-items-center bg-light'>
-        <div className='w-50 border bg-white shadow px-5 pt-3 pb-5 rounded'>
-            <h2 className='text-center my-3'>Perbarui Pengiriman</h2>
+        <div className='w-50 border bg-white shadow px-4 pt-3 pb-5 rounded-4'>
+                <div className='modal-header p-1 pb-4 border-bottom-0'>
+                    <h1 className='fw-bold mb-0 fs-2 text-center'>Update Pengiriman</h1>
+                    <Link to={"/daftar-pengiriman-kurir/"}>
+                    <button
+                        type='button'
+                        className='btn-close'
+                        data-bs-dismiss='modal'
+                        aria-label='Close'
+                        onClick={close}
+                    ></button>
+                    </Link>
+                </div>
             <form onSubmit={handleUpdate}>
                 <div className='mb-2'>
                     <strong htmlFor='id'>ID Pengiriman</strong>
@@ -91,7 +102,6 @@ function Update() {
                     </select>
                 </div>
                 <button className='btn btn-success'>Update</button>
-                <Link to={"/daftar-pengiriman-kurir/read/" + id} className='btn btn-primary ms-3'>Back</Link>
             </form>
         </div>
     </div>
