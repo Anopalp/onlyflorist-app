@@ -127,3 +127,15 @@ div.table::-webkit-scrollbar-thumb {
   .modal-backdrop {
 	display: none;
 }
+.card{
+    transition: all 0.3s;
+}
+
+.card:hover{
+    transform: scale(1.1);
+}
+
+.card-container{
+    display: flex;
+    justify-content: center;
+}
