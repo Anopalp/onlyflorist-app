@@ -25,7 +25,7 @@ function Navbar() {
                 <Link to="/daftar-kurir">
                     <a>Kurir</a>
                 </Link>
-                <Link to="/daftar-pengiriman-manajer">
+                <Link to="/riwayat-pengiriman-manajer">
                     <a>Riwayat</a>
                 </Link>
                 <Link to="/daftar-pengiriman-manajer">
