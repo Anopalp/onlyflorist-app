@@ -2,12 +2,16 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import TambahPengiriman from './TambahPengiriman'
 import Read from './Read'
+import { Form, FormControl, InputGroup } from 'react-bootstrap'
 
 const DaftarPengirimanManajer = () => {
 	const [datas, setDatas] = useState([])
 	const [isTambah, setIsTambah] = useState(false)
 	const [isDetail, setIsDetail] = useState(false)
     const [selectedId, setSelectedId] = useState(null)
+	const [search, setSearch] = useState('')
+
+	console.log(search)
 
 	useEffect(() => {
 		axios
@@ -58,6 +62,15 @@ const DaftarPengirimanManajer = () => {
 						{isDetail ? (
 							<Read close={closePopUpDetailPengiriman} id={selectedId}/>
 						) : null}
+
+						<Form>
+							<InputGroup className='my-3'>
+								<FormControl 
+								onChange={(e) => setSearch(e.target.value)}
+								placeholder='Search pengiriman'/>
+							</InputGroup>
+						</Form>
+
 						<table className='table table-hover table-striped'>
 							<thead className='bg-light sticky-top align-middle'>
 								<tr className='table-primary'>
@@ -70,7 +83,15 @@ const DaftarPengirimanManajer = () => {
 								</tr>
 							</thead>
 							<tbody>
-								{datas.map((data) => (
+								{datas
+									.filter((data) => {
+										return search.toLowerCase() === ''
+											? data
+											: data.statusPengiriman.toLowerCase().includes(search.toLowerCase()) ||
+											data.kurir.toLowerCase().includes(search.toLowerCase()) ||
+											data.jenisBunga.toLowerCase().includes(search.toLowerCase());
+									})
+									.map((data) => (
 									<tr key={data.id} onClick={() => handleDetailPengiriman(data.id)}>
 										<td>{data.id}</td>
 										<td>{data.alamatPengiriman}</td>
