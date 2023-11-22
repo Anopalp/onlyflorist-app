@@ -1,23 +1,32 @@
 import { useEffect, useState } from 'react'
-import axios from 'axios'
 import TambahPengiriman from './TambahPengiriman'
 import Read from './Read'
 import { Form, FormControl, InputGroup } from 'react-bootstrap'
+import supabase from '../../config/supabaseClient'
 
 const DaftarPengirimanManajer = () => {
-	const [datas, setDatas] = useState([])
+	const [data, setData] = useState([])
 	const [isTambah, setIsTambah] = useState(false)
 	const [isDetail, setIsDetail] = useState(false)
-    const [selectedId, setSelectedId] = useState(null)
+	const [selectedId, setSelectedId] = useState(null)
 	const [search, setSearch] = useState('')
 
-	console.log(search)
+	// console.log(search)
 
 	useEffect(() => {
-		axios
-			.get('http://localhost:3000/pengiriman')
-			.then((response) => response.data)
-			.then((returnedData) => setDatas(returnedData))
+		const fetchData = async () => {
+			const { data, error } = await supabase.from('dataPengiriman').select()
+
+			if (error) {
+				console.log(error)
+			}
+
+			if (data) {
+				setData(data)
+			}
+		}
+
+		fetchData()
 	}, [])
 
 	const handleTambahPengiriman = () => {
@@ -26,7 +35,7 @@ const DaftarPengirimanManajer = () => {
 
 	const handleDetailPengiriman = (id) => {
 		setIsDetail(true)
-        setSelectedId(id)
+		setSelectedId(id)
 	}
 
 	const closePopUpTambahPengiriman = () => {
@@ -37,16 +46,17 @@ const DaftarPengirimanManajer = () => {
 		setIsDetail(false)
 	}
 
-
 	return (
 		<div>
-			{datas.length === 0 ? (
+			{data.length === 0 ? (
 				<div className='position-absolute top-50 start-50 translate-middle fs-2 --bs-danger-text-emphasis'>
 					Tidak ada pengiriman
 				</div>
 			) : (
 				<div className='d-flex flex-column justify-content-left align-items-center bg-light vh-100'>
-					<h3 className='my-3' style={{fontSize:30, fontWeight: 'bold'}}>Daftar Pengiriman</h3>
+					<h3 className='my-3' style={{ fontSize: 30, fontWeight: 'bold' }}>
+						Daftar Pengiriman
+					</h3>
 					<div className='z-0 w-75 h-75 rounded-4 bg-light border shadow px-2 table-responsive'>
 						<div className='d-flex my-2'>
 							<button
@@ -57,17 +67,21 @@ const DaftarPengirimanManajer = () => {
 							</button>
 						</div>
 						{isTambah ? (
-							<TambahPengiriman close={closePopUpTambahPengiriman} datas={datas} />
+							<TambahPengiriman
+								close={closePopUpTambahPengiriman}
+								setData={setData}
+							/>
 						) : null}
 						{isDetail ? (
-							<Read close={closePopUpDetailPengiriman} id={selectedId}/>
+							<Read close={closePopUpDetailPengiriman} id={selectedId} />
 						) : null}
 
 						<Form>
 							<InputGroup className='my-3'>
-								<FormControl 
-								onChange={(e) => setSearch(e.target.value)}
-								placeholder='Search pengiriman'/>
+								<FormControl
+									onChange={(e) => setSearch(e.target.value)}
+									placeholder='Search pengiriman'
+								/>
 							</InputGroup>
 						</Form>
 
@@ -83,24 +97,33 @@ const DaftarPengirimanManajer = () => {
 								</tr>
 							</thead>
 							<tbody>
-								{datas
+								{data
 									.filter((data) => {
 										return search.toLowerCase() === ''
 											? data
-											: data.statusPengiriman.toLowerCase().includes(search.toLowerCase()) ||
-											data.kurir.toLowerCase().includes(search.toLowerCase()) ||
-											data.jenisBunga.toLowerCase().includes(search.toLowerCase());
+											: data.status_pengiriman
+													.toLowerCase()
+													.includes(search.toLowerCase()) ||
+													data.kurir
+														.toLowerCase()
+														.includes(search.toLowerCase()) ||
+													data.jenis_bunga
+														.toLowerCase()
+														.includes(search.toLowerCase())
 									})
 									.map((data) => (
-									<tr key={data.id} onClick={() => handleDetailPengiriman(data.id)}>
-										<td>{data.id}</td>
-										<td>{data.alamatPengiriman}</td>
-										<td>{data.jenisBunga}</td>
-										<td>{data.noTelpPelanggan}</td>
-										<td>{data.kurir}</td>
-										<td>{data.statusPengiriman}</td>
-									</tr>
-								))}
+										<tr
+											key={data.id}
+											onClick={() => handleDetailPengiriman(data.id)}
+										>
+											<td>{data.id}</td>
+											<td>{data.alamat_pengiriman}</td>
+											<td>{data.jenis_bunga}</td>
+											<td>{data.nomor_telp_pelanggan}</td>
+											<td>{data.kurir}</td>
+											<td>{data.status_pengiriman}</td>
+										</tr>
+									))}
 							</tbody>
 						</table>
 					</div>
