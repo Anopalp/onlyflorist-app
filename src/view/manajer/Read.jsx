@@ -19,8 +19,6 @@ function Read({ close, id }) {
 		fetchData()
 	}, [])
 
-	console.log(data)
-
 	return (
 		<div className='modal d-block' tabIndex='-1' role='dialog' id='modalSignin'>
 			<div className='modal-dialog modal-dialog-centered' role='document'>

@@ -66,7 +66,9 @@ function DaftarPengirimanKurir() {
 								<td>{d.alamat_pengiriman}</td>
 								<td>{d.jenis_bunga}</td>
 								<td>{d.nomor_telp_pelanggan}</td>
-								<td style={{ width: '600px' }}>{d.catatan}</td>
+								<td style={{ width: '600px' }}>
+									{d.catatan ? d.catatan : '-'}
+								</td>
 								<td>{d.status_pengiriman}</td>
 								<td>
 									{/* <Link to={'/read/' + (d.id)} className='btn btn-sm btn-info me-2'>Detail</Link>
