@@ -90,7 +90,7 @@ function InnerData({ user, onUserClick }) {
   return (
     <tr onClick={() => onUserClick(user)}>
       <td>
-        
+        <img className="profpic" src={`./images/${username}.jpg`} alt="profile picture"></img>
       </td>
       <td>{username}</td>
       <td>{nama_lengkap}</td>
