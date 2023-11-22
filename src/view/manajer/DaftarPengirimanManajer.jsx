@@ -11,7 +11,7 @@ const DaftarPengirimanManajer = () => {
 	const [selectedId, setSelectedId] = useState(null)
 	const [search, setSearch] = useState('')
 
-	console.log(search)
+	// console.log(search)
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -69,7 +69,7 @@ const DaftarPengirimanManajer = () => {
 						{isTambah ? (
 							<TambahPengiriman
 								close={closePopUpTambahPengiriman}
-								data={data}
+								setData={setData}
 							/>
 						) : null}
 						{isDetail ? (
