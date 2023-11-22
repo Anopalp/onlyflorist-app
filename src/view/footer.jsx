@@ -7,9 +7,7 @@ export default function Footer() {
       <MDBFooter className='text-center text-lg-start text-muted my-auto' style={{ backgroundColor: 'rgb(41, 51, 92)' }}>
         <div className='footer-text text-center p-3'>
           © 2020 Copyright:
-          <strong>
-            OnlyFlorist
-          </strong>
+          <a className="text-reset fw-bold" href="/about">OnlyFlorist</a>
         </div>
       </MDBFooter>
     </div>
