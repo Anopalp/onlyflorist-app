@@ -72,13 +72,14 @@ function CustomModal({ user }) {
             </p>
           </div>
           <div className="modal-footer">
-            <button type="button" className="btn btn-primary" onClick={handleDelete}>
+            <button type="button" className="btn btn-danger" onClick={handleDelete}>
               Delete
             </button>
           </div>
         </div>
       </div>
     </div>
+    
   );
 }
 
