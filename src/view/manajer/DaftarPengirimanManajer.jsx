@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'react'
-import axios from 'axios'
 import TambahPengiriman from './TambahPengiriman'
 import Read from './Read'
 import { Form, FormControl, InputGroup } from 'react-bootstrap'
 import supabase from '../../config/supabaseClient'
 
 const DaftarPengirimanManajer = () => {
-	const [datas, setDatas] = useState([])
+	const [data, setData] = useState([])
 	const [isTambah, setIsTambah] = useState(false)
 	const [isDetail, setIsDetail] = useState(false)
 	const [selectedId, setSelectedId] = useState(null)
@@ -15,11 +14,6 @@ const DaftarPengirimanManajer = () => {
 	console.log(search)
 
 	useEffect(() => {
-		// axios
-		// 	.get('http://localhost:3000/pengiriman')
-		// 	.then((response) => response.data)
-		// 	.then((returnedData) => setDatas(returnedData))
-
 		const fetchData = async () => {
 			const { data, error } = await supabase.from('dataPengiriman').select()
 
@@ -28,7 +22,7 @@ const DaftarPengirimanManajer = () => {
 			}
 
 			if (data) {
-				setDatas(data)
+				setData(data)
 			}
 		}
 
@@ -54,7 +48,7 @@ const DaftarPengirimanManajer = () => {
 
 	return (
 		<div>
-			{datas.length === 0 ? (
+			{data.length === 0 ? (
 				<div className='position-absolute top-50 start-50 translate-middle fs-2 --bs-danger-text-emphasis'>
 					Tidak ada pengiriman
 				</div>
@@ -75,7 +69,7 @@ const DaftarPengirimanManajer = () => {
 						{isTambah ? (
 							<TambahPengiriman
 								close={closePopUpTambahPengiriman}
-								datas={datas}
+								data={data}
 							/>
 						) : null}
 						{isDetail ? (
@@ -103,7 +97,7 @@ const DaftarPengirimanManajer = () => {
 								</tr>
 							</thead>
 							<tbody>
-								{datas
+								{data
 									.filter((data) => {
 										return search.toLowerCase() === ''
 											? data
