@@ -71,7 +71,7 @@ function AddAccount() {
             <div className="modal-header">
               
               <h1 className="modal-title fs-5" id="exampleModalLabel">
-                Modal title
+                Tambah Akun
               </h1>
 
               <button
@@ -87,7 +87,6 @@ function AddAccount() {
               
 
                 <div className="form-floating mb-3">
-                  <label htmlFor="username">Username</label>
                   <input 
                     type="text" 
                     className="form-control" 
@@ -95,10 +94,10 @@ function AddAccount() {
                     placeholder="Username"
                     onChange={(e) => setUsername(e.target.value)}
                     />
+                  <label htmlFor="username">Username</label>
                 </div>
 
-                <div className="form-floating">
-                  <label htmlFor="password">Password</label>
+                <div className="form-floating mb-3">
                   <input 
                     type="password" 
                     className="form-control" 
@@ -106,10 +105,10 @@ function AddAccount() {
                     placeholder="Password"
                     onChange={(e) => setPassword(e.target.value)}
                     />
+                  <label htmlFor="password">Password</label>
                 </div>
 
-                <div className="form-floating">
-                  <label htmlFor="nama_lengkap">Nama Lengkap</label>
+                <div className="form-floating mb-3">
                   <input 
                     type="text" 
                     className="form-control" 
@@ -117,10 +116,10 @@ function AddAccount() {
                     placeholder="Nama Lengkap"
                     onChange={(e) => setNamaLengkap(e.target.value)}
                     />
+                  <label htmlFor="nama_lengkap">Nama Lengkap</label>
                 </div>
 
-                <div className="form-floating">
-                  <label htmlFor="nik">NIK</label>
+                <div className="form-floating mb-3">
                   <input 
                     type="text" 
                     className="form-control" 
@@ -128,35 +127,36 @@ function AddAccount() {
                     placeholder="NIK"
                     onChange={(e) => setNik(e.target.value)}
                     />
+                  <label htmlFor="nik">NIK</label>
                 </div>
 
                 <div>
                   <label htmlFor="tanggal_lahir">Tanggal Lahir</label>
-                  <input type="date"
+                  <input className="mb-3" type="date"
                   onChange={(e) => setTanggalLahir(e.target.value)}
                   />
                 </div>
 
                 <div className="form-floating">
-                  <label htmlFor="phone">Phone</label>
                   <input 
                     type="number" 
-                    className="form-control" 
+                    className="form-control mb-3" 
                     id="floatingPhone" 
                     placeholder="Phone"
                     onChange={(e) => setPhone(e.target.value)}
                   />
+                  <label htmlFor="phone">Phone</label>
                 </div>
 
                 <div className="form-floating">
-                <label htmlFor="alamat">Alamat</label>
                   <input 
                     type="text" 
-                    className="form-control" 
+                    className="form-control mb-3" 
                     id="floatingAddress" 
                     placeholder="Alamat"
                     onChange={(e) => setAddress(e.target.value)}
                   />
+                  <label htmlFor="alamat">Alamat</label>
                 </div>
               
               </div>
