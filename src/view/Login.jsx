@@ -9,17 +9,40 @@ import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import supabase from '../config/supabaseClient';
 
 
 export default function Login() {
-  const handleSubmit = (event) => {
+  const navigate = useNavigate();
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('username'),
-      password: data.get('password'),
-    });
+
+    const mail = data.get('username') + "@fakemail.com";
+    const pass = data.get('password');
+
+    try {
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email: mail,
+        password: pass
+      })
+  
+      if (error) {
+        throw error;
+      }
+      console.log(data);
+      if (mail === 'cabbot0@fakemail.com') {
+        navigate('/dashboard-manajer');
+      } else {
+        navigate('/dashboard-kurir');
+      }
+    } catch (error) {
+      alert(error);
+    }
+
+
   };
 
   return (
@@ -68,7 +91,7 @@ export default function Login() {
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
             />
-            <Link to="/dashboard-kurir">
+            {/* <Link to="/dashboard-manajer"> */}
               <Button
                 type="submit"
                 fullWidth
@@ -77,7 +100,7 @@ export default function Login() {
               >
                 Login
               </Button>
-            </Link>
+            {/* </Link> */}
           </Box>
         </Box>
       </Container>

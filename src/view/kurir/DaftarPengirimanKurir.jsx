@@ -28,7 +28,7 @@ function DaftarPengirimanKurir() {
     
     return (
         <div className='d-flex flex-column justify-content-left align-items-center bg-light vh-100'>
-            <h3 className='my-3'>Halo, ini daftar pengirimanmu!</h3>
+            <h3 className='my-3' style={{fontSize:30, fontWeight: 'bold'}}>Daftar Pengiriman</h3>
             <div className='z-0 w-75 h-75 rounded-4 bg-light border shadow px-2 table-responsive'>
                 {/* <div className='d-flex justify-content-end '>
                     <Link to="/create" className='btn btn-success'>Add +</Link>
@@ -43,20 +43,20 @@ function DaftarPengirimanKurir() {
                             <th>Alamat Pelanggan</th>
                             <th>Bunga</th>
                             <th>Telp</th>
-                            <th>Kurir</th>
+                            <th>Catatan</th>
                             <th>Status Pengiriman</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         {
-                            data.map((d, i) => (
-                                <tr key={i} onClick={() => handleDetailPengiriman(d.id)} >
+                            data.map((d) => (
+                                <tr key={d.id} onClick={() => handleDetailPengiriman(d.id)} >
                                     <td>{d.id}</td>
                                     <td>{d.alamatPengiriman}</td>
                                     <td>{d.jenisBunga}</td>
                                     <td>{d.noTelpPelanggan}</td>
-                                    <td>{d.kurir}</td>
+                                    <td style={{width: '600px'}}>{d.catatan}</td>
                                     <td>{d.statusPengiriman}</td>
                                     <td>
                                         {/* <Link to={'/read/' + (d.id)} className='btn btn-sm btn-info me-2'>Detail</Link>

@@ -2,11 +2,13 @@
 
 import React, { useState } from "react";
 import supabase from "../../config/supabaseClient";
+import AddAccount from "./AddAccount";
 
 
 // Separate Modal component
 function CustomModal({ user }) {
   const { username, nama_lengkap, nik, phone } = user;
+  
 
   const handleDelete = async () => {
     try {
@@ -119,25 +121,31 @@ function Table({ dataKurir }) {
         <CustomModal key={user.username} user={user} />
       ))}
 
-      <div className="table">
-        <table className="table table-hover">
-          <thead>
-            <tr>
-              <th scope="col"></th>
-              <th scope="col">Username</th>
-              <th scope="col">Nama Lengkap</th>
-              <th scope="col">NIK</th>
-              <th scope="col">Phone</th>
-            </tr>
-          </thead>
+      <div className='d-flex flex-column justify-content-left align-items-center bg-light vh-100'>
+				<h3 className='my-3' style={{fontSize:30, fontWeight: 'bold'}}>Daftar Kurir</h3>
+					<div className='z-0 w-50 h-75 rounded-4 bg-light border shadow px-2 table-responsive'>
+            <AddAccount/>
+            {/* <div className="table"> */}
+              <table className="table table-hover table-striped">
+                <thead className='bg-light sticky-top align-middle'>
+                  <tr className='table-primary'>
+                    <th scope="col"></th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Nama Lengkap</th>
+                    <th scope="col">NIK</th>
+                    <th scope="col">Phone</th>
+                  </tr>
+                </thead>
 
-          <tbody>
-            {dataKurir.map((user) => (
-              <InnerData key={user.username} user={user} onUserClick={handleUserClick} />
-            ))}
-          </tbody>
-        </table>
-      </div>
+                <tbody>
+                  {dataKurir.map((user) => (
+                    <InnerData key={user.username} user={user} onUserClick={handleUserClick} />
+                  ))}
+                </tbody>
+              </table>
+            {/* </div> */}
+          </div>
+        </div>
 
       {/* Add jQuery and Bootstrap JS using CDN links at the end of your HTML */}
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
