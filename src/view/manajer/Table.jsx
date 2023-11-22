@@ -17,11 +17,6 @@ function CustomModal({ user }) {
         .delete()
         .eq('kurir', username);
   
-      const { dataCoba, errorDataCoba } = await supabase
-        .from('coba2_dataPengiriman')
-        .delete()
-        .eq('kurir', username);
-  
       const { data, error } = await supabase
         .from('dataKurir')
         .delete()

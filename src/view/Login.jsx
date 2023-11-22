@@ -33,11 +33,12 @@ export default function Login() {
         throw error;
       }
       console.log(data);
-      if (mail === 'cabbot0@fakemail.com') {
+      if (mail === 'ctubbs0@fakemail.com') {
         navigate('/dashboard-manajer');
       } else {
         navigate('/dashboard-kurir');
       }
+      
     } catch (error) {
       alert(error);
     }

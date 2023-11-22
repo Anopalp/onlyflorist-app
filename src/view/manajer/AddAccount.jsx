@@ -20,19 +20,33 @@ function AddAccount() {
       return
     }
 
-    const { data, error } = await supabase
+    try {
+      const { data, error } = await supabase
       .from('dataKurir')
       .insert([{username, password, nama_lengkap, nik, phone, alamat, tanggal_lahir}])
 
-      if (error) {
-        console.log(error);
-        setFormError('Please fill in all the fields correctly');
-      }
       if (data) {
         console.log(data);
         setFormError(null);
       }
+
+      const mail = username + "@fakemail.com";
+      const pass = password;
+
+      const { dataLogIn, errorLogIn } = await supabase.auth.signUp(
+        {
+          email: mail,
+          password: pass
+        }
+      )
+
       window.location.reload();
+    } catch (error) {
+      console.log(error);
+      setFormError('Please fill in all the fields correctly');
+    }
+
+    
   }
 
   return (
