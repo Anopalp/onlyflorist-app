@@ -11,7 +11,7 @@ async function generateIdLaporan() {
 async function updateLaporan(laporan, idPengiriman, idLaporan) {
 	const laporanObj = {
 		id: idLaporan ? idLaporan : await generateIdLaporan(),
-		laporan_masalah: laporan,
+		laporan_masalah: laporan ? laporan : '',
 	}
 	const { data, error } = await supabase
 		.from('dataLaporan')
@@ -28,6 +28,26 @@ async function updateLaporan(laporan, idPengiriman, idLaporan) {
 		.eq('id', idPengiriman)
 
 	console.log(pengiriman)
+}
+
+async function updateStatusPengiriman(id, status) {
+	console.log(status)
+	if (status === 'Delivered') {
+		const { data } = await supabase.from('dataPengiriman').select().eq('id', id)
+		await supabase.from('dataPengiriman').delete().eq('id', id)
+		const riwayat = {
+			...data[0],
+		}
+		delete riwayat.waktu_dibuat
+		delete riwayat.status_pengiriman
+		const { error } = await supabase.from('dataRiwayat').insert([riwayat])
+	} else {
+		const { data, error } = await supabase
+			.from('dataPengiriman')
+			.update({ status_pengiriman: status })
+			.eq('id', id)
+			.select()
+	}
 }
 
 function Update() {
@@ -75,12 +95,7 @@ function Update() {
 	const handleUpdate = (event) => {
 		event.preventDefault()
 		const updateData = async () => {
-			const { data, error } = await supabase
-				.from('dataPengiriman')
-				.update({ status_pengiriman: values.statusPengiriman })
-				.eq('id', id)
-				.select()
-
+			await updateStatusPengiriman(id, values.status_pengiriman)
 			await updateLaporan(values.laporan_masalah, id, values.id_laporan)
 		}
 
@@ -152,9 +167,9 @@ function Update() {
 						<select
 							name='status'
 							className='form-select'
-							value={values.statusPengiriman}
+							value={values.status_pengiriman}
 							onChange={(e) =>
-								setValues({ ...values, statusPengiriman: e.target.value })
+								setValues({ ...values, status_pengiriman: e.target.value })
 							}
 						>
 							{options.map((option) => (
