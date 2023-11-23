@@ -1,13 +1,23 @@
 import { useRef } from 'react'
 import { Menu, Close } from '@mui/icons-material'
 import './navbarStyles.css'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import supabase from '../config/supabaseClient'
 
 function Navbar() {
 	const navRef = useRef()
+	const navigate = useNavigate()
 
 	const showNavbar = () => {
 		navRef.current.classList.toggle('responsive_nav')
+	}
+
+	const handleLogout = () => {
+		const logOut = async () => {
+			const { error } = await supabase.auth.signOut()
+			navigate('/')
+		}
+		logOut()
 	}
 
 	return (
@@ -33,6 +43,9 @@ function Navbar() {
 				</Link>
 				<button className='nav-btn nav-close-btn' onClick={showNavbar}>
 					<Close style={{ fontSize: 30 }} />
+				</button>
+				<button className='btn btn-danger' onClick={handleLogout}>
+					Logout
 				</button>
 			</nav>
 

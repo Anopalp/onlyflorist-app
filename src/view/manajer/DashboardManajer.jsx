@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 
@@ -118,7 +118,7 @@ function DashboardManajer() {
                       </div>
                     </div>
                   </div>
-                  <div class="carousel-item">
+                  {/* <div class="carousel-item">
                     <div class="card w-75 h-100 text-center mx-auto my-auto">
                       <div class="card-body">
                         <h5 class="card-title">Cam Abbot</h5>
@@ -127,7 +127,7 @@ function DashboardManajer() {
                         <a href="#" class="btn btn-primary">Lihat Detail</a>
                       </div>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -150,7 +150,5 @@ function DashboardManajer() {
     </div>
   )
 }
-
-
 
 export default DashboardManajer

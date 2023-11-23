@@ -141,3 +141,9 @@ div.table::-webkit-scrollbar-thumb {
   .modal-backdrop {
 	display: none;
 }
+
+.profpic {
+    width: 50px;
+    border-radius: 50%;
+    margin-left: 35%;
+}

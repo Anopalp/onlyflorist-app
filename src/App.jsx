@@ -11,7 +11,6 @@ import './App.css'
 // import Update from './Update'
 // import Read from './Read'
 import Navbar from './view/Navbar'
-import Header from './view/header'
 import Footer from './view/footer'
 import Login from './view/Login'
 import DashboardKurir from './view/kurir/DashboardKurir'
@@ -26,33 +25,58 @@ import RiwayatPengirimanManajer from './view/manajer/RiwayatPengirimanManajer'
 // import AccountKurir from './view/kurir/AccountKurir'
 
 import supabase from './config/supabaseClient'
+import { useEffect, useState } from 'react'
 
-const ProtectedRoute = ({ user, children }) => {
-	if (!user) {
-		return <Navigate to='/landing' replace />
+function ProtectedRoute({ user, children }) {
+	console.log('user: ', user)
+	if (user === null) {
+		return <Navigate to='/' />
 	}
-
 	return children
 }
 
-async function getUser() {
-	const {
-		data: { user },
-	} = await supabase.auth.getUser()
-	return user
-}
-
 function App() {
+	const [session, setSession] = useState(null)
+
+	useEffect(() => {
+		supabase.auth.getSession().then(({ data: { session } }) => {
+			console.log('session: ', session)
+			setSession(session)
+		})
+
+		const {
+			data: { subscription },
+		} = supabase.auth.onAuthStateChange((_event, session) => {
+			setSession(session)
+		})
+
+		return () => subscription.unsubscribe()
+	}, [])
+
 	return (
 		<BrowserRouter>
 			{/* <Appheader></Appheader> */}
 			{/* <Header></Header> */}
 			<Navbar />
 			<Routes>
-				<Route path='/' element={<Login />}></Route>
+				<Route path='/' element={<Login session={session} />}></Route>
 
-				<Route path='/dashboard-kurir' element={<DashboardKurir />}></Route>
-				<Route path='/dashboard-manajer' element={<DashboardManajer />}></Route>
+				<Route
+					path='/dashboard-kurir'
+					element={
+						<ProtectedRoute user={session}>
+							<DashboardKurir />
+						</ProtectedRoute>
+					}
+				></Route>
+				<Route
+					path='/dashboard-manajer'
+					element={
+						<ProtectedRoute user={session}>
+							<DashboardManajer />
+						</ProtectedRoute>
+					}
+				></Route>
 				<Route
 					path='/daftar-pengiriman-kurir'
 					element={<DaftarPengirimanKurir />}
