@@ -13,6 +13,7 @@ import Update from './view/kurir/Update'
 import LayarDaftarKurir from './view/manajer/LayarDaftarKurir'
 import DaftarPengirimanManajer from './view/manajer/DaftarPengirimanManajer'
 import RiwayatPengirimanManajer from './view/manajer/RiwayatPengirimanManajer'
+import About from './view/About'
 
 import supabase from './config/supabaseClient'
 import { useEffect, useState } from 'react'
@@ -47,9 +48,9 @@ function App() {
 
 	return (
 		<BrowserRouter>
-			<NavbarLogin />
+			{/* <NavbarLogin /> */}
 			<NavbarManajer />
-			<NavbarKurir />
+			{/* <NavbarKurir /> */}
 			<Routes>
 				<Route path='/' element={<Login session={session} />}></Route>
 
@@ -93,7 +94,14 @@ function App() {
 					path='/riwayat-pengiriman-manajer'
 					element={<RiwayatPengirimanManajer />}
 				></Route>
-				<Route path='/daftar-kurir' element={<LayarDaftarKurir />}></Route>
+				<Route 
+					path='/daftar-kurir' 
+					element={<LayarDaftarKurir />}
+				></Route>
+				<Route 
+					path='/about' 
+					element={<About />}
+				></Route>
 				{/* <Route path='/account-kurir' element={<AccountKurir />}></Route> */}
 			</Routes>
 			<Footer />

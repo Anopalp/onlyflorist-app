@@ -38,7 +38,7 @@ function NavbarManajer() {
 				<Link to='/riwayat-pengiriman-manajer'>
 					<a>Riwayat</a>
 				</Link>
-				<Link to='/daftar-pengiriman-manajer'>
+				<Link to='/about'>
 					<a>About</a>
 				</Link>
 				<button className='nav-btn nav-close-btn' onClick={showNavbar}>
