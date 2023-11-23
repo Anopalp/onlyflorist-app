@@ -52,15 +52,15 @@ function AddAccount() {
         setFormError(null);
       }
 
-      // const mail = username + "@fakemail.com";
-      // const pass = password;
+      const mail = username + "@fakemail.com";
+      const pass = password;
 
-      // const { dataLogIn, errorLogIn } = await supabase.auth.signUp(
-      //   {
-      //     email: mail,
-      //     password: pass
-      //   }
-      // )
+      const { dataLogIn, errorLogIn } = await supabase.auth.signUp(
+        {
+          email: mail,
+          password: pass
+        }
+      )
 
       window.location.reload();
     } catch (error) {

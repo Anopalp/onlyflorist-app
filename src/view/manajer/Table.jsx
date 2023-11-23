@@ -3,11 +3,12 @@
 import React, { useState } from "react";
 import supabase from "../../config/supabaseClient";
 import AddAccount from "./AddAccount";
+import "./Table.css"
 
 
 // Separate Modal component
 function CustomModal({ user }) {
-  const { username, nama_lengkap, nik, phone } = user;
+  const { username, password, nama_lengkap, nik, phone, alamat, tanggal_lahir, image_url } = user;
   
 
   const handleDelete = async () => {
@@ -46,33 +47,46 @@ function CustomModal({ user }) {
     >
       <div className="modal-dialog">
         <div className="modal-content">
-          <div className="modal-header">
-            <h5 className="modal-title" id={`${username}Label`}>
-              {nama_lengkap} Details
-            </h5>
+          
             <button
               type="button"
-              className="btn-close"
+              className="btn-close ms-auto"
               data-bs-dismiss="modal"
               aria-label="Close"
             ></button>
-          </div>
-          <div className="modal-body">
-            <p>
-              <strong>Username:</strong> {username}
-            </p>
-            <p>
-              <strong>Nama Lengkap:</strong> {nama_lengkap}
-            </p>
-            <p>
-              <strong>NIK:</strong> {nik}
-            </p>
-            <p>
-              <strong>Phone:</strong> {phone}
-            </p>
+          
+          <div className="modal-body profile-modal">
+            <div className="profile-header">
+              <img className="profile-pic" src={image_url} alt="profile picture"></img>
+              <h3 className="profile-name">{username}</h3>
+            </div>
+
+            <div className="profile-data">
+              <p>
+                <strong>Username:</strong> {username}
+              </p>
+              <p>
+                <strong>Password:</strong> {password}
+              </p>
+              <p>
+                <strong>Nama Lengkap:</strong> {nama_lengkap}
+              </p>
+              <p>
+                <strong>NIK:</strong> {nik}
+              </p>
+              <p>
+                <strong>Tanggal Lahir:</strong> {tanggal_lahir}
+              </p>
+              <p>
+                <strong>Phone:</strong> {phone}
+              </p>
+              <p>
+                <strong>Alamat:</strong> {alamat}
+              </p>
+            </div>
           </div>
           <div className="modal-footer">
-            <button type="button" className="btn btn-danger" onClick={handleDelete}>
+            <button type="button" className="btn btn-danger me-auto" onClick={handleDelete}>
               Delete
             </button>
           </div>
@@ -88,7 +102,7 @@ function InnerData({ user, onUserClick }) {
   const { username, nama_lengkap, nik, phone, image_url } = user;
 
   return (
-    <tr onClick={() => onUserClick(user)}>
+    <tr className="table-row" onClick={() => onUserClick(user)}>
       <td>
         <img className="profpic" src={image_url} alt="profile picture"></img>
       </td>
