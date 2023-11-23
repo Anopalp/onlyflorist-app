@@ -9,7 +9,7 @@ function DashboardManajer() {
 				<h4 className='text-center p-3'>
 					Halo MANAJER TERCINTAHH, selamat Pagi!
 				</h4>
-				<div className='card-container w-75 mx-auto my-5'>
+				<div className='card-container mx-auto my-5'>
 					<div className='mx-5'>
 						<h3>Pengiriman teratas</h3>
 					</div>
@@ -86,7 +86,7 @@ function DashboardManajer() {
 				</div>
 			</div>
 			<div className='akun-co'>
-				<div className='card-container w-75 mx-auto my-5'>
+				<div className='card-container mx-auto my-5'>
 					<div className='mx-5'>
 						<h3 className='text-center'>Akun Kurir</h3>
 					</div>
