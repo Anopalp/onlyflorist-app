@@ -1,8 +1,11 @@
-<p align="center">
-    <h1 align="center">
-      <span style="color: white; font-weight: bold;">TUGAS BESAR IF3152 REKAYASA PERANGKAT LUNAK</span>
-    </h1>
-</p>
+<div align="center">
+    <p align="center">
+        <h1 align="center">
+        <span style="color: white; font-weight: bold;">TUGAS BESAR IF3152 REKAYASA PERANGKAT LUNAK</span>
+        </h1>
+    </p>
+</div>
+
 <p align="center">
   <!-- Typing SVG by DenverCoder1 - https://github.com/DenverCoder1/readme-typing-svg -->
 <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=747B2E&center=true&vCenter=true&width=700&lines=Kelompok+9+-+K1;Sistem+dan+Teknologi+Informasi;OnlyFlorist" alt="Typing SVG" /></a>
