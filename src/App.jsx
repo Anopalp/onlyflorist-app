@@ -1,6 +1,12 @@
 // import DaftarPengirimanManajer from './DaftarPengirimanManajer'
 // import { useState } from 'react'
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import {
+	BrowserRouter,
+	Routes,
+	Route,
+	Navigate,
+	useNavigate,
+} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
 // import Appheader from './Appheader'
@@ -26,23 +32,23 @@ import RiwayatPengirimanManajer from './view/manajer/RiwayatPengirimanManajer'
 // import AccountKurir from './view/kurir/AccountKurir'
 
 import supabase from './config/supabaseClient'
+import { useEffect, useState } from 'react'
 
 const ProtectedRoute = ({ user, children }) => {
 	if (!user) {
-		return <Navigate to='/landing' replace />
+		return <Login />
 	}
 
 	return children
 }
 
-async function getUser() {
-	const {
-		data: { user },
-	} = await supabase.auth.getUser()
-	return user
-}
-
 function App() {
+	const [user, setUser] = useState(null)
+
+	useEffect(() => {
+		supabase.auth.getSession().then(({ data }) => setUser(data))
+	}, [])
+
 	return (
 		<BrowserRouter>
 			{/* <Appheader></Appheader> */}
@@ -51,8 +57,22 @@ function App() {
 			<Routes>
 				<Route path='/' element={<Login />}></Route>
 
-				<Route path='/dashboard-kurir' element={<DashboardKurir />}></Route>
-				<Route path='/dashboard-manajer' element={<DashboardManajer />}></Route>
+				<Route
+					path='/dashboard-kurir'
+					element={
+						<ProtectedRoute user={user}>
+							<DashboardKurir />
+						</ProtectedRoute>
+					}
+				></Route>
+				<Route
+					path='/dashboard-manajer'
+					element={
+						<ProtectedRoute user={user}>
+							<DashboardManajer />
+						</ProtectedRoute>
+					}
+				></Route>
 				<Route
 					path='/daftar-pengiriman-kurir'
 					element={<DaftarPengirimanKurir />}

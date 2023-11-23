@@ -19,33 +19,6 @@ export default function Login() {
 
 	const navigate = useNavigate()
 
-	// const handleSubmit = async (event) => {
-	// 	event.preventDefault()
-	// 	const data = new FormData(event.currentTarget)
-
-	// 	const mail = data.get('username') + '@fakemail.com'
-	// 	const pass = data.get('password')
-
-	// 	try {
-	// 		const { data, error } = await supabase.auth.signInWithPassword({
-	// 			email: mail,
-	// 			password: pass,
-	// 		})
-
-	// 		if (error) {
-	// 			throw error
-	// 		}
-	// 		console.log(data)
-	// 		if (mail === 'ctubbs0@fakemail.com') {
-	// 			navigate('/dashboard-manajer')
-	// 		} else {
-	// 			navigate('/dashboard-kurir')
-	// 		}
-	// 	} catch (error) {
-	// 		alert(error)
-	// 	}
-	// }
-
 	useEffect(() => {
 		supabase.auth.getSession().then(({ data: { session } }) => {
 			setSession(session)
@@ -59,6 +32,15 @@ export default function Login() {
 
 		return () => subscription.unsubscribe()
 	}, [])
+
+	useEffect(() => {
+		console.log(session)
+		if (session) {
+			if (session.user.email === 'samueltan086@gmail.com')
+				navigate('/dashboard-manajer')
+			else navigate('/dashboard-kurir')
+		}
+	}, [session])
 
 	if (!session) {
 		return (
@@ -87,42 +69,6 @@ export default function Login() {
 					>
 						Login
 					</Typography>
-					{/* <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                id="username"
-                label="Username"
-                name="username"
-                autoComplete="username"
-                autoFocus
-              />
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                autoComplete="current-password"
-              />
-              <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
-                label="Remember me"
-              />
-              <Link to="/dashboard-manajer">
-                <Button
-                  type="submit"
-                  fullWidth
-                  variant="contained"
-                  sx={{ mt: 3, mb: 2 }}
-                >
-                  Login
-                </Button>
-              </Link>
-            </Box> */}
 					<Auth
 						supabaseClient={supabase}
 						providers={[]}
@@ -131,7 +77,5 @@ export default function Login() {
 				</Box>
 			</Container>
 		)
-	} else {
-		navigate('/dashboard-manajer')
 	}
 }
