@@ -34,19 +34,18 @@ import RiwayatPengirimanManajer from './view/manajer/RiwayatPengirimanManajer'
 import supabase from './config/supabaseClient'
 import { useEffect, useState } from 'react'
 
-const ProtectedRoute = ({ user, children }) => {
-	if (!user) {
-		return <Login />
+function ProtectedRoute({ user, children }) {
+	if (user === null) {
+		return <Navigate to='/' />
 	}
-
 	return children
 }
 
 function App() {
-	const [user, setUser] = useState(null)
+	const [session, setSession] = useState(null)
 
 	useEffect(() => {
-		supabase.auth.getSession().then(({ data }) => setUser(data))
+		supabase.auth.getSession().then(({ data }) => setSession(data.session))
 	}, [])
 
 	return (
@@ -60,7 +59,7 @@ function App() {
 				<Route
 					path='/dashboard-kurir'
 					element={
-						<ProtectedRoute user={user}>
+						<ProtectedRoute user={session}>
 							<DashboardKurir />
 						</ProtectedRoute>
 					}
@@ -68,7 +67,7 @@ function App() {
 				<Route
 					path='/dashboard-manajer'
 					element={
-						<ProtectedRoute user={user}>
+						<ProtectedRoute user={session}>
 							<DashboardManajer />
 						</ProtectedRoute>
 					}
