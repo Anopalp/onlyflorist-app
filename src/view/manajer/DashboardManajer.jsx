@@ -4,17 +4,17 @@ import { Link, useParams } from 'react-router-dom'
 
 function DashboardManajer() {
   return (
-    <div>
+    <div className='bg'>
       <div className='pengiriman-co'>
-        <h4 class="text-center p-3">Halo MANAJER TERCINTAHH, selamat Pagi!</h4>
-        <div class="card-container w-75 mx-auto my-5">
+        <h4 class="text-center text-danger p-3"></h4>
+        <div class="card-container mx-auto my-5 young-passion-gradient">
           <div class="mx-5">
             <h3>Pengiriman teratas</h3>
           </div>
           <div class="row">
             <div class="col-lg-4">
               <div class="card w-75 text-center mx-auto my-auto">
-                <img src="..\src\assets\Sansevieria.png" class="card-img-top" alt="Bunga" />
+                {/* <img src="..\src\assets\Sansevieria.png" class="card-img-top" alt="Bunga" /> */}
                 <div class="card-body">
                   <h5 class="card-title">Sansevieria</h5>
                   <p>Budi P</p>
@@ -27,7 +27,7 @@ function DashboardManajer() {
             </div>
             <div class="col-lg-4">
               <div class="card w-75 text-center mx-auto my-auto">
-                <img src="..\src\assets\Sansevieria.png" class="card-img-top" alt="Bunga" />
+                {/* <img src="..\src\assets\Sansevieria.png" class="card-img-top" alt="Bunga" /> */}
                 <div class="card-body">
                   <h5 class="card-title">Sansevieria</h5>
                   <p>Carica Papaya</p>
@@ -40,7 +40,7 @@ function DashboardManajer() {
             </div>
             <div class="col-lg-4">
               <div class="card w-75 text-center mx-auto my-auto">
-                <img src="..\src\assets\Sansevieria.png" class="card-img-top" alt="Bunga" />
+                {/* <img src="..\src\assets\Sansevieria.png" class="card-img-top" alt="Bunga" /> */}
                 <div class="card-body">
                   <h5 class="card-title">Sansevieria</h5>
                   <p>Carica Papaya</p>
@@ -53,7 +53,7 @@ function DashboardManajer() {
             </div>
             <div class="buttons-container mt-3">
               <div>
-                <Link to={'/daftar-pengiriman-manajer'} class='btn btn-secondary'>See More</Link>
+                <Link to={'/daftar-pengiriman-manajer'} class='btn'>See More</Link>
               </div>
               {/* <a href='/daftar-pengiriman-kurir' class="btn btn-primary">see more</a> */}
             </div>
@@ -61,7 +61,7 @@ function DashboardManajer() {
         </div>
       </div>
       <div className='akun-co'>
-          <div class="card-container w-75 mx-auto my-5">
+          <div class="card-container mx-auto my-5">
             <div class="mx-5">
               <h3 class="text-center">Akun Kurir</h3>
             </div>
@@ -108,7 +108,7 @@ function DashboardManajer() {
                       </div>
                     </div>
                   </div>
-                  {/* <div class="carousel-item">
+                  <div class="carousel-item">
                     <div class="card w-75 h-100 text-center mx-auto my-auto">
                       <div class="card-body">
                         <h5 class="card-title">Cam Abbot</h5>
@@ -117,8 +117,8 @@ function DashboardManajer() {
                         <a href="#" class="btn btn-primary">Lihat Detail</a>
                       </div>
                     </div>
-                  </div> */}
-                  {/* <div class="carousel-item">
+                  </div>
+                  <div class="carousel-item">
                     <div class="card w-75 h-100 text-center mx-auto my-auto">
                       <div class="card-body">
                         <h5 class="card-title">Cam Abbot</h5>
@@ -127,7 +127,7 @@ function DashboardManajer() {
                         <a href="#" class="btn btn-primary">Lihat Detail</a>
                       </div>
                     </div>
-                  </div> */}
+                  </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
