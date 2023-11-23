@@ -2,6 +2,19 @@
 import React, { useState } from "react";
 import supabase from "../../config/supabaseClient";
 
+const readImageAsDataURL = (file) => {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      resolve(e.target.result);
+    };
+    reader.onerror = (error) => {
+      reject(error);
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
 function AddAccount() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -10,6 +23,7 @@ function AddAccount() {
   const [tanggal_lahir, setTanggalLahir] = useState('');
   const [phone, setPhone] = useState('');
   const [alamat, setAddress] = useState('');
+  const [image, setImage] = useState(null);
   const [formError, setFormError] = useState(null);
 
   const handleSubmit = async (e) => {
@@ -21,32 +35,44 @@ function AddAccount() {
     }
 
     try {
+      // Convert image to data URL
+      let imageDataUrl = null;
+      if (image) {
+        imageDataUrl = await readImageAsDataURL(image);
+      }
+
+      console.log(imageDataUrl);
+
       const { data, error } = await supabase
       .from('dataKurir')
-      .insert([{username, password, nama_lengkap, nik, phone, alamat, tanggal_lahir}])
+      .insert([{username, password, nama_lengkap, nik, phone, alamat, tanggal_lahir, image_url: imageDataUrl}])
 
       if (data) {
         console.log(data);
         setFormError(null);
       }
 
-      const mail = username + "@fakemail.com";
-      const pass = password;
+      // const mail = username + "@fakemail.com";
+      // const pass = password;
 
-      const { dataLogIn, errorLogIn } = await supabase.auth.signUp(
-        {
-          email: mail,
-          password: pass
-        }
-      )
+      // const { dataLogIn, errorLogIn } = await supabase.auth.signUp(
+      //   {
+      //     email: mail,
+      //     password: pass
+      //   }
+      // )
 
       window.location.reload();
     } catch (error) {
       console.log(error);
       setFormError('Please fill in all the fields correctly');
     }
-
     
+  }
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    setImage(file);
   }
 
   return (
@@ -139,7 +165,7 @@ function AddAccount() {
 
                 <div className="form-floating">
                   <input 
-                    type="number" 
+                    type="text" 
                     className="form-control mb-3" 
                     id="floatingPhone" 
                     placeholder="Phone"
@@ -157,6 +183,15 @@ function AddAccount() {
                     onChange={(e) => setAddress(e.target.value)}
                   />
                   <label htmlFor="alamat">Alamat</label>
+                </div>
+
+                <div>
+                  <label>Simpan Gambar</label>
+                  <input
+                    type="file"
+                    id="fileInput"
+                    onChange={handleImageChange}
+                  />
                 </div>
               
               </div>

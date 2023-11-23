@@ -85,12 +85,12 @@ function CustomModal({ user }) {
 
 // Table component
 function InnerData({ user, onUserClick }) {
-  const { username, nama_lengkap, nik, phone } = user;
+  const { username, nama_lengkap, nik, phone, image_url } = user;
 
   return (
     <tr onClick={() => onUserClick(user)}>
       <td>
-        <img className="profpic" src={`./images/${username}.jpg`} alt="profile picture"></img>
+        <img className="profpic" src={image_url} alt="profile picture"></img>
       </td>
       <td>{username}</td>
       <td>{nama_lengkap}</td>
