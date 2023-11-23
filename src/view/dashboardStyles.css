@@ -73,6 +73,10 @@
     font-size: 20px;
 }
 
+h3{
+    color: aliceblue;
+}
+
 .buttons-container {
     display: flex;
     justify-content: right;
