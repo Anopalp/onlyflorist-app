@@ -1,6 +1,19 @@
 import { useState } from 'react'
 import supabase from '../../config/supabaseClient'
 
+const readImageAsDataURL = (file) => {
+	return new Promise((resolve, reject) => {
+	  const reader = new FileReader();
+	  reader.onload = (e) => {
+		resolve(e.target.result);
+	  };
+	  reader.onerror = (error) => {
+		reject(error);
+	  };
+	  reader.readAsDataURL(file);
+	});
+  }
+
 async function findKurirTersantai(daftarPengiriman) {
 	// ambil data pengiriman
 	let lowestDeliveryKurir
@@ -36,12 +49,21 @@ const TambahPengiriman = ({ close, setData }) => {
 	const [jenisBunga, setJenisBunga] = useState('')
 	const [alamatPengiriman, setAlamatPengiriman] = useState('')
 	const [noTelpPelanggan, setNoTelpPelanggan] = useState('')
+	const [image, setImage] = useState(null);
 	const [catatan, setCatatan] = useState('')
 
 	const handlePengiriman = (e) => {
 		e.preventDefault()
 
 		const fetchData = async () => {
+			let imageDataUrl = null;
+
+			if (image) {
+				imageDataUrl = await readImageAsDataURL(image);
+			}
+
+			console.log(imageDataUrl);
+
 			const pengiriman = await supabase.from('dataPengiriman').select()
 			const daftarPengiriman = pengiriman.data
 			const kurirTersantai = await findKurirTersantai(daftarPengiriman)
@@ -55,6 +77,7 @@ const TambahPengiriman = ({ close, setData }) => {
 				kurir: kurirTersantai,
 				status_pengiriman: 'picked up',
 				laporan_masalah: null,
+				image_url: imageDataUrl
 			}
 
 			const { data, error } = await supabase
@@ -71,6 +94,11 @@ const TambahPengiriman = ({ close, setData }) => {
 		}
 
 		fetchData()
+	}
+
+	const handleImageChange = (e) => {
+		const file = e.target.files[0];
+		setImage(file);
 	}
 
 	return (
@@ -133,6 +161,14 @@ const TambahPengiriman = ({ close, setData }) => {
 							/>
 							<label htmlFor='catatan'>Catatan Pengiriman</label>
 						</div>
+						<div>
+                  			<label>Simpan Gambar</label>
+                  			<input
+                    			type="file"
+                    			id="fileInput2"
+                    			onChange={handleImageChange}
+                  			/>
+                			</div>
 						<button
 							className='w-100 btn btn-lg rounded-3 btn-primary'
 							type='submit'
