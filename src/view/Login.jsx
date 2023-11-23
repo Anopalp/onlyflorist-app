@@ -1,46 +1,15 @@
-import { useState, useEffect } from 'react'
 import Avatar from '@mui/material/Avatar'
-import Button from '@mui/material/Button'
 import CssBaseline from '@mui/material/CssBaseline'
-import TextField from '@mui/material/TextField'
-import FormControlLabel from '@mui/material/FormControlLabel'
-import Checkbox from '@mui/material/Checkbox'
 import Box from '@mui/material/Box'
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined'
 import Typography from '@mui/material/Typography'
 import Container from '@mui/material/Container'
-import { Link, useNavigate } from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
 import supabase from '../config/supabaseClient'
 import { Auth } from '@supabase/auth-ui-react'
 import { ThemeSupa } from '@supabase/auth-ui-shared'
 
-export default function Login() {
-	const [session, setSession] = useState(null)
-
-	const navigate = useNavigate()
-
-	useEffect(() => {
-		supabase.auth.getSession().then(({ data: { session } }) => {
-			setSession(session)
-		})
-
-		const {
-			data: { subscription },
-		} = supabase.auth.onAuthStateChange((_event, session) => {
-			setSession(session)
-		})
-
-		return () => subscription.unsubscribe()
-	}, [])
-
-	useEffect(() => {
-		if (session) {
-			if (session.user.email === 'samueltan086@gmail.com')
-				navigate('/dashboard-manajer')
-			else navigate('/dashboard-kurir')
-		}
-	}, [session])
-
+export default function Login({ session }) {
 	if (!session) {
 		return (
 			<Container component='main' maxWidth='xs'>
@@ -76,5 +45,11 @@ export default function Login() {
 				</Box>
 			</Container>
 		)
+	} else {
+		if (session.user.email === 'samueltan086@gmail.com') {
+			return <Navigate to='/dashboard-manajer' />
+		} else {
+			return <Navigate to='/dashboard-kurir' />
+		}
 	}
 }

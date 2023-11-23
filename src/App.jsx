@@ -1,12 +1,6 @@
 // import DaftarPengirimanManajer from './DaftarPengirimanManajer'
 // import { useState } from 'react'
-import {
-	BrowserRouter,
-	Routes,
-	Route,
-	Navigate,
-	useNavigate,
-} from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
 // import Appheader from './Appheader'
@@ -17,7 +11,6 @@ import './App.css'
 // import Update from './Update'
 // import Read from './Read'
 import Navbar from './view/Navbar'
-import Header from './view/header'
 import Footer from './view/footer'
 import Login from './view/Login'
 import DashboardKurir from './view/kurir/DashboardKurir'
@@ -35,6 +28,7 @@ import supabase from './config/supabaseClient'
 import { useEffect, useState } from 'react'
 
 function ProtectedRoute({ user, children }) {
+	console.log('user: ', user)
 	if (user === null) {
 		return <Navigate to='/' />
 	}
@@ -45,7 +39,18 @@ function App() {
 	const [session, setSession] = useState(null)
 
 	useEffect(() => {
-		supabase.auth.getSession().then(({ data }) => setSession(data.session))
+		supabase.auth.getSession().then(({ data: { session } }) => {
+			console.log('session: ', session)
+			setSession(session)
+		})
+
+		const {
+			data: { subscription },
+		} = supabase.auth.onAuthStateChange((_event, session) => {
+			setSession(session)
+		})
+
+		return () => subscription.unsubscribe()
 	}, [])
 
 	return (
@@ -54,7 +59,7 @@ function App() {
 			{/* <Header></Header> */}
 			<Navbar />
 			<Routes>
-				<Route path='/' element={<Login />}></Route>
+				<Route path='/' element={<Login session={session} />}></Route>
 
 				<Route
 					path='/dashboard-kurir'
