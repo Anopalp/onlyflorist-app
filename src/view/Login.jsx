@@ -34,7 +34,6 @@ export default function Login() {
 	}, [])
 
 	useEffect(() => {
-		console.log(session)
 		if (session) {
 			if (session.user.email === 'samueltan086@gmail.com')
 				navigate('/dashboard-manajer')
