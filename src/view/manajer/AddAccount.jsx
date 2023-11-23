@@ -165,7 +165,7 @@ function AddAccount() {
 
                 <div className="form-floating">
                   <input 
-                    type="number" 
+                    type="text" 
                     className="form-control mb-3" 
                     id="floatingPhone" 
                     placeholder="Phone"
