@@ -146,7 +146,7 @@ Tampilan layar :
 <br></br>
 
 ## **Implemented Database Tables**
-p align="center"> 
+<p align="center"> 
 <table>
     <tr>
         <td colspan=4 align="center">List of Database Tables</td>
