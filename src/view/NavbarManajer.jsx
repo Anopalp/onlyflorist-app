@@ -4,7 +4,7 @@ import './navbarStyles.css'
 import { Link, useNavigate } from 'react-router-dom'
 import supabase from '../config/supabaseClient'
 
-function Navbar() {
+function NavbarManajer() {
 	const navRef = useRef()
 	const navigate = useNavigate()
 
@@ -56,4 +56,4 @@ function Navbar() {
 	)
 }
 
-export default Navbar
+export default NavbarManajer

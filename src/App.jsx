@@ -1,16 +1,7 @@
-// import DaftarPengirimanManajer from './DaftarPengirimanManajer'
-// import { useState } from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
-// import Appheader from './Appheader'
-// import Login from './login'
-// import DashboardKurir from './DashboardKurir'
-// import AccountKurir from './AccountKurir'
-// import Create from './Create'
-// import Update from './Update'
-// import Read from './Read'
-import Navbar from './view/Navbar'
+import NavbarManajer from './view/NavbarManajer'
 import Footer from './view/footer'
 import Login from './view/Login'
 import DashboardKurir from './view/kurir/DashboardKurir'
@@ -22,10 +13,11 @@ import Update from './view/kurir/Update'
 import LayarDaftarKurir from './view/manajer/LayarDaftarKurir'
 import DaftarPengirimanManajer from './view/manajer/DaftarPengirimanManajer'
 import RiwayatPengirimanManajer from './view/manajer/RiwayatPengirimanManajer'
-// import AccountKurir from './view/kurir/AccountKurir'
 
 import supabase from './config/supabaseClient'
 import { useEffect, useState } from 'react'
+import NavbarLogin from './view/NavbarLogin'
+import NavbarKurir from './view/NavbarKurir'
 
 function ProtectedRoute({ user, children }) {
 	console.log('user: ', user)
@@ -55,9 +47,9 @@ function App() {
 
 	return (
 		<BrowserRouter>
-			{/* <Appheader></Appheader> */}
-			{/* <Header></Header> */}
-			<Navbar />
+			<NavbarLogin />
+			<NavbarManajer />
+			<NavbarKurir />
 			<Routes>
 				<Route path='/' element={<Login session={session} />}></Route>
 
