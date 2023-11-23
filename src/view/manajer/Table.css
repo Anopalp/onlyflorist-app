@@ -1,0 +1,28 @@
+.profile-pic {
+    width: 120px;
+    border-radius: 50%;
+}
+
+.profile-header {
+    display: flex;
+    justify-content: space;
+    align-items: center;
+    margin-bottom: 10%;
+}
+
+.profile-name {
+    color: black;
+    font-weight: bold;
+    margin-left: 10%;
+    font-size: 35px;
+}
+
+.profile-modal {
+    margin-left: 5%;
+}
+
+.profile-data {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
