@@ -34,14 +34,13 @@ function Navbar() {
 				<button className='nav-btn nav-close-btn' onClick={showNavbar}>
 					<Close style={{ fontSize: 30 }} />
 				</button>
+				<button className='btn btn-danger'>
+					Logout
+				</button>
 			</nav>
 
 			<button className='nav-btn' onClick={showNavbar}>
 				<Menu style={{ fontSize: 30 }} />
-			</button>
-
-			<button className='btn btn-danger'>
-				Logout
 			</button>
 		</header>
 	)
