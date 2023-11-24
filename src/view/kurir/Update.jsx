@@ -1,7 +1,7 @@
-import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import supabase from '../../config/supabaseClient'
+import NavbarKurir from '../NavbarKurir'
 
 async function generateIdLaporan() {
 	const awalDataLaporan = await supabase.from('dataLaporan').select()
@@ -103,6 +103,8 @@ function Update() {
 	}
 
 	return (
+	<div>
+		<NavbarKurir/>
 		<div className='d-flex w-100 vh-100 justify-content-center align-items-center bg-light'>
 			<div className='w-50 border bg-white shadow p-3 rounded-4'>
 				<div className='modal-header p-1 pb-4 border-bottom-0'>
@@ -181,6 +183,7 @@ function Update() {
 				</form>
 			</div>
 		</div>
+	</div>
 	)
 }
 

@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
-import NavbarManajer from './view/NavbarManajer'
 import Footer from './view/footer'
 import Login from './view/Login'
 import DashboardKurir from './view/kurir/DashboardKurir'
@@ -14,11 +13,10 @@ import LayarDaftarKurir from './view/manajer/LayarDaftarKurir'
 import DaftarPengirimanManajer from './view/manajer/DaftarPengirimanManajer'
 import RiwayatPengirimanManajer from './view/manajer/RiwayatPengirimanManajer'
 import About from './view/About'
+import AccountKurir from './view/kurir/AccountKurir'
 
 import supabase from './config/supabaseClient'
 import { useEffect, useState } from 'react'
-import NavbarLogin from './view/NavbarLogin'
-import NavbarKurir from './view/NavbarKurir'
 
 function ProtectedRoute({ user, children }) {
 	console.log('user: ', user)
@@ -96,6 +94,10 @@ function App() {
 				<Route 
 					path='/daftar-kurir' 
 					element={<LayarDaftarKurir />}
+				></Route>
+				<Route 
+					path='/account-kurir' 
+					element={<AccountKurir />}
 				></Route>
 				<Route 
 					path='/about' 

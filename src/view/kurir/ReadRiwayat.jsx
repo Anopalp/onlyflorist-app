@@ -1,6 +1,5 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
 
 function ReadRiwayat({close, id}) {
     const [data, setData] = useState([])

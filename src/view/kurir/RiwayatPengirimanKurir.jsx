@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 // import { IconButton } from '@mui/material'
 // import { Info } from '@mui/icons-material'
 import ReadRiwayat from './ReadRiwayat'
+import NavbarKurir from '../NavbarKurir'
 
 function RiwayatPengirimanKurir() {
     
@@ -27,6 +28,8 @@ function RiwayatPengirimanKurir() {
 	}
     
     return (
+    <div>
+        <NavbarKurir/>
         <div className='d-flex flex-column justify-content-left align-items-center bg-light vh-100'>
             <h3 className='my-3' style={{fontSize:30, fontWeight: 'bold'}}>Riwayat Pengiriman</h3>
             <div className='z-0 w-75 h-75 rounded-4 bg-light border shadow px-2 table-responsive'>
@@ -81,6 +84,7 @@ function RiwayatPengirimanKurir() {
                 </table>
             </div>
         </div>
+    </div>
     )
 }
 
