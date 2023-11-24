@@ -63,7 +63,7 @@ function DashboardManajer() {
           <div className="mx-5">
             <h2>Pengiriman teratas</h2>
           </div>
-          <div className="row">
+          <div className="row card-row">
             <CardPengiriman dataPengiriman={dataPengiriman} />
             <div className="buttons-container mt-3">
               <div>
@@ -109,7 +109,7 @@ function CardPengiriman(props) {
 
   return (
     <div>
-      <div style={{display: 'flex'}}>
+      <div className="card-row" style={{display: 'flex'}}>
       {displayedData.map((pengiriman) => (
         <Card key={pengiriman.id} className="text-center  mx-auto my-auto" style={{ width: '260px' }}>
           <Card.Img variant="top" src="..\src\assets\Sansevieria.png"></Card.Img>

@@ -115,3 +115,15 @@ h2 {
 .carousel-control-prev /*, .carousel-indicators */ {
   filter: invert(100%);
 }
+
+.card-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+  .card-row {
+    flex-direction: column;
+  }
+}
