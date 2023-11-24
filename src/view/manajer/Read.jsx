@@ -3,21 +3,21 @@ import { Link, useParams } from 'react-router-dom'
 import supabase from '../../config/supabaseClient'
 
 function Read({ close, id }) {
-	const [data, setData] = useState([])
+	const [data, setData] = useState({})
 	// const {id} = useParams();
 
 	useEffect(() => {
 		const fetchData = async () => {
 			const { data, error } = await supabase
 				.from('dataPengiriman')
-				.select()
+				.select('*, dataKurir (nama_lengkap)')
 				.eq('id', id)
 			if (error) console.log(error)
-			setData(...data)
+			setData(data[0])
 		}
 
 		fetchData()
-	}, [])
+	}, [id])
 
 	return (
 		<div className='modal d-block' tabIndex='-1' role='dialog' id='modalSignin'>
@@ -63,7 +63,9 @@ function Read({ close, id }) {
 					</div>
 					<div className='mb-3'>
 						<strong>Kurir</strong>
-						<output className='form-control'>{data.kurir}</output>
+						<output className='form-control'>
+							{data.dataKurir?.nama_lengkap}
+						</output>
 					</div>
 					{data.laporanMasalah != null ? (
 						<div className='mb-3'>

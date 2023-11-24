@@ -109,7 +109,7 @@ function Update() {
 	return (
 		<div>
 			<NavbarKurir />
-			<div className='d-flex w-100 vh-100 justify-content-center align-items-center bg-light'>
+			<div className='d-flex w-100 vh-100 justify-content-center align-items-center'>
 				<div className='w-50 border bg-white shadow p-3 rounded-4'>
 					<div className='modal-header p-1 pb-4 border-bottom-0'>
 						<h1 className='fw-bold mb-0 fs-2 text-center'>Update Pengiriman</h1>
@@ -165,6 +165,7 @@ function Update() {
 								onChange={(e) =>
 									setValues({ ...values, laporan_masalah: e.target.value })
 								}
+								disabled={values.status_pengiriman !== 'On-hold'}
 							/>
 						</div>
 						<div className='mb-4'>
@@ -176,13 +177,9 @@ function Update() {
 								name='status'
 								className='form-select'
 								value={values.status_pengiriman}
-								onChange={(e) => {
-									if (values.laporan_masalah) {
-										setValues({ ...values, status_pengiriman: 'On-hold' })
-									} else {
-										setValues({ ...values, status_pengiriman: e.target.value })
-									}
-								}}
+								onChange={(e) =>
+									setValues({ ...values, status_pengiriman: e.target.value })
+								}
 							>
 								{options.map((option) => (
 									<option key={option.mark}>{option.label}</option>

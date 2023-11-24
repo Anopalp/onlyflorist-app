@@ -10,13 +10,12 @@ function RiwayatPengirimanManajer() {
 	const [selectedId, setSelectedId] = useState(null)
 	const [search, setSearch] = useState('')
 
-	console.log(search)
-
 	useEffect(() => {
 		const fetchData = async () => {
-			const { data, error } = await supabase.from('dataRiwayat').select()
+			const { data, error } = await supabase.from('dataRiwayat').select(`
+        *, dataKurir (nama_lengkap)
+      `)
 
-			console.log(data, error)
 			if (error) {
 				console.log(error)
 			}
@@ -41,7 +40,7 @@ function RiwayatPengirimanManajer() {
 	return (
 		<div>
 			<NavbarManajer />
-			<div className='d-flex flex-column justify-content-left align-items-center bg-light vh-100'>
+			<div className='d-flex flex-column justify-content-left align-items-center vh-100'>
 				<h3 className='my-3' style={{ fontSize: 30, fontWeight: 'bold' }}>
 					Riwayat Pengiriman
 				</h3>
@@ -88,7 +87,7 @@ function RiwayatPengirimanManajer() {
 										<td>{d.alamat_pengiriman}</td>
 										<td>{d.jenis_bunga}</td>
 										<td>{d.nomor_telp_pelanggan}</td>
-										<td>{d.kurir}</td>
+										<td>{d.dataKurir?.nama_lengkap}</td>
 										<td>Delivered</td>
 										<td>
 											{/* <Link to={'/read/' + (d.id)} className='btn btn-sm btn-info me-2'>Detail</Link>
