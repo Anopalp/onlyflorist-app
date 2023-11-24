@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react'
 // import { Info } from '@mui/icons-material'
 import Read from './Read'
 import { Form, FormControl, InputGroup } from 'react-bootstrap'
+import NavbarManajer from '../NavbarManajer'
 
 function RiwayatPengirimanManajer() {
     
@@ -31,7 +32,9 @@ function RiwayatPengirimanManajer() {
 	}
     
     return (
-        <div className='d-flex flex-column justify-content-left align-items-center bg-light vh-100'>
+        <div>
+            <NavbarManajer/>
+            <div className='d-flex flex-column justify-content-left align-items-center bg-light vh-100'>
             <h3 className='my-3' style={{fontSize:30, fontWeight: 'bold'}}>Riwayat Pengiriman</h3>
             <div className='z-0 w-75 h-75 rounded-4 bg-light border shadow px-2 table-responsive'>
                 {/* <div className='d-flex justify-content-end '>
@@ -101,6 +104,8 @@ function RiwayatPengirimanManajer() {
                 </table>
             </div>
         </div>
+        </div>
+        
     )
 }
 

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Table from "./Table";
 import AddAccount from "./AddAccount";
 import supabase from "../../config/supabaseClient";
+import NavbarManajer from "../NavbarManajer";
 
 function LayarDaftarKurir() {
     const [fetchError, setFetchError] = useState(null);
@@ -34,6 +35,7 @@ function LayarDaftarKurir() {
             {fetchError && (<p>{fetchError}</p>)}
             {dataKurir && (
                 <div className="dataKurir">
+                    <NavbarManajer/>
                     <Table dataKurir={dataKurir}/>
                 </div>
             )}

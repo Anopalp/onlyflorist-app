@@ -1,11 +1,14 @@
 import React from "react";
 import './aboutStyles.css'
 import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
+import NavbarManajer from "./NavbarManajer";
 
 function About () {
     return (
     <section className="section-white">
+    <NavbarManajer/>
     <div className="container">
+        
         <div className="row">
             <div className="col-md-12 text-center">
                 <h2 className="section-title" style={{fontWeight:'bolder'}}>The Team Behind OnlyFlorist</h2>

@@ -3,6 +3,7 @@ import TambahPengiriman from './TambahPengiriman'
 import Read from './Read'
 import { Form, FormControl, InputGroup } from 'react-bootstrap'
 import supabase from '../../config/supabaseClient'
+import NavbarManajer from '../NavbarManajer'
 
 const DaftarPengirimanManajer = () => {
     const [data, setData] = useState([])
@@ -46,6 +47,7 @@ const DaftarPengirimanManajer = () => {
 
     return (
         <div>
+            <NavbarManajer/>
             <div className='d-flex flex-column justify-content-left align-items-center bg-light vh-100'>
                 <h3 className='my-3' style={{ fontSize: 30, fontWeight: 'bold' }}>
                     Daftar Pengiriman
