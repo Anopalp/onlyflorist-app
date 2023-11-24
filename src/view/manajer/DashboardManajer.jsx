@@ -104,8 +104,20 @@ function CardPengiriman(props) {
   // Ensure that props.dataPengiriman is an array before trying to access its properties
   const dataPengiriman = Array.isArray(props.dataPengiriman) ? props.dataPengiriman : [];
 
-  // Display only the first three items
-  const displayedData = dataPengiriman.slice(0, 3);
+  if (dataPengiriman.length === 0) {
+    <div>
+      
+    </div>
+  } else if (dataPengiriman.length <= 3) {
+    return (
+      <div>
+
+      </div>
+    );
+
+  } else {
+    const displayedData = dataPengiriman.slice(0, 3);
+
 
   return (
     <div>
@@ -125,6 +137,10 @@ function CardPengiriman(props) {
     </div>
     
   );
+  }
+
+  // Display only the first three items
+  
 }
 
 
