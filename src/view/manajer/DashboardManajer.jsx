@@ -15,36 +15,32 @@ function DashboardManajer() {
 
   useEffect(() => {
     const fetchDataPengiriman = async () => {
-      const { data, error } = await supabase
-        .from('dataPengiriman')
-        .select()
+      const { data, error } = await supabase.from("dataPengiriman").select();
 
-        if (error) {
-          setFetchErrorPengiriman('Could not fetch dataPengiriman');
-          setDataPengiriman(null);
-          console.log(error);
-        }
-        if (data) {
-          setDataPengiriman(data);
-          setFetchErrorPengiriman(null);
-        }
-    }
+      if (error) {
+        setFetchErrorPengiriman("Could not fetch dataPengiriman");
+        setDataPengiriman(null);
+        console.log(error);
+      }
+      if (data) {
+        setDataPengiriman(data);
+        setFetchErrorPengiriman(null);
+      }
+    };
 
     const fetchDataKurir = async () => {
-      const { data, error } = await supabase
-        .from('dataKurir')
-        .select()
+      const { data, error } = await supabase.from("dataKurir").select();
 
-        if (error) {
-          setFetchErrorKurir('Could not fetch dataKurir');
-          setDataKurir(null);
-          console.log(error);
-        }
-        if (data) {
-          setDataKurir(data);
-          setFetchErrorKurir(null);
-        }
-    }
+      if (error) {
+        setFetchErrorKurir("Could not fetch dataKurir");
+        setDataKurir(null);
+        console.log(error);
+      }
+      if (data) {
+        setDataKurir(data);
+        setFetchErrorKurir(null);
+      }
+    };
 
     fetchDataPengiriman();
     fetchDataKurir();
@@ -52,47 +48,47 @@ function DashboardManajer() {
 
   return (
     <div className="page dashboard">
-      {fetchErrorKurir && (<p>{fetchErrorKurir}</p>)}
-      {fetchErrorPengiriman && (<p>{fetchErrorPengiriman}</p>)}
+      {fetchErrorKurir && <p>{fetchErrorKurir}</p>}
+      {fetchErrorPengiriman && <p>{fetchErrorPengiriman}</p>}
       {dataKurir && dataPengiriman && (
         <div>
-        <NavbarManajer />
-      <div className="pengiriman-co">
-        <h4 className="text-center text-danger p-3"></h4>
-        <div className="card-container mx-auto my-5">
-          <div className="mx-5">
-            <h2>Pengiriman teratas</h2>
-          </div>
-          <div className="row card-row">
-            <CardPengiriman dataPengiriman={dataPengiriman} />
-            <div className="buttons-container mt-3">
-              <div>
-                <Link to={"/daftar-pengiriman-manajer"}>
-                  <Button variant="secondary"> See More </Button>
-                </Link>
+          <NavbarManajer />
+          <div className="pengiriman-co">
+            <h4 className="text-center text-danger p-3"></h4>
+            <div className="card-container mx-auto my-5">
+              <div className="mx-5">
+                <h2>Pengiriman teratas</h2>
+              </div>
+              <div className="row card-row">
+                <CardPengiriman dataPengiriman={dataPengiriman} />
+                <div className="buttons-container mt-3">
+                  <div>
+                    <Link to={"/daftar-pengiriman-manajer"}>
+                      <Button variant="secondary"> See More </Button>
+                    </Link>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
 
-      <div className="akun-co">
-        <div className="card-container mx-auto my-5">
-          <div className="mx-5">
-            <h2 className="text-center">Akun Kurir</h2>
-          </div>
-          <div className="row card-row">
-            <CardKurir dataKurir={dataKurir} />
-            <div className="buttons-container mt-3">
-              <div>
-                <Link to={"/daftar-kurir"}>
-                  <Button variant="secondary"> See More </Button>
-                </Link>
+          <div className="akun-co">
+            <div className="card-container mx-auto my-5">
+              <div className="mx-5">
+                <h2 className="text-center">Akun Kurir</h2>
+              </div>
+              <div className="row card-row">
+                <CardKurir dataKurir={dataKurir} />
+                <div className="buttons-container mt-3">
+                  <div>
+                    <Link to={"/daftar-kurir"}>
+                      <Button variant="secondary"> See More </Button>
+                    </Link>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
         </div>
       )}
     </div>
@@ -101,82 +97,94 @@ function DashboardManajer() {
 
 function CardPengiriman(props) {
   // Ensure that props.dataPengiriman is an array before trying to access its properties
-  const dataPengiriman = Array.isArray(props.dataPengiriman) ? props.dataPengiriman : [];
+  const dataPengiriman = Array.isArray(props.dataPengiriman)
+    ? props.dataPengiriman
+    : [];
 
   if (dataPengiriman.length === 0) {
-    return(
+    return (
       <div>
-        <h2 style={{color: 'white'}}>Tidak Ada Pengiriman</h2>
+        <h2 style={{ color: "white" }}>Tidak Ada Pengiriman</h2>
       </div>
     );
   } else if (dataPengiriman.length <= 3) {
     return (
       <div>
-        <div className="card-row" style={{display: 'flex'}}>
+        <div className="card-row" style={{ display: "flex" }}>
           {dataPengiriman.map((pengiriman) => (
-          <Card key={pengiriman.id} className="text-center  mx-auto my-auto" style={{ width: '260px' }}>
-            <Card.Img variant="top" src="..\src\assets\Sansevieria.png"></Card.Img>
-            <Card.Header>{pengiriman.jenis_bunga}</Card.Header>
-            <Card.Body>
-              <Card.Title>{pengiriman.kurir}</Card.Title>
-              <Card.Text>{pengiriman.alamat_pengiriman}</Card.Text>
-              <Button variant="primary">Lihat Detail</Button>
-            </Card.Body>
+            <Card
+              key={pengiriman.id}
+              className="text-center  mx-auto my-auto"
+              style={{ width: "260px" }}
+            >
+              <Card.Img
+                variant="top"
+                src="..\src\assets\Sansevieria.png"
+              ></Card.Img>
+              <Card.Header>{pengiriman.jenis_bunga}</Card.Header>
+              <Card.Body>
+                <Card.Title>{pengiriman.kurir}</Card.Title>
+                <Card.Text>{pengiriman.alamat_pengiriman}</Card.Text>
+                <Button variant="primary">Lihat Detail</Button>
+              </Card.Body>
             </Card>
           ))}
         </div>
       </div>
     );
-
   } else {
     const displayedData = dataPengiriman.slice(0, 3);
 
-
-  return (
-    <div>
-      <div className="card-row" style={{display: 'flex'}}>
-        {displayedData.map((pengiriman) => (
-          <Card key={pengiriman.id} className="text-center  mx-auto my-auto" style={{ width: '260px' }}>
-            <Card.Img variant="top" src="..\src\assets\Sansevieria.png"></Card.Img>
-            <Card.Header>{pengiriman.jenis_bunga}</Card.Header>
-            <Card.Body>
-              <Card.Title>{pengiriman.kurir}</Card.Title>
-              <Card.Text>{pengiriman.alamat_pengiriman}</Card.Text>
-              <Button variant="primary">Lihat Detail</Button>
-            </Card.Body>
+    return (
+      <div>
+        <div className="card-row" style={{ display: "flex" }}>
+          {displayedData.map((pengiriman) => (
+            <Card
+              key={pengiriman.id}
+              className="text-center  mx-auto my-auto"
+              style={{ width: "260px" }}
+            >
+              <Card.Img
+                variant="top"
+                src="..\src\assets\Sansevieria.png"
+              ></Card.Img>
+              <Card.Header>{pengiriman.jenis_bunga}</Card.Header>
+              <Card.Body>
+                <Card.Title>{pengiriman.kurir}</Card.Title>
+                <Card.Text>{pengiriman.alamat_pengiriman}</Card.Text>
+                <Card.Text>{pengiriman.nomor_telp_pelanggan}</Card.Text>
+                <Button variant="primary">Lihat Detail</Button>
+              </Card.Body>
             </Card>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
-    
     );
   }
 
   // Display only the first three items
-  
 }
-
 
 function CardKurir(props) {
   const dataKurir = Array.isArray(props.dataKurir) ? props.dataKurir : [];
 
   if (dataKurir.length === 0) {
-    return(
-      <div>
-
-      </div>
-    );
+    return <div></div>;
   } else if (dataKurir.length <= 3) {
     return (
       <div>
-        <div className="card-row" style={{display: 'flex'}}>
+        <div className="card-row" style={{ display: "flex" }}>
           {dataKurir.map((kurir) => (
-            <Card key={kurir.username} className="text-center mx-auto my-auto" style={{ width: '230px' }}>
+            <Card
+              key={kurir.username}
+              className="text-center mx-auto my-auto"
+              style={{ width: "230px" }}
+            >
               <Card.Header>{dataKurir.nama_lengkap}</Card.Header>
               <Card.Body>
-              <Card.Title>{dataKurir.phone}</Card.Title>
-              <Card.Text>{dataKurir.alamat}</Card.Text>
-              <Button variant="primary">Lihat Detail</Button>
+                <Card.Title>{dataKurir.phone}</Card.Title>
+                <Card.Text>{dataKurir.alamat}</Card.Text>
+                <Button variant="primary">Lihat Detail</Button>
               </Card.Body>
             </Card>
           ))}
@@ -188,14 +196,18 @@ function CardKurir(props) {
 
     return (
       <div>
-        <div className="card-row" style={{display: 'flex'}}>
+        <div className="card-row" style={{ display: "flex" }}>
           {displayedData.map((kurir) => (
-            <Card key={kurir.username} className="text-center mx-auto my-auto" style={{ width: '230px' }}>
+            <Card
+              key={kurir.username}
+              className="text-center mx-auto my-auto"
+              style={{ width: "230px" }}
+            >
               <Card.Header>{kurir.nama_lengkap}</Card.Header>
               <Card.Body>
-              <Card.Title>{kurir.phone}</Card.Title>
-              <Card.Text>{kurir.alamat}</Card.Text>
-              <Button variant="primary">Lihat Detail</Button>
+                <Card.Title>{kurir.phone}</Card.Title>
+                <Card.Text>{kurir.alamat}</Card.Text>
+                <Button variant="primary">Lihat Detail</Button>
               </Card.Body>
             </Card>
           ))}
@@ -203,8 +215,6 @@ function CardKurir(props) {
       </div>
     );
   }
-
-  
 }
 
 export default DashboardManajer;
