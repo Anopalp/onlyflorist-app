@@ -1,25 +1,45 @@
+/* eslint-disable no-unused-vars */
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import NavbarManajer from "../NavbarManajer";
+import supabase from "../../config/supabaseClient";
+
+function LayarDashboardManajer() {
+  const [fetchErrorPengiriman, setFetchErrorPengiriman] = useState(null);
+  const [dataPengiriman, setDataPengiriman] = useState(null);
+
+  useEffect(() => {
+    const fetchDataPengiriman = async () => {
+      const { dataP, error } = await supabase
+        .from('dataPengiriman')
+        .select()
+
+        if (error) {
+          setFetchErrorPengiriman('Could not fetch dataPengiriman');
+          setDa
+        }
+    }
+  })
+}
 
 function DashboardManajer() {
   return (
     <div>
       <NavbarManajer />
       <div className="pengiriman-co">
-        <h4 class="text-center text-danger p-3"></h4>
-        <div class="card-container mx-auto my-5">
-          <div class="mx-5">
+        <h4 className="text-center text-danger p-3"></h4>
+        <div className="card-container mx-auto my-5">
+          <div className="mx-5">
             <h2>Pengiriman teratas</h2>
           </div>
-          <div class="row">
+          <div className="row">
             <CardPengiriman />
             <CardPengiriman />
             <CardPengiriman />
-            <div class="buttons-container mt-3">
+            <div className="buttons-container mt-3">
               <div>
                 <Link to={"/daftar-pengiriman-manajer"}>
                   <Button variant="secondary"> See More </Button>
@@ -30,15 +50,15 @@ function DashboardManajer() {
         </div>
       </div>
       <div className="akun-co">
-        <div class="card-container mx-auto my-5">
-          <div class="mx-5">
-            <h2 class="text-center">Akun Kurir</h2>
+        <div className="card-container mx-auto my-5">
+          <div className="mx-5">
+            <h2 className="text-center">Akun Kurir</h2>
           </div>
-          <div class="row">
+          <div className="row">
             <CardKurir />
             <CardKurir />
             <CardKurir />
-            <div class="buttons-container mt-3">
+            <div className="buttons-container mt-3">
               <div>
                 <Link to={"/daftar-kurir"}>
                   <Button variant="secondary"> See More </Button>
