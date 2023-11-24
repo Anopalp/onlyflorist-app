@@ -1,70 +1,98 @@
-import axios from 'axios';
+import supabase from '../../config/supabaseClient'
 import React, { useEffect, useState } from 'react'
 
-function ReadRiwayat({close, id}) {
-    const [data, setData] = useState([])
-    // const {id} = useParams();
+function ReadRiwayat({ close, id }) {
+	const [data, setData] = useState([])
+	// const {id} = useParams();
 
-    useEffect(()=> {
-        axios.get('http://localhost:3000/pengiriman/' + id)
-        .then(res => setData(res.data))
-        .catch(err => console.log(err));
-    }, [])
+	useEffect(() => {
+		const fetchData = async () => {
+			const {
+				data: {
+					session: {
+						user: { email },
+					},
+				},
+			} = await supabase.auth.getSession()
 
-  return (
-    <div className='modal d-block' tabIndex='-1' role='dialog' id='modalSignin'>
-        <div className='modal-dialog modal-dialog-centered' role='document'>
-            <div className='modal-content rounded-4 shadow'>
-                <div className='modal-header p-1 pb-4 border-bottom-0'>
-                    <h1 className='fw-bold mb-0 fs-2'>Detail Pengiriman</h1>
-                    <button
-                        type='button'
-                        className='btn-close'
-                        data-bs-dismiss='modal'
-                        aria-label='Close'
-                        onClick={close}
-                    ></button>
-                </div>
+			const username = email.split('@')[0]
+			console.log(username)
 
-        {/* <div className='d-flex w-100 vh-100 justify-content-center align-items-center bg-light'>
+			const { data, error } = await supabase
+				.from('dataRiwayat')
+				.select()
+				.eq('kurir', username)
+				.eq('id', id)
+
+			console.log(data, error)
+			if (error) {
+				console.log(error)
+			}
+
+			if (data) {
+				setData(data[0])
+			}
+		}
+
+		fetchData()
+	}, [id])
+
+	return (
+		<div className='modal d-block' tabIndex='-1' role='dialog' id='modalSignin'>
+			<div className='modal-dialog modal-dialog-centered' role='document'>
+				<div className='modal-content rounded-4 shadow'>
+					<div className='modal-header p-1 pb-4 border-bottom-0'>
+						<h1 className='fw-bold mb-0 fs-2'>Detail Pengiriman</h1>
+						<button
+							type='button'
+							className='btn-close'
+							data-bs-dismiss='modal'
+							aria-label='Close'
+							onClick={close}
+						></button>
+					</div>
+
+					{/* <div className='d-flex w-100 vh-100 justify-content-center align-items-center bg-light'>
             <div className='w-50 border bg-white shadow px-5 pt-3 pb-5 rounded'>
                 <h2 className='text-center my-3'>Detail Pengiriman</h2> */}
-                <div className='mb-3'>
-                    <strong>ID Pengiriman</strong>
-                    <output className='form-control'>{data.id}</output>
-                </div>
-                <div className='mb-3'>
-                    <strong>Alamat Pengiriman</strong>
-                    <output className='form-control'>{data.alamatPengiriman}</output>
-                </div>
-                <div className='mb-3'>
-                    <strong>Jenis Bunga</strong>
-                    <output className='form-control'>{data.jenisBunga}</output>
-                </div>
-                <div className='mb-3'>
-                    <strong>No. Telp Pelanggan</strong>
-                    <output className='form-control'>{data.noTelpPelanggan}</output>
-                </div>
-                <div className='mb-3'>
-                    <strong>Catatan</strong>
-                    <output className='form-control'>{data.catatan}</output>
-                </div>
-                <div className='mb-3'>
-                    <strong>Kurir</strong>
-                    <output className='form-control'>{data.kurir}</output>
-                </div>
-                <div className='mb-3'>
-                    <strong>Laporan Masalah</strong>
-                    <output className='form-control'>{data.laporanMasalah}</output>
-                </div>
-                <div className='mb-4'>
-                    <strong>Status Pengiriman</strong>
-                    <output className='form-control'>{data.statusPengiriman}</output>
-                </div>
-            </div>
-        </div>
-    </div>
-  )
+					<div className='mb-3'>
+						<strong>ID Pengiriman</strong>
+						<output className='form-control'>{data.id}</output>
+					</div>
+					<div className='mb-3'>
+						<strong>Alamat Pengiriman</strong>
+						<output className='form-control'>{data.alamat_pengiriman}</output>
+					</div>
+					<div className='mb-3'>
+						<strong>Jenis Bunga</strong>
+						<output className='form-control'>{data.jenis_bunga}</output>
+					</div>
+					<div className='mb-3'>
+						<strong>No. Telp Pelanggan</strong>
+						<output className='form-control'>
+							{data.nomor_telp_pelanggan}
+						</output>
+					</div>
+					<div className='mb-3'>
+						<strong>Catatan</strong>
+						<output className='form-control'>{data.catatan}</output>
+					</div>
+					<div className='mb-3'>
+						<strong>Kurir</strong>
+						<output className='form-control'>{data.kurir}</output>
+					</div>
+					<div className='mb-3'>
+						<strong>Laporan Masalah</strong>
+						<output className='form-control'>{data.laporan_masalah}</output>
+					</div>
+					<div className='mb-4'>
+						<strong>Status Pengiriman</strong>
+						<output className='form-control'>Delivered</output>
+					</div>
+				</div>
+			</div>
+		</div>
+	)
 }
 
 export default ReadRiwayat
