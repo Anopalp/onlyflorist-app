@@ -1,6 +1,7 @@
 .section-white {
 	background: #fff;
 	padding: 70px 0;
+	padding-top: 0;
 }
 
 .team-item{
@@ -118,4 +119,8 @@ ul.team-icon li a.facebook{
 	-ms-transition: all 0.25s ease-in-out;
 	-o-transition: all 0.25s ease-in-out;
 	transition: all 0.25s ease-in-out;
+}
+
+.section-title {
+	margin-top: 5%;
 }
