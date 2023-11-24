@@ -61,7 +61,10 @@ function DashboardKurir() {
 					<CardPengirimanKurir />
 					<div className='buttons-container mt-3'>
 						<div>
-							<Link to={'/daftar-pengiriman-kurir'} class='btn btn-secondary'>
+							<Link
+								to={'/daftar-pengiriman-kurir'}
+								className='btn btn-secondary'
+							>
 								See More
 							</Link>
 						</div>

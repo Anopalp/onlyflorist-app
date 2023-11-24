@@ -9,7 +9,7 @@ function ReadRiwayat({ close, id }) {
 		const fetchData = async () => {
 			const { data, error } = await supabase
 				.from('dataRiwayat')
-				.select()
+				.select('*, dataKurir (nama_lengkap)')
 				.eq('id', id)
 			if (error) console.log(error)
 			setData(...data)
@@ -62,7 +62,9 @@ function ReadRiwayat({ close, id }) {
 					</div>
 					<div className='mb-3'>
 						<strong>Kurir</strong>
-						<output className='form-control'>{data.kurir}</output>
+						<output className='form-control'>
+							{data.dataKurir?.nama_lengkap}
+						</output>
 					</div>
 					{data.laporanMasalah != null ? (
 						<div className='mb-3'>
