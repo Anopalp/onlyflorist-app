@@ -3,7 +3,7 @@ import React from "react";
 import "../dashboardStyles.css";
 import { Link } from "react-router-dom";
 import NavbarKurir from "../NavbarKurir";
-import CardPengiriman from "../DashboardManajer";
+import CardPengiriman from "../manajer/DashboardManajer";
 
 function DashboardKurir() {
   return (
