@@ -19,7 +19,6 @@ import supabase from './config/supabaseClient'
 import { useEffect, useState } from 'react'
 
 function ProtectedRoute({ user, children }) {
-	console.log('user: ', user)
 	if (user === null) {
 		return <Navigate to='/' />
 	}
@@ -91,18 +90,9 @@ function App() {
 					path='/riwayat-pengiriman-manajer'
 					element={<RiwayatPengirimanManajer />}
 				></Route>
-				<Route 
-					path='/daftar-kurir' 
-					element={<LayarDaftarKurir />}
-				></Route>
-				<Route 
-					path='/account-kurir' 
-					element={<AccountKurir />}
-				></Route>
-				<Route 
-					path='/about' 
-					element={<About />}
-				></Route>
+				<Route path='/daftar-kurir' element={<LayarDaftarKurir />}></Route>
+				<Route path='/account-kurir' element={<AccountKurir />}></Route>
+				<Route path='/about' element={<About />}></Route>
 				{/* <Route path='/account-kurir' element={<AccountKurir />}></Route> */}
 			</Routes>
 			<Footer />

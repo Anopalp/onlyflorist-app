@@ -86,6 +86,22 @@ function CardPengiriman() {
   );
 }
 
+// function CardPengiriman({DataPengiriman}) {
+//   return (
+//     <Card className="text-center w-25 col-lg-4 mx-auto my-auto">
+//       <Card.Img variant="top" src="..\src\assets\Sansevieria.png"></Card.Img>
+//       <Card.Header>Sansevieria</Card.Header>
+//       <Card.Body>
+//         <Card.Title>DataPengiriman.Penerima</Card.Title>
+//         <Card.Text>DataPengiriman.Alamat</Card.Text>
+//         <Card.Text>DataPengiriman.Kurir</Card.Text>
+//         <Card.Text>DataPengiriman.NoTelp</Card.Text>
+//         <Button variant="primary">Lihat Detail</Button>
+//       </Card.Body>
+//     </Card>
+//   );
+// }
+
 function CardKurir() {
   return (
     <Card className="text-center w-25 col-lg-4 mx-auto my-auto">
