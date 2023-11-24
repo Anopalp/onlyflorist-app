@@ -7,28 +7,56 @@ import Card from "react-bootstrap/Card";
 import NavbarManajer from "../NavbarManajer";
 import supabase from "../../config/supabaseClient";
 
-function LayarDashboardManajer() {
+function DashboardManajer() {
   const [fetchErrorPengiriman, setFetchErrorPengiriman] = useState(null);
   const [dataPengiriman, setDataPengiriman] = useState(null);
+  const [fetchErrorKurir, setFetchErrorKurir] = useState(null);
+  const [dataKurir, setDataKurir] = useState(null);
 
   useEffect(() => {
     const fetchDataPengiriman = async () => {
-      const { dataP, error } = await supabase
+      const { data, error } = await supabase
         .from('dataPengiriman')
         .select()
 
         if (error) {
           setFetchErrorPengiriman('Could not fetch dataPengiriman');
-          setDa
+          setDataPengiriman(null);
+          console.log(error);
+        }
+        if (data) {
+          setDataPengiriman(data);
+          setFetchErrorPengiriman(null);
         }
     }
-  })
-}
 
-function DashboardManajer() {
+    const fetchDataKurir = async () => {
+      const { data, error } = await supabase
+        .from('dataKurir')
+        .select()
+
+        if (error) {
+          setFetchErrorKurir('Could not fetch dataKurir');
+          setDataKurir(null);
+          console.log(error);
+        }
+        if (data) {
+          setDataKurir(data);
+          setFetchErrorKurir(null);
+        }
+    }
+
+    fetchDataPengiriman();
+    fetchDataKurir();
+  }, []);
+
   return (
-    <div>
-      <NavbarManajer />
+    <div className="page dashboard">
+      {fetchErrorKurir && (<p>{fetchErrorKurir}</p>)}
+      {fetchErrorPengiriman && (<p>{fetchErrorPengiriman}</p>)}
+      {dataKurir && dataPengiriman && (
+        <div>
+        <NavbarManajer />
       <div className="pengiriman-co">
         <h4 className="text-center text-danger p-3"></h4>
         <div className="card-container mx-auto my-5">
@@ -68,11 +96,13 @@ function DashboardManajer() {
           </div>
         </div>
       </div>
+        </div>
+      )}
     </div>
   );
 }
 
-function CardPengiriman() {
+function CardPengiriman(props) {
   return (
     <Card className="text-center w-25 col-lg-4 mx-auto my-auto">
       <Card.Img variant="top" src="..\src\assets\Sansevieria.png"></Card.Img>
@@ -85,22 +115,6 @@ function CardPengiriman() {
     </Card>
   );
 }
-
-// function CardPengiriman({DataPengiriman}) {
-//   return (
-//     <Card className="text-center w-25 col-lg-4 mx-auto my-auto">
-//       <Card.Img variant="top" src="..\src\assets\Sansevieria.png"></Card.Img>
-//       <Card.Header>Sansevieria</Card.Header>
-//       <Card.Body>
-//         <Card.Title>DataPengiriman.Penerima</Card.Title>
-//         <Card.Text>DataPengiriman.Alamat</Card.Text>
-//         <Card.Text>DataPengiriman.Kurir</Card.Text>
-//         <Card.Text>DataPengiriman.NoTelp</Card.Text>
-//         <Button variant="primary">Lihat Detail</Button>
-//       </Card.Body>
-//     </Card>
-//   );
-// }
 
 function CardKurir() {
   return (
