@@ -43,26 +43,33 @@ function DashboardKurir() {
 				.eq('username', username)
 
 			setNamaKurir(data[0].nama_lengkap)
+			console.log(username);
+
+			const fetchDataPengiriman = async () => {
+				const { data, error } = await supabase
+				  .from('dataPengiriman')
+				  .select()
+				  .eq('kurir', username)
+		  
+				  if (error) {
+					setFetchErrorPengiriman('Could not fetch dataPengiriman');
+					setDataPengiriman(null);
+					console.log(error);
+				  }
+				  if (data) {
+					setDataPengiriman(data);
+					setFetchErrorPengiriman(null);
+				  }
+
+				console.log(data);
+			  }
+			
+			  fetchDataPengiriman();
 		}
 
-		const fetchDataPengiriman = async () => {
-			const { data, error } = await supabase
-			  .from('dataPengiriman')
-			  .select()
-	  
-			  if (error) {
-				setFetchErrorPengiriman('Could not fetch dataPengiriman');
-				setDataPengiriman(null);
-				console.log(error);
-			  }
-			  if (data) {
-				setDataPengiriman(data);
-				setFetchErrorPengiriman(null);
-			  }
-		  }
+		
 
 		fetchData();
-		fetchDataPengiriman();
 	}, [])
 
 	return (
