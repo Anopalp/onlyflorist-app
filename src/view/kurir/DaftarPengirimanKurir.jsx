@@ -9,13 +9,22 @@ function DaftarPengirimanKurir() {
 	const [selectedId, setSelectedId] = useState(null)
 
 	useEffect(() => {
-		// sekarang masih ngambil data keseluruhan
 		const fetchData = async () => {
 			const {
-				data: { session },
+				data: {
+					session: {
+						user: { email },
+					},
+				},
 			} = await supabase.auth.getSession()
 
-			const { data, error } = await supabase.from('dataPengiriman').select()
+			const username = email.split('@')[0]
+			console.log(username)
+
+			const { data, error } = await supabase
+				.from('dataPengiriman')
+				.select()
+				.eq('kurir', username)
 
 			if (error) {
 				console.log(error)
