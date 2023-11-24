@@ -1,10 +1,7 @@
 import supabase from '../../config/supabaseClient'
 import { useEffect, useState } from 'react'
-// import { Link } from 'react-router-dom'
-// import { IconButton } from '@mui/material'
-// import { Info } from '@mui/icons-material'
-import Read from './Read'
 import { Form, FormControl, InputGroup } from 'react-bootstrap'
+import ReadRiwayat from './ReadRiwayat'
 import NavbarManajer from '../NavbarManajer'
 
 function RiwayatPengirimanManajer() {
@@ -52,7 +49,7 @@ function RiwayatPengirimanManajer() {
 					{/* <div className='d-flex justify-content-end '>
                     <Link to="/create" className='btn btn-success'>Add +</Link>
                 </div> */}
-					{isDetail ? <Read close={closePopUp} id={selectedId} /> : null}
+					{isDetail ? <ReadRiwayat close={closePopUp} id={selectedId} /> : null}
 
 					<Form>
 						<InputGroup className='my-3'>

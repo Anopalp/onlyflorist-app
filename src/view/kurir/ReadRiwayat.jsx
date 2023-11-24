@@ -81,10 +81,12 @@ function ReadRiwayat({ close, id }) {
 						<strong>Kurir</strong>
 						<output className='form-control'>{data.kurir}</output>
 					</div>
-					<div className='mb-3'>
-						<strong>Laporan Masalah</strong>
-						<output className='form-control'>{data.laporan_masalah}</output>
-					</div>
+					{data.laporanMasalah != null ? (
+						<div className='mb-3'>
+							<strong>Laporan Masalah</strong>
+							<output className='form-control'>{data.laporan_masalah}</output>
+						</div>
+					) : null}
 					<div className='mb-4'>
 						<strong>Status Pengiriman</strong>
 						<output className='form-control'>Delivered</output>

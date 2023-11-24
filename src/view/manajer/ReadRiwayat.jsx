@@ -1,37 +1,22 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
 import supabase from '../../config/supabaseClient'
 
-function Read({ close, id }) {
-	const [data, setData] = useState({})
-	// const { id } = useParams()
+function ReadRiwayat({ close, id }) {
+	const [data, setData] = useState([])
+	// const {id} = useParams();
 
 	useEffect(() => {
 		const fetchData = async () => {
 			const { data, error } = await supabase
-				.from('dataPengiriman')
+				.from('dataRiwayat')
 				.select()
 				.eq('id', id)
 			if (error) console.log(error)
-
-			if (data[0].laporan_masalah) {
-				const laporan = await supabase
-					.from('dataLaporan')
-					.select('laporan_masalah')
-					.eq('id', data[0].laporan_masalah)
-
-				setData({
-					...data[0],
-					laporan_masalah: laporan.data[0].laporan_masalah,
-					id_laporan: data[0].laporan_masalah,
-				})
-			} else {
-				setData(...data)
-			}
+			setData(...data)
 		}
 
 		fetchData()
-	}, [id])
+	}, [])
 
 	return (
 		<div className='modal d-block' tabIndex='-1' role='dialog' id='modalSignin'>
@@ -87,18 +72,13 @@ function Read({ close, id }) {
 					) : null}
 					<div className='mb-4'>
 						<strong>Status Pengiriman</strong>
-						<output className='form-control'>{data.status_pengiriman}</output>
+						<output className='form-control'>Delivered</output>
 					</div>
-					<Link
-						to={'/daftar-pengiriman-kurir/update/' + id}
-						className='btn btn-lg rounded-3 btn-success'
-					>
-						Edit
-					</Link>
+					{/* <Link to={'/daftar-pengiriman-kurir/update/' + id} className='btn btn-lg rounded-3 btn-success'>Edit</Link> */}
 				</div>
 			</div>
 		</div>
 	)
 }
 
-export default Read
+export default ReadRiwayat
