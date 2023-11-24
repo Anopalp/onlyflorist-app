@@ -109,7 +109,7 @@ function Update() {
 	return (
 		<div>
 			<NavbarKurir />
-			<div className='d-flex w-100 vh-100 justify-content-center align-items-center bg-light'>
+			<div className='d-flex w-100 vh-100 justify-content-center align-items-center'>
 				<div className='w-50 border bg-white shadow p-3 rounded-4'>
 					<div className='modal-header p-1 pb-4 border-bottom-0'>
 						<h1 className='fw-bold mb-0 fs-2 text-center'>Update Pengiriman</h1>

@@ -44,6 +44,11 @@ function App() {
 	}, [])
 
 	return (
+		<div style={{
+			backgroundImage:'url(./src/assets/bg-3.jpg)',
+			height: "100%",
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat"}}>
 		<BrowserRouter>
 			{/* <NavbarLogin /> */}
 			{/* <NavbarKurir /> */}
@@ -97,6 +102,8 @@ function App() {
 			</Routes>
 			<Footer />
 		</BrowserRouter>
+		</div>
+		
 	)
 }
 
