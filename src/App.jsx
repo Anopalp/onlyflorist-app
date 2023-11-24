@@ -49,7 +49,6 @@ function App() {
 	return (
 		<BrowserRouter>
 			{/* <NavbarLogin /> */}
-			<NavbarManajer />
 			{/* <NavbarKurir /> */}
 			<Routes>
 				<Route path='/' element={<Login session={session} />}></Route>

@@ -25,11 +25,21 @@ function AddAccount() {
   const [alamat, setAddress] = useState('');
   const [image, setImage] = useState(null);
   const [formError, setFormError] = useState(null);
+  const [showFormModal, setShowFormModal] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+
+  const handleShowFormModal = () => setShowFormModal(true);
+  const handleCloseFormModal = () => setShowFormModal(false);
+  const handleShowSuccessModal = () => setShowSuccessModal(true);
+  const handleCloseSuccessModal = () => {
+    setShowSuccessModal(false);
+    window.location.reload();
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    if (!username || !password || !nama_lengkap || !nik || !tanggal_lahir || !phone || !alamat) {
+    if (!username || !password || !nama_lengkap || !nik || !tanggal_lahir || !phone || !alamat || !image) {
       setFormError('Please fill in all the fields correctly');
       return
     }
@@ -62,7 +72,8 @@ function AddAccount() {
         }
       )
 
-      window.location.reload();
+      handleCloseFormModal();
+      handleShowSuccessModal();
     } catch (error) {
       console.log(error);
       setFormError('Please fill in all the fields correctly');
@@ -79,24 +90,25 @@ function AddAccount() {
     <div>
       <div className="button d-flex my-2">
         <div className="bleft"></div>
-        <button className="btn btn-primary ms-auto px-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button className="btn btn-primary ms-auto px-4" onClick={() => setShowFormModal(true)}>
           Add +
         </button>
         <div className="bright"></div>
       </div>
 
       <div
-        className="modal fade"
-        id="exampleModal"
+        className={`modal fade ${showFormModal ? "show" : ""}`}
+        style={{ display: showFormModal ? "block" : "none" }}
+        id="addAccountModal"
         tabIndex="-1"
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
+        aria-labelledby="formModalLabel"
+        aria-hidden={!showFormModal}
       >
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
               
-              <h1 className="modal-title fs-5" id="exampleModalLabel">
+              <h1 className="modal-title fs-5" id="formModalLabel">
                 Tambah Akun
               </h1>
 
@@ -105,13 +117,12 @@ function AddAccount() {
                 className="btn-close"
                 data-bs-dismiss="modal"
                 aria-label="Close"
+                onClick={handleCloseFormModal}
               ></button>
             </div>
             
             <form onSubmit={handleSubmit}>
               <div className="modal-body">
-              
-
                 <div className="form-floating mb-3">
                   <input 
                     type="text" 
@@ -200,13 +211,45 @@ function AddAccount() {
                 <button type="submit" className="btn btn-primary">
                   Save Account
                 </button>
-
               </div>
-              
-              {formError && <p className="error">{formError}</p>}
             </form>
+          </div>
+        </div>
+      </div>
 
-            
+      {/* Success Modal */}
+      <div
+        className={`modal fade ${showSuccessModal ? "show" : ""}`}
+        style={{ display: showSuccessModal ? "block" : "none" }}
+        tabIndex="-1"
+        aria-labelledby="successModalLabel"
+        aria-hidden={!showSuccessModal}
+      >
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="successModalLabel">
+                Success!
+              </h5>
+              <button
+                type="button"
+                className="btn-close"
+                onClick={handleCloseSuccessModal}
+                aria-label="Close"
+              ></button>
+            </div>
+            <div className="modal-body">
+              Account has been created and added to the database.
+            </div>
+            <div className="modal-footer">
+              <button
+                type="button"
+                className="btn btn-secondary"
+                onClick={handleCloseSuccessModal}
+              >
+                Close
+              </button>
+            </div>
           </div>
         </div>
       </div>

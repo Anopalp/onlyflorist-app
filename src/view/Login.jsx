@@ -8,11 +8,16 @@ import { Navigate } from 'react-router-dom'
 import supabase from '../config/supabaseClient'
 import { Auth } from '@supabase/auth-ui-react'
 import { ThemeSupa } from '@supabase/auth-ui-shared'
+import NavbarLogin from './NavbarLogin'
 
 export default function Login({ session }) {
 	if (!session) {
 		return (
-			<Container component='main' maxWidth='xs'>
+			<div>
+				<NavbarLogin/>
+
+				<Container component='main' maxWidth='xs'>
+				
 				<CssBaseline />
 				<Box
 					sx={{
@@ -44,9 +49,10 @@ export default function Login({ session }) {
 					/>
 				</Box>
 			</Container>
+			</div>
 		)
 	} else {
-		if (session.user.email === 'samueltan086@gmail.com') {
+		if (session.user.email === 'manajer@fakemail.com') {
 			return <Navigate to='/dashboard-manajer' />
 		} else {
 			return <Navigate to='/dashboard-kurir' />

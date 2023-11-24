@@ -3,11 +3,13 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import NavbarManajer from "../NavbarManajer";
 // import "react-multi-carousel/lib/styles.css";
 
 function DashboardManajer() {
   return (
     <div>
+      <NavbarManajer/>
       <div className="pengiriman-co">
         <h4 class="text-center text-danger p-3"></h4>
         <div class="card-container mx-auto my-5">
