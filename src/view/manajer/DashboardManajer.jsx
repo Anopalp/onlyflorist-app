@@ -75,15 +75,14 @@ function DashboardManajer() {
           </div>
         </div>
       </div>
+
       <div className="akun-co">
         <div className="card-container mx-auto my-5">
           <div className="mx-5">
             <h2 className="text-center">Akun Kurir</h2>
           </div>
-          <div className="row">
-            <CardKurir />
-            <CardKurir />
-            <CardKurir />
+          <div className="row card-row">
+            <CardKurir dataKurir={dataKurir} />
             <div className="buttons-container mt-3">
               <div>
                 <Link to={"/daftar-kurir"}>
@@ -105,13 +104,27 @@ function CardPengiriman(props) {
   const dataPengiriman = Array.isArray(props.dataPengiriman) ? props.dataPengiriman : [];
 
   if (dataPengiriman.length === 0) {
-    <div>
-      
-    </div>
+    return(
+      <div>
+        <h2 style={{color: 'white'}}>Tidak Ada Pengiriman</h2>
+      </div>
+    );
   } else if (dataPengiriman.length <= 3) {
     return (
       <div>
-
+        <div className="card-row" style={{display: 'flex'}}>
+          {dataPengiriman.map((pengiriman) => (
+          <Card key={pengiriman.id} className="text-center  mx-auto my-auto" style={{ width: '260px' }}>
+            <Card.Img variant="top" src="..\src\assets\Sansevieria.png"></Card.Img>
+            <Card.Header>{pengiriman.jenis_bunga}</Card.Header>
+            <Card.Body>
+              <Card.Title>{pengiriman.kurir}</Card.Title>
+              <Card.Text>{pengiriman.alamat_pengiriman}</Card.Text>
+              <Button variant="primary">Lihat Detail</Button>
+            </Card.Body>
+            </Card>
+          ))}
+        </div>
       </div>
     );
 
@@ -122,21 +135,21 @@ function CardPengiriman(props) {
   return (
     <div>
       <div className="card-row" style={{display: 'flex'}}>
-      {displayedData.map((pengiriman) => (
-        <Card key={pengiriman.id} className="text-center  mx-auto my-auto" style={{ width: '260px' }}>
-          <Card.Img variant="top" src="..\src\assets\Sansevieria.png"></Card.Img>
-          <Card.Header>{pengiriman.jenis_bunga}</Card.Header>
-          <Card.Body>
-            <Card.Title>{pengiriman.kurir}</Card.Title>
-            <Card.Text>{pengiriman.alamat_pengiriman}</Card.Text>
-            <Button variant="primary">Lihat Detail</Button>
-          </Card.Body>
-        </Card>
-      ))}
-    </div>
+        {displayedData.map((pengiriman) => (
+          <Card key={pengiriman.id} className="text-center  mx-auto my-auto" style={{ width: '260px' }}>
+            <Card.Img variant="top" src="..\src\assets\Sansevieria.png"></Card.Img>
+            <Card.Header>{pengiriman.jenis_bunga}</Card.Header>
+            <Card.Body>
+              <Card.Title>{pengiriman.kurir}</Card.Title>
+              <Card.Text>{pengiriman.alamat_pengiriman}</Card.Text>
+              <Button variant="primary">Lihat Detail</Button>
+            </Card.Body>
+            </Card>
+        ))}
+      </div>
     </div>
     
-  );
+    );
   }
 
   // Display only the first three items
@@ -144,17 +157,54 @@ function CardPengiriman(props) {
 }
 
 
-function CardKurir() {
-  return (
-    <Card className="text-center w-25 col-lg-4 mx-auto my-auto">
-      <Card.Header>Suharmono</Card.Header>
-      <Card.Body>
-        <Card.Title>08273627469</Card.Title>
-        <Card.Text>Jl. Tubagus Islamiyyah no.77</Card.Text>
-        <Button variant="primary">Lihat Detail</Button>
-      </Card.Body>
-    </Card>
-  );
+function CardKurir(props) {
+  const dataKurir = Array.isArray(props.dataKurir) ? props.dataKurir : [];
+
+  if (dataKurir.length === 0) {
+    return(
+      <div>
+
+      </div>
+    );
+  } else if (dataKurir.length <= 3) {
+    return (
+      <div>
+        <div className="card-row" style={{display: 'flex'}}>
+          {dataKurir.map((kurir) => (
+            <Card key={kurir.username} className="text-center mx-auto my-auto" style={{ width: '230px' }}>
+              <Card.Header>{dataKurir.nama_lengkap}</Card.Header>
+              <Card.Body>
+              <Card.Title>{dataKurir.phone}</Card.Title>
+              <Card.Text>{dataKurir.alamat}</Card.Text>
+              <Button variant="primary">Lihat Detail</Button>
+              </Card.Body>
+            </Card>
+          ))}
+        </div>
+      </div>
+    );
+  } else {
+    const displayedData = dataKurir.slice(0, 3);
+
+    return (
+      <div>
+        <div className="card-row" style={{display: 'flex'}}>
+          {displayedData.map((kurir) => (
+            <Card key={kurir.username} className="text-center mx-auto my-auto" style={{ width: '230px' }}>
+              <Card.Header>{kurir.nama_lengkap}</Card.Header>
+              <Card.Body>
+              <Card.Title>{kurir.phone}</Card.Title>
+              <Card.Text>{kurir.alamat}</Card.Text>
+              <Button variant="primary">Lihat Detail</Button>
+              </Card.Body>
+            </Card>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  
 }
 
 export default DashboardManajer;
