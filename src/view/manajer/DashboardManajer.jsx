@@ -64,9 +64,7 @@ function DashboardManajer() {
             <h2>Pengiriman teratas</h2>
           </div>
           <div className="row">
-            <CardPengiriman />
-            <CardPengiriman />
-            <CardPengiriman />
+            <CardPengiriman dataPengiriman={dataPengiriman} />
             <div className="buttons-container mt-3">
               <div>
                 <Link to={"/daftar-pengiriman-manajer"}>
@@ -103,18 +101,32 @@ function DashboardManajer() {
 }
 
 function CardPengiriman(props) {
+  // Ensure that props.dataPengiriman is an array before trying to access its properties
+  const dataPengiriman = Array.isArray(props.dataPengiriman) ? props.dataPengiriman : [];
+
+  // Display only the first three items
+  const displayedData = dataPengiriman.slice(0, 3);
+
   return (
-    <Card className="text-center w-25 col-lg-4 mx-auto my-auto">
-      <Card.Img variant="top" src="..\src\assets\Sansevieria.png"></Card.Img>
-      <Card.Header>Sansevieria</Card.Header>
-      <Card.Body>
-        <Card.Title>Alam Bar</Card.Title>
-        <Card.Text>Jl. Tubagus Islamiyyah no.15 Sumarno 086542728273</Card.Text>
-        <Button variant="primary">Lihat Detail</Button>
-      </Card.Body>
-    </Card>
+    <div>
+      <div style={{display: 'flex'}}>
+      {displayedData.map((pengiriman) => (
+        <Card key={pengiriman.id} className="text-center  mx-auto my-auto" style={{ width: '260px' }}>
+          <Card.Img variant="top" src="..\src\assets\Sansevieria.png"></Card.Img>
+          <Card.Header>{pengiriman.jenis_bunga}</Card.Header>
+          <Card.Body>
+            <Card.Title>{pengiriman.kurir}</Card.Title>
+            <Card.Text>{pengiriman.alamat_pengiriman}</Card.Text>
+            <Button variant="primary">Lihat Detail</Button>
+          </Card.Body>
+        </Card>
+      ))}
+    </div>
+    </div>
+    
   );
 }
+
 
 function CardKurir() {
   return (
