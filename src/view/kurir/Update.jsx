@@ -40,7 +40,11 @@ async function updateStatusPengiriman(id, status) {
 		}
 		delete riwayat.waktu_dibuat
 		delete riwayat.status_pengiriman
-		const { error } = await supabase.from('dataRiwayat').insert([riwayat])
+		const tambahRiwayat = await supabase
+			.from('dataRiwayat')
+			.insert([riwayat])
+			.select()
+		console.log(tambahRiwayat)
 	} else {
 		const { data, error } = await supabase
 			.from('dataPengiriman')
@@ -103,87 +107,89 @@ function Update() {
 	}
 
 	return (
-	<div>
-		<NavbarKurir/>
-		<div className='d-flex w-100 vh-100 justify-content-center align-items-center bg-light'>
-			<div className='w-50 border bg-white shadow p-3 rounded-4'>
-				<div className='modal-header p-1 pb-4 border-bottom-0'>
-					<h1 className='fw-bold mb-0 fs-2 text-center'>Update Pengiriman</h1>
-					<Link to={'/daftar-pengiriman-kurir/'}>
-						<button
-							type='button'
-							className='btn-close'
-							data-bs-dismiss='modal'
-							aria-label='Close'
-							onClick={close}
-						></button>
-					</Link>
-				</div>
-				<form onSubmit={handleUpdate}>
-					<div className='mb-3'>
-						<strong htmlFor='id'>ID Pengiriman</strong>
-						<output className='form-control'>{values.id}</output>
+		<div>
+			<NavbarKurir />
+			<div className='d-flex w-100 vh-100 justify-content-center align-items-center bg-light'>
+				<div className='w-50 border bg-white shadow p-3 rounded-4'>
+					<div className='modal-header p-1 pb-4 border-bottom-0'>
+						<h1 className='fw-bold mb-0 fs-2 text-center'>Update Pengiriman</h1>
+						<Link to={'/daftar-pengiriman-kurir/'}>
+							<button
+								type='button'
+								className='btn-close'
+								data-bs-dismiss='modal'
+								aria-label='Close'
+								onClick={close}
+							></button>
+						</Link>
 					</div>
-					<div className='mb-3'>
-						<strong htmlFor='alamatPengiriman'>Alamat Pengiriman</strong>
-						<output className='form-control'>{values.alamat_pengiriman}</output>
-					</div>
-					<div className='mb-3'>
-						<strong htmlFor='jenisBunga'>Jenis Bunga</strong>
-						<output className='form-control'>{values.jenis_bunga}</output>
-					</div>
-					<div className='mb-3'>
-						<strong htmlFor='noTelpPelanggan'>No. Telp Pelanggan</strong>
-						<output className='form-control'>
-							{values.nomor_telp_pelanggan}
-						</output>
-					</div>
-					<div className='mb-3'>
-						<strong htmlFor='catatan'>Catatan</strong>
-						<output className='form-control'>
-							{values.catatan ? values.catatan : '-'}
-						</output>
-					</div>
-					<div className='mb-3'>
-						<strong htmlFor='kurir'>Kurir</strong>
-						<output className='form-control'>{values.kurir}</output>
-					</div>
-					<div className='mb-3'>
-						<strong htmlFor='laporanMasalah'>Laporan Masalah</strong>
-						<input
-							type='text'
-							name='name'
-							className='form-control'
-							placeholder='Masukkan laporan masalah'
-							value={values.laporan_masalah || ''}
-							onChange={(e) =>
-								setValues({ ...values, laporan_masalah: e.target.value })
-							}
-						/>
-					</div>
-					<div className='mb-4'>
-						<strong htmlFor='status'>Status Pengiriman</strong>
-						{/* <input type="text" name='status' className='form-control' placeholder='Masukkan Status'
+					<form onSubmit={handleUpdate}>
+						<div className='mb-3'>
+							<strong htmlFor='id'>ID Pengiriman</strong>
+							<output className='form-control'>{values.id}</output>
+						</div>
+						<div className='mb-3'>
+							<strong htmlFor='alamatPengiriman'>Alamat Pengiriman</strong>
+							<output className='form-control'>
+								{values.alamat_pengiriman}
+							</output>
+						</div>
+						<div className='mb-3'>
+							<strong htmlFor='jenisBunga'>Jenis Bunga</strong>
+							<output className='form-control'>{values.jenis_bunga}</output>
+						</div>
+						<div className='mb-3'>
+							<strong htmlFor='noTelpPelanggan'>No. Telp Pelanggan</strong>
+							<output className='form-control'>
+								{values.nomor_telp_pelanggan}
+							</output>
+						</div>
+						<div className='mb-3'>
+							<strong htmlFor='catatan'>Catatan</strong>
+							<output className='form-control'>
+								{values.catatan ? values.catatan : '-'}
+							</output>
+						</div>
+						<div className='mb-3'>
+							<strong htmlFor='kurir'>Kurir</strong>
+							<output className='form-control'>{values.kurir}</output>
+						</div>
+						<div className='mb-3'>
+							<strong htmlFor='laporanMasalah'>Laporan Masalah</strong>
+							<input
+								type='text'
+								name='name'
+								className='form-control'
+								placeholder='Masukkan laporan masalah'
+								value={values.laporan_masalah || ''}
+								onChange={(e) =>
+									setValues({ ...values, laporan_masalah: e.target.value })
+								}
+							/>
+						</div>
+						<div className='mb-4'>
+							<strong htmlFor='status'>Status Pengiriman</strong>
+							{/* <input type="text" name='status' className='form-control' placeholder='Masukkan Status'
                     value={values.statusPengiriman}
                     onChange={e => setValues({...values, statusPengiriman: e.target.value})}/> */}
-						<select
-							name='status'
-							className='form-select'
-							value={values.status_pengiriman}
-							onChange={(e) =>
-								setValues({ ...values, status_pengiriman: e.target.value })
-							}
-						>
-							{options.map((option) => (
-								<option key={option.mark}>{option.label}</option>
-							))}
-						</select>
-					</div>
-					<button className='btn btn-lg rounded-3 btn-success'>Update</button>
-				</form>
+							<select
+								name='status'
+								className='form-select'
+								value={values.status_pengiriman}
+								onChange={(e) =>
+									setValues({ ...values, status_pengiriman: e.target.value })
+								}
+							>
+								{options.map((option) => (
+									<option key={option.mark}>{option.label}</option>
+								))}
+							</select>
+						</div>
+						<button className='btn btn-lg rounded-3 btn-success'>Update</button>
+					</form>
+				</div>
 			</div>
 		</div>
-	</div>
 	)
 }
 
