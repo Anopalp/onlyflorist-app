@@ -192,11 +192,44 @@ function CardPengiriman(props) {
                 <Card.Title>{pengiriman.kurir}</Card.Title>
                 <Card.Text>{pengiriman.alamat_pengiriman}</Card.Text>
                 <Card.Text>{pengiriman.nomor_telp_pelanggan}</Card.Text>
-                <Button className="btn btn-primary rounded-5">Lihat Detail</Button>
+                <Button 
+                  variant="primary" 
+                  onClick={() => handleShowModal(pengiriman)}
+                >
+                  Lihat Detail
+                </Button>
               </Card.Body>
             </Card>
           ))}
         </div>
+
+        {/* Modal Trigger */}
+        <Modal
+          show={showModal}
+          onHide={() => setShowModal(false)}
+          backdrop="static"
+          keyboard={false}
+        >
+          <Modal.Header closeButton>
+            <Modal.Title>Pengiriman Detail</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            {/* Render details of selectedPengiriman */}
+            {selectedPengiriman && (
+              <div>
+                <p>Jenis Bunga: {selectedPengiriman.jenis_bunga}</p>
+                <p>Kurir: {selectedPengiriman.kurir}</p>
+                {/* Add other details as needed */}
+              </div>
+            )}
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={() => setShowModal(false)}>
+              Close
+            </Button>
+            {/* Add additional buttons if needed */}
+          </Modal.Footer>
+        </Modal>
       </div>
     );
   }
