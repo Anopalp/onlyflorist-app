@@ -35,8 +35,8 @@ function NavbarKurir() {
 				<Link to='/riwayat-pengiriman-kurir'>
 					<a>Riwayat</a>
 				</Link>
-				<Link to='/account-kurir'>
-					<a>Profil</a>
+				<Link to='/about'>
+					<a>About</a>
 				</Link>
 				<button className='nav-btn nav-close-btn' onClick={showNavbar}>
 					<Close style={{ fontSize: 30 }} />
