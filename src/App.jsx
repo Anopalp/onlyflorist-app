@@ -12,7 +12,8 @@ import Update from './view/kurir/Update'
 import LayarDaftarKurir from './view/manajer/LayarDaftarKurir'
 import DaftarPengirimanManajer from './view/manajer/DaftarPengirimanManajer'
 import RiwayatPengirimanManajer from './view/manajer/RiwayatPengirimanManajer'
-import About from './view/About'
+import AboutManajer from './view/AboutManajer'
+import AboutKurir from './view/AboutKurir'
 import AccountKurir from './view/kurir/AccountKurir'
 
 import supabase from './config/supabaseClient'
@@ -97,7 +98,8 @@ function App() {
 				></Route>
 				<Route path='/daftar-kurir' element={<LayarDaftarKurir />}></Route>
 				<Route path='/account-kurir' element={<AccountKurir />}></Route>
-				<Route path='/about' element={<About />}></Route>
+				<Route path='/about-manajer' element={<AboutManajer />}></Route>
+				<Route path='/about-kurir' element={<AboutKurir />}></Route>
 				{/* <Route path='/account-kurir' element={<AccountKurir />}></Route> */}
 			</Routes>
 			<Footer />

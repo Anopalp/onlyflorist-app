@@ -35,7 +35,7 @@ function NavbarKurir() {
 				<Link to='/riwayat-pengiriman-kurir'>
 					<a>Riwayat</a>
 				</Link>
-				<Link to='/about'>
+				<Link to='/about-kurir'>
 					<a>About</a>
 				</Link>
 				<button className='nav-btn nav-close-btn' onClick={showNavbar}>

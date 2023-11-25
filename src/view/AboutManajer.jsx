@@ -3,7 +3,7 @@ import "./aboutStyles.css";
 import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 import NavbarManajer from "./NavbarManajer";
 
-function About() {
+function AboutManajer() {
   return (
     <section className="pb-5 mb-5">
       <NavbarManajer />
@@ -203,4 +203,4 @@ function About() {
   );
 }
 
-export default About;
+export default AboutManajer;
