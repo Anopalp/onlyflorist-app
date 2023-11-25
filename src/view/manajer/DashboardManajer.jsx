@@ -57,14 +57,14 @@ function DashboardManajer() {
             <h4 className="text-center text-danger p-3"></h4>
             <div className="card-container mx-auto my-5">
               <div className="mx-5">
-                <h2>Pengiriman teratas</h2>
+                <h3 className="my-2" style={{ fontSize: 30, fontWeight: "bold" , color:"aliceblue"}}>Pengiriman teratas</h3>
               </div>
               <div className="row card-row">
                 <CardPengiriman dataPengiriman={dataPengiriman} />
                 <div className="buttons-container mt-3">
                   <div>
                     <Link to={"/daftar-pengiriman-manajer"}>
-                      <Button variant="secondary"> See More </Button>
+                      <Button className="btn btn-dark rounded-5"> See More </Button>
                     </Link>
                   </div>
                 </div>
@@ -75,14 +75,14 @@ function DashboardManajer() {
           <div className="akun-co">
             <div className="card-container mx-auto my-5">
               <div className="mx-5">
-                <h2 className="text-center">Akun Kurir</h2>
+              <h3 className="my-2" style={{ fontSize: 30, fontWeight: "bold" , color:"aliceblue"}}>Akun Kurir</h3>
               </div>
               <div className="row card-row">
                 <CardKurir dataKurir={dataKurir} />
                 <div className="buttons-container mt-3">
                   <div>
                     <Link to={"/daftar-kurir"}>
-                      <Button variant="secondary"> See More </Button>
+                      <Button className="btn btn-dark rounded-5"> See More </Button>
                     </Link>
                   </div>
                 </div>
@@ -125,7 +125,7 @@ function CardPengiriman(props) {
               <Card.Body>
                 <Card.Title>{pengiriman.kurir}</Card.Title>
                 <Card.Text>{pengiriman.alamat_pengiriman}</Card.Text>
-                <Button variant="primary">Lihat Detail</Button>
+                <Button className="btn btn-primary rounded-5">Lihat Detail</Button>
               </Card.Body>
             </Card>
           ))}
@@ -153,7 +153,7 @@ function CardPengiriman(props) {
                 <Card.Title>{pengiriman.kurir}</Card.Title>
                 <Card.Text>{pengiriman.alamat_pengiriman}</Card.Text>
                 <Card.Text>{pengiriman.nomor_telp_pelanggan}</Card.Text>
-                <Button variant="primary">Lihat Detail</Button>
+                <Button className="btn btn-primary rounded-5">Lihat Detail</Button>
               </Card.Body>
             </Card>
           ))}
@@ -186,7 +186,7 @@ function CardKurir(props) {
               <Card.Body>
                 <Card.Title>{kurir.phone}</Card.Title>
                 <Card.Text>{kurir.alamat}</Card.Text>
-                <Button variant="primary">Lihat Detail</Button>
+                <Button className="btn btn-primary rounded-5">Lihat Detail</Button>
               </Card.Body>
             </Card>
           ))}
@@ -209,7 +209,7 @@ function CardKurir(props) {
               <Card.Body>
                 <Card.Title>{kurir.phone}</Card.Title>
                 <Card.Text>{kurir.alamat}</Card.Text>
-                <Button variant="primary">Lihat Detail</Button>
+                <Button className="btn btn-primary rounded-5">Lihat Detail</Button>
               </Card.Body>
             </Card>
           ))}
