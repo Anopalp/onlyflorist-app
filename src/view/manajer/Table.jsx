@@ -102,14 +102,14 @@ function InnerData({ user, onUserClick }) {
   const { username, nama_lengkap, nik, phone, image_url } = user;
 
   return (
-    <tr className="table-row" onClick={() => onUserClick(user)}>
+    <tr className="table-row align-middle" onClick={() => onUserClick(user)}>
       <td>
         <img className="profpic" src={image_url} alt="profile picture"></img>
       </td>
-      <td>{username}</td>
-      <td>{nama_lengkap}</td>
-      <td>{nik}</td>
-      <td>{phone}</td>
+      <td style={{color: "#29335c"}}>{username}</td>
+      <td style={{color: "#29335c"}}>{nama_lengkap}</td>
+      <td style={{color: "#29335c"}}>{nik}</td>
+      <td style={{color: "#29335c"}}>{phone}</td>
     </tr>
   );
 }
@@ -132,7 +132,7 @@ function Table({ dataKurir }) {
       ))}
 
       <div className='d-flex flex-column justify-content-left align-items-center vh-100'>
-				<h3 className='my-3' style={{fontSize:30, fontWeight: 'bold'}}>Daftar Kurir</h3>
+				<h3 className="my-3" style={{ fontSize: 30, fontWeight: "bold", color:"#29335c" }}>Daftar Kurir</h3>
 					<div className='z-0 w-50 h-75 rounded-4 bg-light border shadow px-2 table-responsive'>
             <AddAccount/>
             {/* <div className="table"> */}
@@ -140,10 +140,10 @@ function Table({ dataKurir }) {
                 <thead className='bg-light sticky-top align-middle'>
                   <tr className='table-primary'>
                     <th scope="col"></th>
-                    <th scope="col">Username</th>
-                    <th scope="col">Nama Lengkap</th>
-                    <th scope="col">NIK</th>
-                    <th scope="col">Phone</th>
+                    <th scope="col" style={{color: "#29335c"}}>Username</th>
+                    <th scope="col" style={{color: "#29335c"}}>Nama Lengkap</th>
+                    <th scope="col" style={{color: "#29335c"}}>NIK</th>
+                    <th scope="col" style={{color: "#29335c"}}>Phone</th>
                   </tr>
                 </thead>
 

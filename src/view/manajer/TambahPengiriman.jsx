@@ -109,7 +109,7 @@ const TambahPengiriman = ({ close, setData }) => {
       <div className="modal-dialog modal-dialog-centered" role="document">
         <div className="modal-content rounded-4 shadow">
           <div className="modal-header p-1 pb-4 border-bottom-0">
-            <h1 className="fw-bold mb-0 fs-2">Tambah pengiriman</h1>
+            <h3 style={{ fontSize: 30, fontWeight: "bold", color:"#29335c" }}>Tambah Pengiriman</h3>
             <CloseButton
               data-bs-dismiss="modal"
               aria-label="Close"
@@ -127,7 +127,7 @@ const TambahPengiriman = ({ close, setData }) => {
                 value={jenisBunga}
                 onChange={(e) => setJenisBunga(e.target.value)}
               />
-              <label htmlFor="jenis-bunga">Jenis Bunga</label>
+              <label htmlFor="jenis-bunga" style={{ color:"#29335c" }}>Jenis Bunga</label>
             </div>
             <div className="form-floating mb-3">
               <input
@@ -138,7 +138,7 @@ const TambahPengiriman = ({ close, setData }) => {
                 value={alamatPengiriman}
                 onChange={(e) => setAlamatPengiriman(e.target.value)}
               />
-              <label htmlFor="alamat">Alamat Pengiriman</label>
+              <label htmlFor="alamat" style={{ color:"#29335c" }}>Alamat Pengiriman</label>
             </div>
             <div className="form-floating mb-3">
               <input
@@ -149,7 +149,7 @@ const TambahPengiriman = ({ close, setData }) => {
                 value={noTelpPelanggan}
                 onChange={(e) => setNoTelpPelanggan(e.target.value)}
               />
-              <label htmlFor="no-telp">No. Telp Pelanggan</label>
+              <label htmlFor="no-telp" style={{ color:"#29335c" }}>No. Telp Pelanggan</label>
             </div>
             <div className="form-floating mb-4">
               <input
@@ -160,10 +160,10 @@ const TambahPengiriman = ({ close, setData }) => {
                 value={catatan}
                 onChange={(e) => setCatatan(e.target.value)}
               />
-              <label htmlFor="catatan">Catatan Pengiriman</label>
+              <label htmlFor="catatan" style={{ color:"#29335c" }}>Catatan Pengiriman</label>
             </div>
             <div className="my-3">
-              <label>Simpan Gambar</label>
+              <label style={{ color:"#29335c" }}>Simpan Gambar</label>
               <br />
               <input type="file" id="fileInput2" onChange={handleImageChange} />
             </div>
