@@ -44,7 +44,7 @@ function NavbarManajer() {
         <button className="nav-btn nav-close-btn" onClick={showNavbar}>
           <Close style={{ fontSize: 30 }} />
         </button>
-        <button className="btn btn-danger" onClick={handleLogout}>
+        <button className="px-3 btn btn-danger rounded-5" onClick={handleLogout}>
           Logout
         </button>
       </nav>
