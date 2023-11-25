@@ -52,13 +52,13 @@ const DaftarPengirimanManajer = () => {
     <div>
       <NavbarManajer />
       <div className="d-flex flex-column justify-content-left align-items-center vh-100">
-        <h3 className="my-3" style={{ fontSize: 30, fontWeight: "bold" }}>
+        <h3 className="my-3" style={{ fontSize: 30, fontWeight: "bold", color:"#29335c" }}>
           Daftar Pengiriman
         </h3>
         <div className="z-0 w-75 h-75 rounded-4 bg-light border shadow px-2 table-responsive">
           <div className="d-flex my-2">
             <button
-              className="btn btn-primary ms-auto px-4"
+              className="btn btn-primary ms-auto px-4 rounded-5"
               onClick={handleTambahPengiriman}
             >
               Add +
@@ -86,12 +86,12 @@ const DaftarPengirimanManajer = () => {
           <table className="table table-hover table-striped">
             <thead className="bg-light sticky-top align-middle">
               <tr className="table-primary">
-                <th>ID</th>
-                <th>Alamat Pengiriman</th>
-                <th>Bunga</th>
-                <th>Telp</th>
-                <th>Kurir</th>
-                <th>Status Pengiriman</th>
+                <th style={{color: "#29335c"}}>ID</th>
+                <th style={{color: "#29335c"}}>Alamat Pengiriman</th>
+                <th style={{color: "#29335c"}}>Bunga</th>
+                <th style={{color: "#29335c"}}>Telp</th>
+                <th style={{color: "#29335c"}}>Kurir</th>
+                <th style={{color: "#29335c"}}>Status Pengiriman</th>
               </tr>
             </thead>
             <tbody>
@@ -114,12 +114,12 @@ const DaftarPengirimanManajer = () => {
                     key={data.id}
                     onClick={() => handleDetailPengiriman(data.id)}
                   >
-                    <td>{data.id}</td>
-                    <td>{data.alamat_pengiriman}</td>
-                    <td>{data.jenis_bunga}</td>
-                    <td>{data.nomor_telp_pelanggan}</td>
-                    <td>{data.dataKurir.nama_lengkap}</td>
-                    <td>{data.status_pengiriman}</td>
+                    <td style={{color: "#29335c"}}>{data.id}</td>
+                    <td style={{color: "#29335c"}}>{data.alamat_pengiriman}</td>
+                    <td style={{color: "#29335c"}}>{data.jenis_bunga}</td>
+                    <td style={{color: "#29335c"}}>{data.nomor_telp_pelanggan}</td>
+                    <td style={{color: "#29335c"}}>{data.dataKurir.nama_lengkap}</td>
+                    <td style={{color: "#29335c"}}>{data.status_pengiriman}</td>
                   </tr>
                 ))}
             </tbody>

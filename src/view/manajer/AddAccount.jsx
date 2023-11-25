@@ -88,7 +88,7 @@ function AddAccount() {
     <div>
       <div className="button d-flex my-2">
         <div className="bleft"></div>
-        <button className="btn btn-primary ms-auto px-4" onClick={() => setShowFormModal(true)}>
+        <button className="btn btn-primary ms-auto px-4 rounded-5" onClick={() => setShowFormModal(true)}>
           Add +
         </button>
         <div className="bright"></div>
@@ -106,7 +106,7 @@ function AddAccount() {
           <div className="modal-content">
             <div className="modal-header">
               
-              <h1 className="modal-title fs-5" id="formModalLabel">
+              <h1 className="modal-title fs-5" style={{ fontWeight: "bold", color:"#29335c" }} id="formModalLabel">
                 Tambah Akun
               </h1>
 
@@ -129,7 +129,7 @@ function AddAccount() {
                     placeholder="Username"
                     onChange={(e) => setUsername(e.target.value)}
                     />
-                  <label htmlFor="username">Username</label>
+                  <label htmlFor="username" style={{ color:"#29335c" }}>Username</label>
                 </div>
 
                 <div className="form-floating mb-3">
@@ -140,7 +140,7 @@ function AddAccount() {
                     placeholder="Password"
                     onChange={(e) => setPassword(e.target.value)}
                     />
-                  <label htmlFor="password">Password</label>
+                  <label htmlFor="password" style={{ color:"#29335c" }}>Password</label>
                 </div>
 
                 <div className="form-floating mb-3">
@@ -151,7 +151,7 @@ function AddAccount() {
                     placeholder="Nama Lengkap"
                     onChange={(e) => setNamaLengkap(e.target.value)}
                     />
-                  <label htmlFor="nama_lengkap">Nama Lengkap</label>
+                  <label htmlFor="nama_lengkap" style={{ color:"#29335c" }}>Nama Lengkap</label>
                 </div>
 
                 <div className="form-floating mb-3">
@@ -162,12 +162,12 @@ function AddAccount() {
                     placeholder="NIK"
                     onChange={(e) => setNik(e.target.value)}
                     />
-                  <label htmlFor="nik">NIK</label>
+                  <label htmlFor="nik" style={{ color:"#29335c" }}>NIK</label>
                 </div>
 
                 <div>
-                  <label htmlFor="tanggal_lahir">Tanggal Lahir</label>
-                  <input className="mb-3" type="date"
+                  <label htmlFor="tanggal_lahir" style={{ color:"#29335c" }}>Tanggal Lahir</label>
+                  <input className="mb-3 mx-3" type="date"
                   onChange={(e) => setTanggalLahir(e.target.value)}
                   />
                 </div>
@@ -180,7 +180,7 @@ function AddAccount() {
                     placeholder="Phone"
                     onChange={(e) => setPhone(e.target.value)}
                   />
-                  <label htmlFor="phone">Phone</label>
+                  <label htmlFor="phone" style={{ color:"#29335c" }}>Phone</label>
                 </div>
 
                 <div className="form-floating">
@@ -191,12 +191,13 @@ function AddAccount() {
                     placeholder="Alamat"
                     onChange={(e) => setAddress(e.target.value)}
                   />
-                  <label htmlFor="alamat">Alamat</label>
+                  <label htmlFor="alamat" style={{ color:"#29335c" }}>Alamat</label>
                 </div>
 
                 <div>
-                  <label>Simpan Gambar</label>
+                  <label style={{ color:"#29335c" }}>Simpan Gambar</label>
                   <input
+                    className="mx-2"
                     type="file"
                     id="fileInput"
                     onChange={handleImageChange}
@@ -206,7 +207,7 @@ function AddAccount() {
               </div>
 
               <div className="modal-footer">
-                <button type="submit" className="btn btn-primary">
+                <button type="submit" className="btn btn-primary rounded-5">
                   Save Account
                 </button>
               </div>
