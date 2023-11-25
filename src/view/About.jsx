@@ -10,14 +10,14 @@ function About() {
       <div className="container">
         <div className="row">
           <div className="col-md-12 text-center">
-            <h3 className="section-title" style={{ fontWeight: "bolder" }}>
+            <h3 className="section-title" style={{ fontSize: 40, fontWeight: "bold", color:"#29335c" }}>
               The OnlyFlorist
             </h3>
             <br />
             <img src="/onlyflorist.svg" alt="" />
             <br />
             <br />
-            <p className="section-subtitle">
+            <p className="section-subtitle" style={{ fontSize: 20, color:"#29335c" }}>
               OnlyFlorist merupakan sebuah aplikasi manajemen pengiriman bunga
               yang dibuat atas dasar kebutuhan manajer pemilik sebuah toko bunga
               terkenal di Kota Bandung. OnlyFlorist bekerja dengan mengolah data
@@ -27,10 +27,10 @@ function About() {
               OnlyFlorist dapat membantu manajer pemiliki toko bunga ini.
             </p>
 
-            <h3 className="section-title" style={{ fontWeight: "bolder" }}>
+            <h3 className="section-title" style={{ fontSize: 40, fontWeight: "bold", color:"#29335c" }}>
               The Team Behind OnlyFlorist
             </h3>
-            <p className="section-subtitle">
+            <p className="section-subtitle" style={{ fontSize: 20, color:"#29335c" }}>
               OnlyFlorist dibuat dari semangat yang dalam untuk menciptakan
               solusi yang memecahkan masalah dan meningkatkan hidup sehari-hari.
               Kami percaya bahwa kolaborasi yang kuat dan kerja tim yang
@@ -50,11 +50,11 @@ function About() {
                 className="team-img"
                 alt="pic"
               />
-              <h4 style={{ fontWeight: "bold" }}>IBNU KHAIRY</h4>
+              <h4 style={{ fontWeight: "bold", color:"#29335c" }}>IBNU KHAIRY</h4>
               <div className="team-info">
-                <p>FE</p>
+                <p style={{ fontWeight: "bold", color:"#29335c" }}>FE</p>
               </div>
-              <p>
+              <p style={{ color:"#29335c" }}>
                 Seorang mahasiswa Sistem dan Teknologi Informasi ITB yang selalu
                 penasaran dan ingin mencoba hal baru
               </p>
@@ -89,11 +89,11 @@ function About() {
                 className="team-img"
                 alt="pic"
               />
-              <h4 style={{ fontWeight: "bold" }}>ALIEFNAUFAL</h4>
+              <h4 style={{ fontWeight: "bold", color:"#29335c" }}>ALIEFNAUFAL</h4>
               <div className="team-info">
-                <p>BE</p>
+                <p style={{ fontWeight: "bold", color:"#29335c" }}>BE</p>
               </div>
-              <p>
+              <p style={{ color:"#29335c" }}>
                 Seorang mahasiswa Sistem dan Teknologi Informasi ITB yang
                 kritis, fokus dan suka mengulik informasi baru
               </p>
@@ -127,11 +127,11 @@ function About() {
                 className="team-img"
                 alt="pic"
               />
-              <h4 style={{ fontWeight: "bold" }}>SAMUEL ERIC</h4>
+              <h4 style={{ fontWeight: "bold", color:"#29335c" }}>SAMUEL ERIC</h4>
               <div className="team-info">
-                <p>BE</p>
+                <p style={{ fontWeight: "bold", color:"#29335c" }}>BE</p>
               </div>
-              <p>
+              <p style={{ color:"#29335c" }}>
                 Seorang mahasiswa Sistem dan Teknologi Informasi ITB yang gigih
                 dalam bekerja, optimis serta disiplin terhadap waktu.
               </p>
@@ -166,11 +166,11 @@ function About() {
                 className="team-img"
                 alt="pic"
               />
-              <h4 style={{ fontWeight: "bold" }}>LUTHFI HANIF</h4>
+              <h4 style={{ fontWeight: "bold", color:"#29335c" }}>LUTHFI HANIF</h4>
               <div className="team-info">
-                <p>FE</p>
+                <p style={{ fontWeight: "bold", color:"#29335c" }}>FE</p>
               </div>
-              <p>
+              <p style={{ color:"#29335c" }}>
                 Seorang mahasiswa Sistem dan Teknologi Informasi ITB yang
                 kreatif, empati serta bersemangat dalam bekerja.
               </p>
