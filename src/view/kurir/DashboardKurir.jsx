@@ -5,6 +5,7 @@ import "../dashboardStyles.css";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import Modal from "react-bootstrap/Modal";
 import NavbarKurir from "../NavbarKurir";
 import supabase from "../../config/supabaseClient";
 
@@ -25,6 +26,9 @@ function DashboardKurir() {
   const [fetchErrorPengiriman, setFetchErrorPengiriman] = useState(null);
   const [dataPengiriman, setDataPengiriman] = useState(null);
   const [namaKurir, setNamaKurir] = useState("");
+  const [showModal, setShowModal] = useState(false);
+  const [selectedPengiriman, setSelectedPengiriman] = useState(null);
+
   useEffect(() => {
     const fetchData = async () => {
       const {
@@ -69,6 +73,10 @@ function DashboardKurir() {
 
     fetchData();
   }, []);
+  const handleShowModal = (pengiriman) => {
+    setSelectedPengiriman(pengiriman);
+    setShowModal(true);
+  };
 
   return (
     <div className="page dashboard">
@@ -86,13 +94,17 @@ function DashboardKurir() {
               </div>
 
               <div className="row card-row">
-                <CardPengirimanKurir dataPengiriman={dataPengiriman} />
+                <CardPengirimanKurir
+                  dataPengiriman={dataPengiriman}
+                  handleShowModal={handleShowModal}
+                />
                 <div className="buttons-container mt-3">
                   <div>
-                    <Link to={"/daftar-pengiriman-kurir"}>
-                      <Button variant="outline-light" className="rounded-5">
-                        See More
-                      </Button>
+                    <Link
+                      to={"/daftar-pengiriman-kurir"}
+                      class="btn btn-secondary"
+                    >
+                      See More
                     </Link>
                   </div>
                   {/* <a href='/daftar-pengiriman-kurir' class="btn btn-primary">see more</a> */}
@@ -102,6 +114,34 @@ function DashboardKurir() {
           </div>
         </div>
       )}
+
+      {/* Modal Trigger */}
+      <Modal
+        show={showModal}
+        onHide={() => setShowModal(false)}
+        backdrop="static"
+        keyboard={false}
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>Pengiriman Detail</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          {/* Render details of selectedPengiriman */}
+          {selectedPengiriman && (
+            <div>
+              <p>Jenis Bunga: {selectedPengiriman.jenis_bunga}</p>
+              <p>Kurir: {selectedPengiriman.kurir}</p>
+              {/* Add other details as needed */}
+            </div>
+          )}
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => setShowModal(false)}>
+            Close
+          </Button>
+          {/* Add additional buttons if needed */}
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 }
@@ -124,7 +164,7 @@ function CardPengirimanKurir(props) {
           {dataPengiriman.map((pengiriman) => (
             <Card
               key={pengiriman.id}
-              className="text-center  mx-auto my-auto"
+              className="text-center mx-auto my-auto"
               style={{ width: "260px" }}
             >
               <Card.Img variant="top" src={pengiriman.image_url}></Card.Img>
@@ -132,7 +172,12 @@ function CardPengirimanKurir(props) {
               <Card.Body>
                 <Card.Title>{pengiriman.kurir}</Card.Title>
                 <Card.Text>{pengiriman.alamat_pengiriman}</Card.Text>
-                <Button variant="primary">Lihat Detail</Button>
+                <Button
+                  variant="primary"
+                  onClick={() => props.handleShowModal(pengiriman)}
+                >
+                  Lihat Detail
+                </Button>
               </Card.Body>
             </Card>
           ))}
@@ -156,7 +201,12 @@ function CardPengirimanKurir(props) {
               <Card.Body>
                 <Card.Title>{pengiriman.kurir}</Card.Title>
                 <Card.Text>{pengiriman.alamat_pengiriman}</Card.Text>
-                <Button variant="primary">Lihat Detail</Button>
+                <Button
+                  variant="primary"
+                  onClick={() => props.handleShowModal(pengiriman)}
+                >
+                  Lihat Detail
+                </Button>
               </Card.Body>
             </Card>
           ))}
