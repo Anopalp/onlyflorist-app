@@ -180,10 +180,10 @@ function CardKurir(props) {
               className="text-center mx-auto my-auto"
               style={{ width: "230px" }}
             >
-              <Card.Header>{dataKurir.nama_lengkap}</Card.Header>
+              <Card.Header>{kurir.nama_lengkap}</Card.Header>
               <Card.Body>
-                <Card.Title>{dataKurir.phone}</Card.Title>
-                <Card.Text>{dataKurir.alamat}</Card.Text>
+                <Card.Title>{kurir.phone}</Card.Title>
+                <Card.Text>{kurir.alamat}</Card.Text>
                 <Button variant="primary">Lihat Detail</Button>
               </Card.Body>
             </Card>
