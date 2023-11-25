@@ -58,14 +58,25 @@ function DashboardManajer() {
             <h4 className="text-center text-danger p-3"></h4>
             <div className="card-container mx-auto my-5">
               <div className="mx-5">
-                <h3 className="my-2" style={{ fontSize: 30, fontWeight: "bold" , color:"aliceblue"}}>Pengiriman teratas</h3>
+                <h3
+                  className="my-2"
+                  style={{
+                    fontSize: 30,
+                    fontWeight: "bold",
+                    color: "aliceblue",
+                  }}
+                >
+                  Pengiriman teratas
+                </h3>
               </div>
               <div className="row card-row">
                 <CardPengiriman dataPengiriman={dataPengiriman} />
                 <div className="buttons-container mt-3">
                   <div>
                     <Link to={"/daftar-pengiriman-manajer"}>
-                      <Button className="btn btn-dark rounded-5"> See More </Button>
+                      <Button variant="outline-light" className="rounded-5">
+                        See More
+                      </Button>
                     </Link>
                   </div>
                 </div>
@@ -76,14 +87,25 @@ function DashboardManajer() {
           <div className="akun-co">
             <div className="card-container mx-auto my-5">
               <div className="mx-5">
-              <h3 className="my-2" style={{ fontSize: 30, fontWeight: "bold" , color:"aliceblue"}}>Akun Kurir</h3>
+                <h3
+                  className="my-2"
+                  style={{
+                    fontSize: 30,
+                    fontWeight: "bold",
+                    color: "aliceblue",
+                  }}
+                >
+                  Akun Kurir
+                </h3>
               </div>
               <div className="row card-row">
                 <CardKurir dataKurir={dataKurir} />
                 <div className="buttons-container mt-3">
                   <div>
                     <Link to={"/daftar-kurir"}>
-                      <Button className="btn btn-dark rounded-5"> See More </Button>
+                      <Button variant="outline-light" className="rounded-5">
+                        See More
+                      </Button>
                     </Link>
                   </div>
                 </div>
@@ -126,15 +148,15 @@ function CardPengiriman(props) {
               className="text-center  mx-auto my-auto"
               style={{ width: "260px" }}
             >
-              <Card.Img
-                variant="top"
-                src={pengiriman.image_url}
-              ></Card.Img>
+              <Card.Img variant="top" src={pengiriman.image_url}></Card.Img>
               <Card.Header>{pengiriman.jenis_bunga}</Card.Header>
               <Card.Body>
                 <Card.Title>{pengiriman.kurir}</Card.Title>
                 <Card.Text>{pengiriman.alamat_pengiriman}</Card.Text>
-                <Button variant="primary" onClick={() => handleShowModal(pengiriman)}>
+                <Button
+                  variant="primary"
+                  onClick={() => handleShowModal(pengiriman)}
+                >
                   Lihat Detail
                 </Button>
               </Card.Body>
@@ -143,32 +165,31 @@ function CardPengiriman(props) {
         </div>
 
         <Modal
-        show={showModal}
-        onHide={() => setShowModal(false)}
-        backdrop="static"
-        keyboard={false}
-      >
-        <Modal.Header closeButton>
-          <Modal.Title>Pengiriman Detail</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          {/* Render details of selectedPengiriman */}
-          {selectedPengiriman && (
-            <div>
-              <p>Jenis Bunga: {selectedPengiriman.jenis_bunga}</p>
-              <p>Kurir: {selectedPengiriman.kurir}</p>
-              {/* Add other details as needed */}
-            </div>
-          )}
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={() => setShowModal(false)}>
-            Close
-          </Button>
-          {/* Add additional buttons if needed */}
-        </Modal.Footer>
-      </Modal>
-
+          show={showModal}
+          onHide={() => setShowModal(false)}
+          backdrop="static"
+          keyboard={false}
+        >
+          <Modal.Header closeButton>
+            <Modal.Title>Pengiriman Detail</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            {/* Render details of selectedPengiriman */}
+            {selectedPengiriman && (
+              <div>
+                <p>Jenis Bunga: {selectedPengiriman.jenis_bunga}</p>
+                <p>Kurir: {selectedPengiriman.kurir}</p>
+                {/* Add other details as needed */}
+              </div>
+            )}
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={() => setShowModal(false)}>
+              Close
+            </Button>
+            {/* Add additional buttons if needed */}
+          </Modal.Footer>
+        </Modal>
       </div>
     );
   } else {
@@ -183,17 +204,14 @@ function CardPengiriman(props) {
               className="text-center  mx-auto my-auto"
               style={{ width: "260px" }}
             >
-              <Card.Img
-                variant="top"
-                src={pengiriman.image_url}
-              ></Card.Img>
+              <Card.Img variant="top" src={pengiriman.image_url}></Card.Img>
               <Card.Header>{pengiriman.jenis_bunga}</Card.Header>
               <Card.Body>
                 <Card.Title>{pengiriman.kurir}</Card.Title>
                 <Card.Text>{pengiriman.alamat_pengiriman}</Card.Text>
                 <Card.Text>{pengiriman.nomor_telp_pelanggan}</Card.Text>
-                <Button 
-                  variant="primary" 
+                <Button
+                  variant="primary"
                   onClick={() => handleShowModal(pengiriman)}
                 >
                   Lihat Detail
@@ -241,7 +259,7 @@ function CardKurir(props) {
   const dataKurir = Array.isArray(props.dataKurir) ? props.dataKurir : [];
   const [showModal, setShowModal] = useState(false);
   const [selectedKurir, setSelectedKurir] = useState(null);
-  
+
   const handleShowModal = (kurir) => {
     setSelectedKurir(kurir);
     setShowModal(true);
@@ -263,7 +281,7 @@ function CardKurir(props) {
               <Card.Body>
                 <Card.Title>{kurir.phone}</Card.Title>
                 <Card.Text>{kurir.alamat}</Card.Text>
-                <Button 
+                <Button
                   variant="primary"
                   onClick={() => handleShowModal(kurir)}
                 >
@@ -302,7 +320,6 @@ function CardKurir(props) {
             {/* Add additional buttons if needed */}
           </Modal.Footer>
         </Modal>
-
       </div>
     );
   } else {
@@ -321,7 +338,7 @@ function CardKurir(props) {
               <Card.Body>
                 <Card.Title>{kurir.phone}</Card.Title>
                 <Card.Text>{kurir.alamat}</Card.Text>
-                <Button 
+                <Button
                   variant="primary"
                   onClick={() => handleShowModal(kurir)}
                 >
@@ -360,7 +377,6 @@ function CardKurir(props) {
             {/* Add additional buttons if needed */}
           </Modal.Footer>
         </Modal>
-
       </div>
     );
   }
