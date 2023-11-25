@@ -51,8 +51,8 @@ function DaftarPengirimanKurir() {
 		<div>
 			<NavbarKurir />
 			<div className='d-flex flex-column justify-content-left align-items-center vh-100'>
-				<h3 className='my-3' style={{ fontSize: 30, fontWeight: 'bold' }}>
-					Daftar Pengiriman
+				<h3 className="my-3" style={{ fontSize: 30, fontWeight: "bold", color:"#29335c" }}>
+				Daftar Pengiriman
 				</h3>
 				<div className='z-0 w-75 h-75 rounded-4 bg-light border shadow px-2 table-responsive'>
 					{/* <div className='d-flex justify-content-end '>
@@ -62,38 +62,25 @@ function DaftarPengirimanKurir() {
 					<table className='table table-striped table-hover'>
 						<thead className='bg-light sticky-top align-middle'>
 							<tr className='table-primary'>
-								<th>ID</th>
-								<th>Alamat Pelanggan</th>
-								<th>Bunga</th>
-								<th>Telp</th>
-								<th>Catatan</th>
-								<th>Status Pengiriman</th>
-								<th></th>
+								<th style={{color: "#29335c"}}>ID</th>
+								<th style={{color: "#29335c"}}>Alamat Pelanggan</th>
+								<th style={{color: "#29335c"}}>Bunga</th>
+								<th style={{color: "#29335c"}}>Telp</th>
+								<th style={{color: "#29335c"}}>Catatan</th>
+								<th style={{color: "#29335c"}}>Status Pengiriman</th>
 							</tr>
 						</thead>
 						<tbody>
 							{data.map((d) => (
 								<tr key={d.id} onClick={() => handleDetailPengiriman(d.id)}>
-									<td>{d.id}</td>
-									<td>{d.alamat_pengiriman}</td>
-									<td>{d.jenis_bunga}</td>
-									<td>{d.nomor_telp_pelanggan}</td>
-									<td style={{ width: '600px' }}>
+									<td style={{color: "#29335c"}}>{d.id}</td>
+									<td style={{color: "#29335c"}}>{d.alamat_pengiriman}</td>
+									<td style={{color: "#29335c"}}>{d.jenis_bunga}</td>
+									<td style={{color: "#29335c"}}>{d.nomor_telp_pelanggan}</td>
+									<td style={{ width: '600px', color: "#29335c" }}>
 										{d.catatan ? d.catatan : '-'}
 									</td>
-									<td>{d.status_pengiriman}</td>
-									<td>
-										{/* <Link to={'/read/' + (d.id)} className='btn btn-sm btn-info me-2'>Detail</Link>
-                                        <Link to={'/update/' + (d.id)} className='btn btn-sm btn-primary me-2'>Edit</Link> */}
-										{/* <Link to={'/daftar-pengiriman-kurir/read/' + (d.id)}>
-                                            <IconButton
-                                            color="black"
-                                            style={{display: 'flex', justifyContent: 'right'}}>
-                                            <Info>
-                                            </Info>
-                                            </IconButton>
-                                        </Link> */}
-									</td>
+									<td style={{color: "#29335c"}}>{d.status_pengiriman}</td>
 								</tr>
 							))}
 						</tbody>

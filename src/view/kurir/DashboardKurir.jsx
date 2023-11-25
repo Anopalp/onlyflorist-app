@@ -85,12 +85,20 @@ function DashboardKurir() {
         <div>
           <div>
             <NavbarKurir />
-            <h4 className="text-center p-3 mt-4">
+            <h3 className="text-center p-3 mt-4" style={{ fontSize: 30, fontWeight: "bold", color: "#29335c" }}>
               Halo {namaKurir}, selamat {getWaktu()}!
-            </h4>
+            </h3>
             <div className="card-container w-75 mx-auto my-4">
               <div>
-                <h2>Pengiriman teratas</h2>
+                <h3
+                  className="my-2"
+                  style={{
+                    fontSize: 30,
+                    fontWeight: "bold",
+                    color: "aliceblue",
+                  }}
+                >Pengiriman teratas
+                </h3>
               </div>
 
               <div className="row card-row">
@@ -100,11 +108,10 @@ function DashboardKurir() {
                 />
                 <div className="buttons-container mt-3">
                   <div>
-                    <Link
-                      to={"/daftar-pengiriman-kurir"}
-                      class="btn btn-secondary"
-                    >
-                      See More
+                    <Link to={"/daftar-pengiriman-kurir"}>
+                      <Button variant="outline-light" className="rounded-5">
+                        See More
+                      </Button>
                     </Link>
                   </div>
                   {/* <a href='/daftar-pengiriman-kurir' class="btn btn-primary">see more</a> */}
