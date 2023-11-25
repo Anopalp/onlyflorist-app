@@ -66,18 +66,18 @@ function DashboardManajer() {
                     color: "aliceblue",
                   }}
                 >
-                  Pengiriman teratas
+                  {dataPengiriman.length ? 'Pengiriman teratas' : 'Tidak ada pengiriman'}
                 </h3>
               </div>
               <div className="row card-row">
                 <CardPengiriman dataPengiriman={dataPengiriman} />
                 <div className="buttons-container mt-3">
                   <div>
-                    <Link to={"/daftar-pengiriman-manajer"}>
+                    {dataPengiriman.length ? <Link to={"/daftar-pengiriman-manajer"}>
                       <Button variant="outline-light" className="rounded-5">
                         See More
                       </Button>
-                    </Link>
+                    </Link> : null}
                   </div>
                 </div>
               </div>
@@ -135,7 +135,7 @@ function CardPengiriman(props) {
   if (dataPengiriman.length === 0) {
     return (
       <div>
-        <h2 style={{ color: "white" }}>Tidak Ada Pengiriman</h2>
+        
       </div>
     );
   } else if (dataPengiriman.length <= 3) {
