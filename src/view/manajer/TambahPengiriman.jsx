@@ -65,8 +65,6 @@ const TambahPengiriman = ({ close, setData }) => {
         imageDataUrl = await readImageAsDataURL(image);
       }
 
-      console.log(imageDataUrl);
-
       const pengiriman = await supabase.from("dataPengiriman").select();
       const daftarPengiriman = pengiriman.data;
       const kurirTersantai = await findKurirTersantai(daftarPengiriman);
@@ -94,6 +92,8 @@ const TambahPengiriman = ({ close, setData }) => {
         setData((oldData) => [...oldData, ...data]);
         close();
       }
+
+      window.location.reload();
     };
 
     fetchData();
