@@ -119,7 +119,7 @@ function CardPengiriman(props) {
             >
               <Card.Img
                 variant="top"
-                src="..\src\assets\Sansevieria.png"
+                src={pengiriman.image_url}
               ></Card.Img>
               <Card.Header>{pengiriman.jenis_bunga}</Card.Header>
               <Card.Body>
@@ -146,7 +146,7 @@ function CardPengiriman(props) {
             >
               <Card.Img
                 variant="top"
-                src="..\src\assets\Sansevieria.png"
+                src={pengiriman.image_url}
               ></Card.Img>
               <Card.Header>{pengiriman.jenis_bunga}</Card.Header>
               <Card.Body>
@@ -167,6 +167,8 @@ function CardPengiriman(props) {
 
 function CardKurir(props) {
   const dataKurir = Array.isArray(props.dataKurir) ? props.dataKurir : [];
+
+  // console.log(dataKurir);
 
   if (dataKurir.length === 0) {
     return <div></div>;

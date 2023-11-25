@@ -5,14 +5,14 @@ import NavbarManajer from "./NavbarManajer";
 
 function About() {
   return (
-    <section className="section-white">
+    <section className="pb-5 mb-5">
       <NavbarManajer />
       <div className="container">
         <div className="row">
           <div className="col-md-12 text-center">
-            <h4 className="section-title" style={{ fontWeight: "bolder" }}>
+            <h3 className="section-title" style={{ fontWeight: "bolder" }}>
               The OnlyFlorist
-            </h4>
+            </h3>
             <br />
             <img src="/onlyflorist.svg" alt="" />
             <br />
@@ -120,7 +120,6 @@ function About() {
               </ul>
             </div>
           </div>
-
           <div className="col-sm-6 col-md-3">
             <div className="team-item">
               <img
