@@ -79,10 +79,10 @@ function DashboardKurir() {
 				<div>
 					<div>
 						<NavbarKurir />
-						<h4 className='text-center p-3'>
+						<h4 className='text-center p-3 mt-4'>
 							Halo {namaKurir}, selamat {getWaktu()}!
 						</h4>
-						<div className='card-container w-75 mx-auto my-5'>
+						<div className='card-container w-75 mx-auto my-4'>
 							<div>
 								<h2>Pengiriman teratas</h2>
 							</div>
@@ -112,8 +112,8 @@ function CardPengirimanKurir(props) {
 
   if (dataPengiriman.length === 0) {
     return(
-      <div>
-        <h2 style={{color: 'white'}}>Tidak Ada Pengiriman</h2>
+      <div style={{width: '260px', height: '280px'}}>
+        <h2 style={{color: 'white', overflow: 'visible'}}></h2>
       </div>
     );
   } else if (dataPengiriman.length <= 3) {
@@ -122,7 +122,7 @@ function CardPengirimanKurir(props) {
         <div className="card-row" style={{display: 'flex'}}>
           {dataPengiriman.map((pengiriman) => (
           <Card key={pengiriman.id} className="text-center  mx-auto my-auto" style={{ width: '260px' }}>
-            <Card.Img variant="top" src="..\src\assets\Sansevieria.png"></Card.Img>
+            <Card.Img variant="top" src={pengiriman.image_url}></Card.Img>
             <Card.Header>{pengiriman.jenis_bunga}</Card.Header>
             <Card.Body>
               <Card.Title>{pengiriman.kurir}</Card.Title>
@@ -144,7 +144,7 @@ function CardPengirimanKurir(props) {
       <div className="card-row" style={{display: 'flex'}}>
         {displayedData.map((pengiriman) => (
           <Card key={pengiriman.id} className="text-center  mx-auto my-auto" style={{ width: '260px' }}>
-            <Card.Img variant="top" src="..\src\assets\Sansevieria.png"></Card.Img>
+            <Card.Img variant="top" src={pengiriman.image_url}></Card.Img>
             <Card.Header>{pengiriman.jenis_bunga}</Card.Header>
             <Card.Body>
               <Card.Title>{pengiriman.kurir}</Card.Title>

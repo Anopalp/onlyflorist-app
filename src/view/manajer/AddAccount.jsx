@@ -51,8 +51,6 @@ function AddAccount() {
         imageDataUrl = await readImageAsDataURL(image);
       }
 
-      console.log(imageDataUrl);
-
       const { data, error } = await supabase
       .from('dataKurir')
       .insert([{username, password, nama_lengkap, nik, phone, alamat, tanggal_lahir, image_url: imageDataUrl}])
