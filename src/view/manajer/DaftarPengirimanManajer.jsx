@@ -51,7 +51,7 @@ const DaftarPengirimanManajer = () => {
   return (
     <div>
       <NavbarManajer />
-      <div className="d-flex flex-column justify-content-left align-items-center bg-light vh-100">
+      <div className="d-flex flex-column justify-content-left align-items-center vh-100">
         <h3 className="my-3" style={{ fontSize: 30, fontWeight: "bold" }}>
           Daftar Pengiriman
         </h3>
