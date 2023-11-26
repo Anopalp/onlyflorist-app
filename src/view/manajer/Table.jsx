@@ -63,25 +63,32 @@ function CustomModal({ user }) {
 
             <div className="profile-data">
               <p>
-                <strong>Username:</strong> {username}
+                <strong style={{ color:"#29335c" }}>Username</strong> 
+                <output className='form-control' style={{ color:"#29335c" }}>{username}</output>
               </p>
               <p>
-                <strong>Password:</strong> {password}
+                <strong style={{ color:"#29335c" }}>Password</strong> 
+                <output className='form-control' style={{ color:"#29335c" }}>{password}</output>
               </p>
               <p>
-                <strong>Nama Lengkap:</strong> {nama_lengkap}
+                <strong style={{ color:"#29335c" }}>Nama Lengkap</strong> 
+                <output className='form-control' style={{ color:"#29335c" }}>{nama_lengkap}</output>
               </p>
               <p>
-                <strong>NIK:</strong> {nik}
+                <strong style={{ color:"#29335c" }}>NIK</strong> 
+                <output className='form-control' style={{ color:"#29335c" }}>{nik}</output>
               </p>
               <p>
-                <strong>Tanggal Lahir:</strong> {tanggal_lahir}
+                <strong style={{ color:"#29335c" }}>Tanggal Lahir</strong> 
+                <output className='form-control' style={{ color:"#29335c" }}>{tanggal_lahir}</output>
               </p>
               <p>
-                <strong>Phone:</strong> {phone}
+                <strong style={{ color:"#29335c" }}>Phone</strong> 
+                <output className='form-control' style={{ color:"#29335c" }}>{phone}</output>
               </p>
               <p>
-                <strong>Alamat:</strong> {alamat}
+                <strong style={{ color:"#29335c" }}>Alamat</strong> 
+                <output className='form-control' style={{ color:"#29335c" }}>{alamat}</output>
               </p>
             </div>
           </div>
