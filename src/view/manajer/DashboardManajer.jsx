@@ -95,18 +95,18 @@ function DashboardManajer() {
                     color: "aliceblue",
                   }}
                 >
-                  Akun Kurir
+                  {dataKurir.length ? 'Akun kurir' : 'Tidak ada kurir'}
                 </h3>
               </div>
               <div className="row card-row">
                 <CardKurir dataKurir={dataKurir} />
                 <div className="buttons-container mt-3">
                   <div>
-                    <Link to={"/daftar-kurir"}>
+                    {dataKurir.length ? <Link to={"/daftar-kurir"}>
                       <Button variant="outline-light" className="rounded-5">
                         See More
                       </Button>
-                    </Link>
+                    </Link> : null}
                   </div>
                 </div>
               </div>
@@ -135,7 +135,7 @@ function CardPengiriman(props) {
   if (dataPengiriman.length === 0) {
     return (
       <div>
-        
+
       </div>
     );
   } else if (dataPengiriman.length <= 3) {
@@ -266,7 +266,11 @@ function CardKurir(props) {
   };
 
   if (dataKurir.length === 0) {
-    return <div></div>;
+    return (
+      <div>
+
+      </div>
+    );
   } else if (dataKurir.length <= 3) {
     return (
       <div>

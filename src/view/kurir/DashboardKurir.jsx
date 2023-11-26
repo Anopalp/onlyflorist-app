@@ -97,7 +97,8 @@ function DashboardKurir() {
                     fontWeight: "bold",
                     color: "aliceblue",
                   }}
-                >Pengiriman teratas
+                >
+                  {dataPengiriman.length ? 'Pengiriman teratas' : 'Tidak ada pengiriman'}
                 </h3>
               </div>
 
@@ -108,11 +109,11 @@ function DashboardKurir() {
                 />
                 <div className="buttons-container mt-3">
                   <div>
-                    <Link to={"/daftar-pengiriman-kurir"}>
+                    {dataPengiriman.length ? <Link to={"/daftar-pengiriman-kurir"}>
                       <Button variant="outline-light" className="rounded-5">
                         See More
                       </Button>
-                    </Link>
+                    </Link> : null}
                   </div>
                   {/* <a href='/daftar-pengiriman-kurir' class="btn btn-primary">see more</a> */}
                 </div>
@@ -160,8 +161,8 @@ function CardPengirimanKurir(props) {
 
   if (dataPengiriman.length === 0) {
     return (
-      <div style={{ width: "260px", height: "280px" }}>
-        <h2 style={{ color: "white", overflow: "visible" }}></h2>
+      <div>
+        
       </div>
     );
   } else if (dataPengiriman.length <= 3) {
