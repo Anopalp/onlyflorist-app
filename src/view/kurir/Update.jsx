@@ -27,7 +27,7 @@ async function updateLaporan(laporan, idPengiriman, idLaporan) {
 		.update({ laporan_masalah: laporanObj.id })
 		.eq('id', idPengiriman)
 
-	console.log(pengiriman)
+	console.log(pengiriman);
 }
 
 async function updateStatusPengiriman(id, status) {
