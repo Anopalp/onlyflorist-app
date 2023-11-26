@@ -16,7 +16,9 @@ function DashboardManajer() {
 
   useEffect(() => {
     const fetchDataPengiriman = async () => {
-      const { data, error } = await supabase.from("dataPengiriman").select();
+      const { data, error } = await supabase
+        .from("dataPengiriman")
+        .select('*, dataKurir (nama_lengkap)');
 
       if (error) {
         setFetchErrorPengiriman("Could not fetch dataPengiriman");
@@ -43,8 +45,10 @@ function DashboardManajer() {
       }
     };
 
-    fetchDataPengiriman();
+
     fetchDataKurir();
+    fetchDataPengiriman();
+    
   }, []);
 
   return (
@@ -209,7 +213,7 @@ function CardPengiriman(props) {
                 <div className='mb-3'>
                   <strong style={{ color:"#29335c" }}>Kurir</strong>
                   <output className='form-control' style={{ color:"#29335c" }}>
-                    {selectedPengiriman.kurir}
+                    {selectedPengiriman.dataKurir?.nama_lengkap}
                   </output>
                 </div>
                 {selectedPengiriman.laporanMasalah != null ? (
