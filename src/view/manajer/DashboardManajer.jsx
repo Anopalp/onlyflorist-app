@@ -134,7 +134,7 @@ function CardPengiriman(props) {
 
   if (dataPengiriman.length === 0) {
     return (
-      <div>
+      <div style={{ height: "30vh" }}>
         
       </div>
     );
