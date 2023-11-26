@@ -46,10 +46,6 @@ function Read({ close, id }) {
 						<strong style={{ color:"#29335c" }}>Alamat Pengiriman</strong>
 						<output className='form-control' style={{ color:"#29335c" }}>{data.alamat_pengiriman}</output>
 					</div>
-					{/* <div className='mb-3'>
-						<strong style={{ color:"#29335c" }}>Jenis Bunga</strong>
-						<output className='form-control' style={{ color:"#29335c" }}>{data.jenis_bunga}</output>
-					</div> */}
 					<div className='mb-3'>
 						<strong style={{ color:"#29335c" }}>No. Telp Pelanggan</strong>
 						<output className='form-control' style={{ color:"#29335c" }}>
@@ -78,7 +74,6 @@ function Read({ close, id }) {
 						<strong style={{ color:"#29335c" }}>Status Pengiriman</strong>
 						<output className='form-control' style={{ color:"#29335c" }}>{data.status_pengiriman}</output>
 					</div>
-					{/* <Link to={'/daftar-pengiriman-kurir/update/' + id} className='btn btn-lg rounded-3 btn-success'>Edit</Link> */}
 				</div>
 			</div>
 		</div>
