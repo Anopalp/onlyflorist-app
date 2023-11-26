@@ -57,6 +57,7 @@ async function updateStatusPengiriman(id, status) {
 function Update() {
 	// const [data, setData] = useState([])
 	const { id } = useParams()
+	const navigate = useNavigate()
 
 	const [values, setValues] = useState({})
 
@@ -66,8 +67,6 @@ function Update() {
 		{ label: 'Delivered', mark: 3 },
 		{ label: 'On-hold', mark: 4 },
 	]
-
-	const navigate = useNavigate()
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -104,6 +103,8 @@ function Update() {
 		}
 
 		updateData()
+
+		navigate('/daftar-pengiriman-kurir')
 	}
 
 	return (
@@ -112,7 +113,9 @@ function Update() {
 			<div className='d-flex w-100 vh-100 justify-content-center align-items-center'>
 				<div className='w-50 border bg-white shadow p-3 rounded-4'>
 					<div className='modal-header p-1 pb-4 border-bottom-0'>
-						<h3 style={{ fontSize: 30, fontWeight: "bold", color:"#29335c" }}>Update Pengiriman</h3>
+						<h3 style={{ fontSize: 30, fontWeight: 'bold', color: '#29335c' }}>
+							Update Pengiriman
+						</h3>
 						<Link to={'/daftar-pengiriman-kurir/'}>
 							<button
 								type='button'
@@ -124,47 +127,80 @@ function Update() {
 						</Link>
 					</div>
 					<form onSubmit={handleUpdate}>
-						<div className="d-flex align-items-center mb-4">
-							<img style={{ width:"120px", borderRadius:"50%" }} src={values.image_url} alt="profile picture"></img>
-							<h3 style={{ fontSize:30, fontWeight:"bold", color:"#29335c", marginLeft:"10%" }}>{values.jenis_bunga}</h3>
+						<div className='d-flex align-items-center mb-4'>
+							<img
+								style={{ width: '120px', borderRadius: '50%' }}
+								src={values.image_url}
+								alt='profile picture'
+							></img>
+							<h3
+								style={{
+									fontSize: 30,
+									fontWeight: 'bold',
+									color: '#29335c',
+									marginLeft: '10%',
+								}}
+							>
+								{values.jenis_bunga}
+							</h3>
 						</div>
 						<div className='mb-3'>
-							<strong htmlFor='id' style={{ color:"#29335c" }}>ID Pengiriman</strong>
-							<output className='form-control' style={{ color:"#29335c" }}>{values.id}</output>
+							<strong htmlFor='id' style={{ color: '#29335c' }}>
+								ID Pengiriman
+							</strong>
+							<output className='form-control' style={{ color: '#29335c' }}>
+								{values.id}
+							</output>
 						</div>
 						<div className='mb-3'>
-							<strong htmlFor='alamatPengiriman' style={{ color:"#29335c" }}>Alamat Pengiriman</strong>
-							<output className='form-control' style={{ color:"#29335c" }}>
+							<strong htmlFor='alamatPengiriman' style={{ color: '#29335c' }}>
+								Alamat Pengiriman
+							</strong>
+							<output className='form-control' style={{ color: '#29335c' }}>
 								{values.alamat_pengiriman}
 							</output>
 						</div>
 						<div className='mb-3'>
-							<strong htmlFor='jenisBunga' style={{ color:"#29335c" }}>Jenis Bunga</strong>
-							<output className='form-control' style={{ color:"#29335c" }}>{values.jenis_bunga}</output>
+							<strong htmlFor='jenisBunga' style={{ color: '#29335c' }}>
+								Jenis Bunga
+							</strong>
+							<output className='form-control' style={{ color: '#29335c' }}>
+								{values.jenis_bunga}
+							</output>
 						</div>
 						<div className='mb-3'>
-							<strong htmlFor='noTelpPelanggan' style={{ color:"#29335c" }}>No. Telp Pelanggan</strong>
-							<output className='form-control' style={{ color:"#29335c" }}>
+							<strong htmlFor='noTelpPelanggan' style={{ color: '#29335c' }}>
+								No. Telp Pelanggan
+							</strong>
+							<output className='form-control' style={{ color: '#29335c' }}>
 								{values.nomor_telp_pelanggan}
 							</output>
 						</div>
 						<div className='mb-3'>
-							<strong htmlFor='catatan' style={{ color:"#29335c" }}>Catatan</strong>
-							<output className='form-control' style={{ color:"#29335c" }}>
+							<strong htmlFor='catatan' style={{ color: '#29335c' }}>
+								Catatan
+							</strong>
+							<output className='form-control' style={{ color: '#29335c' }}>
 								{values.catatan ? values.catatan : '-'}
 							</output>
 						</div>
 						<div className='mb-3'>
-							<strong htmlFor='kurir' style={{ color:"#29335c" }}>Kurir</strong>
-							<output className='form-control' style={{ color:"#29335c" }}>{values.kurir}</output>
+							<strong htmlFor='kurir' style={{ color: '#29335c' }}>
+								Kurir
+							</strong>
+							<output className='form-control' style={{ color: '#29335c' }}>
+								{values.kurir}
+							</output>
 						</div>
 						<div className='mb-3'>
-							<strong htmlFor='laporanMasalah' style={{ color:"#29335c" }}>Laporan Masalah</strong>
+							<strong htmlFor='laporanMasalah' style={{ color: '#29335c' }}>
+								Laporan Masalah
+							</strong>
 							<input
 								type='text'
 								name='name'
 								className='form-control'
-								style={{ color:"#29335c" }}
+								style={{ color: '#29335c' }}
 								placeholder='Masukkan laporan masalah'
 								value={values.laporan_masalah || ''}
 								onChange={(e) =>
@@ -174,14 +210,16 @@ function Update() {
 							/>
 						</div>
 						<div className='mb-4'>
-							<strong htmlFor='status' style={{ color:"#29335c" }}>Status Pengiriman</strong>
+							<strong htmlFor='status' style={{ color: '#29335c' }}>
+								Status Pengiriman
+							</strong>
 							{/* <input type="text" name='status' className='form-control' placeholder='Masukkan Status'
                     value={values.statusPengiriman}
                     onChange={e => setValues({...values, statusPengiriman: e.target.value})}/> */}
 							<select
 								name='status'
 								className='form-select'
-								style={{ color:"#29335c" }}
+								style={{ color: '#29335c' }}
 								value={values.status_pengiriman}
 								onChange={(e) =>
 									setValues({ ...values, status_pengiriman: e.target.value })
