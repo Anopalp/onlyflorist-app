@@ -52,7 +52,7 @@ function DashboardKurir() {
       const fetchDataPengiriman = async () => {
         const { data, error } = await supabase
           .from("dataPengiriman")
-          .select()
+          .select('*, dataKurir (nama_lengkap)')
           .eq("kurir", username);
 
         if (error) {
@@ -169,7 +169,7 @@ function DashboardKurir() {
               <div className='mb-3'>
                 <strong style={{ color:"#29335c" }}>Kurir</strong>
                 <output className='form-control' style={{ color:"#29335c" }}>
-                  {selectedPengiriman.kurir}
+                  {selectedPengiriman.dataKurir?.nama_lengkap}
                 </output>
               </div>
               {selectedPengiriman.laporanMasalah != null ? (
