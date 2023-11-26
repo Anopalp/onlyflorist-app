@@ -112,7 +112,7 @@ function Update() {
 			<div className='d-flex w-100 vh-100 justify-content-center align-items-center'>
 				<div className='w-50 border bg-white shadow p-3 rounded-4'>
 					<div className='modal-header p-1 pb-4 border-bottom-0'>
-						<h1 className='fw-bold mb-0 fs-2 text-center'>Update Pengiriman</h1>
+						<h3 style={{ fontSize: 30, fontWeight: "bold", color:"#29335c" }}>Update Pengiriman</h3>
 						<Link to={'/daftar-pengiriman-kurir/'}>
 							<button
 								type='button'
@@ -124,42 +124,47 @@ function Update() {
 						</Link>
 					</div>
 					<form onSubmit={handleUpdate}>
-						<div className='mb-3'>
-							<strong htmlFor='id'>ID Pengiriman</strong>
-							<output className='form-control'>{values.id}</output>
+						<div className="d-flex align-items-center mb-4">
+							<img style={{ width:"120px", borderRadius:"50%" }} src={values.image_url} alt="profile picture"></img>
+							<h3 style={{ fontSize:30, fontWeight:"bold", color:"#29335c", marginLeft:"10%" }}>{values.jenis_bunga}</h3>
 						</div>
 						<div className='mb-3'>
-							<strong htmlFor='alamatPengiriman'>Alamat Pengiriman</strong>
-							<output className='form-control'>
+							<strong htmlFor='id' style={{ color:"#29335c" }}>ID Pengiriman</strong>
+							<output className='form-control' style={{ color:"#29335c" }}>{values.id}</output>
+						</div>
+						<div className='mb-3'>
+							<strong htmlFor='alamatPengiriman' style={{ color:"#29335c" }}>Alamat Pengiriman</strong>
+							<output className='form-control' style={{ color:"#29335c" }}>
 								{values.alamat_pengiriman}
 							</output>
 						</div>
 						<div className='mb-3'>
-							<strong htmlFor='jenisBunga'>Jenis Bunga</strong>
-							<output className='form-control'>{values.jenis_bunga}</output>
+							<strong htmlFor='jenisBunga' style={{ color:"#29335c" }}>Jenis Bunga</strong>
+							<output className='form-control' style={{ color:"#29335c" }}>{values.jenis_bunga}</output>
 						</div>
 						<div className='mb-3'>
-							<strong htmlFor='noTelpPelanggan'>No. Telp Pelanggan</strong>
-							<output className='form-control'>
+							<strong htmlFor='noTelpPelanggan' style={{ color:"#29335c" }}>No. Telp Pelanggan</strong>
+							<output className='form-control' style={{ color:"#29335c" }}>
 								{values.nomor_telp_pelanggan}
 							</output>
 						</div>
 						<div className='mb-3'>
-							<strong htmlFor='catatan'>Catatan</strong>
-							<output className='form-control'>
+							<strong htmlFor='catatan' style={{ color:"#29335c" }}>Catatan</strong>
+							<output className='form-control' style={{ color:"#29335c" }}>
 								{values.catatan ? values.catatan : '-'}
 							</output>
 						</div>
 						<div className='mb-3'>
-							<strong htmlFor='kurir'>Kurir</strong>
-							<output className='form-control'>{values.kurir}</output>
+							<strong htmlFor='kurir' style={{ color:"#29335c" }}>Kurir</strong>
+							<output className='form-control' style={{ color:"#29335c" }}>{values.kurir}</output>
 						</div>
 						<div className='mb-3'>
-							<strong htmlFor='laporanMasalah'>Laporan Masalah</strong>
+							<strong htmlFor='laporanMasalah' style={{ color:"#29335c" }}>Laporan Masalah</strong>
 							<input
 								type='text'
 								name='name'
 								className='form-control'
+								style={{ color:"#29335c" }}
 								placeholder='Masukkan laporan masalah'
 								value={values.laporan_masalah || ''}
 								onChange={(e) =>
@@ -169,13 +174,14 @@ function Update() {
 							/>
 						</div>
 						<div className='mb-4'>
-							<strong htmlFor='status'>Status Pengiriman</strong>
+							<strong htmlFor='status' style={{ color:"#29335c" }}>Status Pengiriman</strong>
 							{/* <input type="text" name='status' className='form-control' placeholder='Masukkan Status'
                     value={values.statusPengiriman}
                     onChange={e => setValues({...values, statusPengiriman: e.target.value})}/> */}
 							<select
 								name='status'
 								className='form-select'
+								style={{ color:"#29335c" }}
 								value={values.status_pengiriman}
 								onChange={(e) =>
 									setValues({ ...values, status_pengiriman: e.target.value })

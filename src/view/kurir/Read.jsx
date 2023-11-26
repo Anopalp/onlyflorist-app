@@ -10,7 +10,7 @@ function Read({ close, id }) {
 		const fetchData = async () => {
 			const { data, error } = await supabase
 				.from('dataPengiriman')
-				.select()
+				.select('*, dataKurir (nama_lengkap)')
 				.eq('id', id)
 			if (error) console.log(error)
 
@@ -48,9 +48,10 @@ function Read({ close, id }) {
 						></button>
 					</div>
 
-					{/* <div className='d-flex w-100 vh-100 justify-content-center align-items-center bg-light'>
-            <div className='w-50 border bg-white shadow px-5 pt-3 pb-5 rounded'>
-                <h2 className='text-center my-3'>Detail Pengiriman</h2> */}
+					<div className="d-flex align-items-center mb-4">
+						<img style={{ width:"120px", borderRadius:"50%" }} src={data.image_url} alt="profile picture"></img>
+						<h3 style={{ fontSize:30, fontWeight:"bold", color:"#29335c", marginLeft:"10%" }}>{data.jenis_bunga}</h3>
+					</div>
 					<div className='mb-3'>
 						<strong style={{ color:"#29335c" }}>ID Pengiriman</strong>
 						<output className='form-control' style={{ color:"#29335c" }}>{data.id}</output>
@@ -58,10 +59,6 @@ function Read({ close, id }) {
 					<div className='mb-3'>
 						<strong style={{ color:"#29335c" }}>Alamat Pengiriman</strong>
 						<output className='form-control' style={{ color:"#29335c" }}>{data.alamat_pengiriman}</output>
-					</div>
-					<div className='mb-3'>
-						<strong style={{ color:"#29335c" }}>Jenis Bunga</strong>
-						<output className='form-control' style={{ color:"#29335c" }}>{data.jenis_bunga}</output>
 					</div>
 					<div className='mb-3'>
 						<strong style={{ color:"#29335c" }}>No. Telp Pelanggan</strong>
@@ -77,7 +74,9 @@ function Read({ close, id }) {
 					</div>
 					<div className='mb-3'>
 						<strong style={{ color:"#29335c" }}>Kurir</strong>
-						<output className='form-control'>{data.kurir}</output>
+						<output className='form-control' style={{ color:"#29335c" }}>
+							{data.dataKurir?.nama_lengkap}
+						</output>
 					</div>
 					{data.laporanMasalah != null ? (
 						<div className='mb-3'>

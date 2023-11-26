@@ -33,9 +33,10 @@ function ReadRiwayat({ close, id }) {
 						></button>
 					</div>
 
-					{/* <div className='d-flex w-100 vh-100 justify-content-center align-items-center bg-light'>
-            <div className='w-50 border bg-white shadow px-5 pt-3 pb-5 rounded'>
-                <h2 className='text-center my-3'>Detail Pengiriman</h2> */}
+					<div className="d-flex align-items-center mb-4">
+						<img style={{ width:"120px", borderRadius:"50%" }} src={data.image_url} alt="profile picture"></img>
+						<h3 style={{ fontSize:30, fontWeight:"bold", color:"#29335c", marginLeft:"10%" }}>{data.jenis_bunga}</h3>
+					</div>				
 					<div className='mb-3'>
 						<strong style={{color: "#29335c"}}>ID Pengiriman</strong>
 						<output className='form-control' style={{color: "#29335c"}}>{data.id}</output>
@@ -43,10 +44,6 @@ function ReadRiwayat({ close, id }) {
 					<div className='mb-3'>
 						<strong style={{color: "#29335c"}}>Alamat Pengiriman</strong>
 						<output className='form-control' style={{color: "#29335c"}}>{data.alamat_pengiriman}</output>
-					</div>
-					<div className='mb-3'>
-						<strong style={{color: "#29335c"}}>Jenis Bunga</strong>
-						<output className='form-control' style={{color: "#29335c"}}>{data.jenis_bunga}</output>
 					</div>
 					<div className='mb-3'>
 						<strong style={{color: "#29335c"}}>No. Telp Pelanggan</strong>

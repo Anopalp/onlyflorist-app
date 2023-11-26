@@ -20,7 +20,7 @@ function ReadRiwayat({ close, id }) {
 
 			const { data, error } = await supabase
 				.from('dataRiwayat')
-				.select()
+				.select('*, dataKurir (nama_lengkap)')
 				.eq('kurir', username)
 				.eq('id', id)
 
@@ -51,7 +51,11 @@ function ReadRiwayat({ close, id }) {
 							onClick={close}
 						></button>
 					</div>
-					
+
+					<div className="d-flex align-items-center mb-4">
+						<img style={{ width:"120px", borderRadius:"50%" }} src={data.image_url} alt="profile picture"></img>
+						<h3 style={{ fontSize:30, fontWeight:"bold", color:"#29335c", marginLeft:"10%" }}>{data.jenis_bunga}</h3>
+					</div>					
 					<div className='mb-3'>
 						<strong style={{color: "#29335c"}}>ID Pengiriman</strong>
 						<output className='form-control' style={{color: "#29335c"}}>{data.id}</output>
@@ -59,10 +63,6 @@ function ReadRiwayat({ close, id }) {
 					<div className='mb-3'>
 						<strong style={{color: "#29335c"}}>Alamat Pengiriman</strong>
 						<output className='form-control' style={{color: "#29335c"}}>{data.alamat_pengiriman}</output>
-					</div>
-					<div className='mb-3'>
-						<strong style={{color: "#29335c"}}>Jenis Bunga</strong>
-						<output className='form-control' style={{color: "#29335c"}}>{data.jenis_bunga}</output>
 					</div>
 					<div className='mb-3'>
 						<strong style={{color: "#29335c"}}>No. Telp Pelanggan</strong>
@@ -76,7 +76,9 @@ function ReadRiwayat({ close, id }) {
 					</div>
 					<div className='mb-3'>
 						<strong style={{color: "#29335c"}}>Kurir</strong>
-						<output className='form-control' style={{color: "#29335c"}}>{data.kurir}</output>
+						<output className='form-control' style={{color: "#29335c"}}>
+							{data.dataKurir?.nama_lengkap}
+						</output>
 					</div>
 					{data.laporanMasalah != null ? (
 						<div className='mb-3'>

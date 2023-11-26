@@ -95,18 +95,18 @@ function DashboardManajer() {
                     color: "aliceblue",
                   }}
                 >
-                  Akun Kurir
+                  {dataKurir.length ? 'Akun kurir' : 'Tidak ada kurir'}
                 </h3>
               </div>
               <div className="row card-row">
                 <CardKurir dataKurir={dataKurir} />
                 <div className="buttons-container mt-3">
                   <div>
-                    <Link to={"/daftar-kurir"}>
+                    {dataKurir.length ? <Link to={"/daftar-kurir"}>
                       <Button variant="outline-light" className="rounded-5">
                         See More
                       </Button>
-                    </Link>
+                    </Link> : null}
                   </div>
                 </div>
               </div>
@@ -171,15 +171,57 @@ function CardPengiriman(props) {
           keyboard={false}
         >
           <Modal.Header closeButton>
-            <Modal.Title>Pengiriman Detail</Modal.Title>
+            <Modal.Title style={{ fontWeight: "Bold", color:"#29335c" }}>Detail Pengiriman</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             {/* Render details of selectedPengiriman */}
+
             {selectedPengiriman && (
               <div>
-                <p>Jenis Bunga: {selectedPengiriman.jenis_bunga}</p>
-                <p>Kurir: {selectedPengiriman.kurir}</p>
-                {/* Add other details as needed */}
+                <div className="d-flex align-items-center mb-4">
+                  <img style={{ width:"120px", borderRadius:"50%" }} src={selectedPengiriman.image_url} alt="profile picture"></img>
+                  <h3 style={{ fontSize:30, fontWeight:"bold", color:"#29335c", marginLeft:"10%" }}>{selectedPengiriman.jenis_bunga}</h3>
+                </div>
+                <div className='mb-3'>
+                  <strong style={{ color:"#29335c" }}>ID Pengiriman</strong>
+                  <output className='form-control' style={{ color:"#29335c" }}>{selectedPengiriman.id}</output>
+                </div>
+                <div className='mb-3'>
+                  <strong style={{ color:"#29335c" }}>Alamat Pengiriman</strong>
+                  <output className='form-control' style={{ color:"#29335c" }}>{selectedPengiriman.alamat_pengiriman}</output>
+                </div>
+                {/* <div className='mb-3'>
+                  <strong style={{ color:"#29335c" }}>Jenis Bunga</strong>
+                  <output className='form-control' style={{ color:"#29335c" }}>{selectedPengiriman.jenis_bunga}</output>
+                </div> */}
+                <div className='mb-3'>
+                  <strong style={{ color:"#29335c" }}>No. Telp Pelanggan</strong>
+                  <output className='form-control' style={{ color:"#29335c" }}>
+                    {selectedPengiriman.nomor_telp_pelanggan}
+                  </output>
+                </div>
+                <div className='mb-3'>
+                  <strong style={{ color:"#29335c" }}>Catatan</strong>
+                  <output className='form-control' style={{ color:"#29335c" }}>
+                    {selectedPengiriman.catatan ? selectedPengiriman.catatan : '-'}
+                  </output>
+                </div>
+                <div className='mb-3'>
+                  <strong style={{ color:"#29335c" }}>Kurir</strong>
+                  <output className='form-control' style={{ color:"#29335c" }}>
+                    {selectedPengiriman.kurir}
+                  </output>
+                </div>
+                {selectedPengiriman.laporanMasalah != null ? (
+                  <div className='mb-3'>
+                    <strong style={{ color:"#29335c" }}>Laporan Masalah</strong>
+                    <output className='form-control' style={{ color:"#29335c" }}>{selectedPengiriman.laporan_masalah}</output>
+                  </div>
+                ) : null}
+                <div className='mb-4'>
+                  <strong style={{ color:"#29335c" }}>Status Pengiriman</strong>
+                  <output className='form-control' style={{ color:"#29335c" }}>{selectedPengiriman.status_pengiriman}</output>
+                </div>
               </div>
             )}
           </Modal.Body>
@@ -229,15 +271,57 @@ function CardPengiriman(props) {
           keyboard={false}
         >
           <Modal.Header closeButton>
-            <Modal.Title>Pengiriman Detail</Modal.Title>
+            <Modal.Title style={{ fontWeight: "Bold", color:"#29335c" }}>Detail Pengiriman</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             {/* Render details of selectedPengiriman */}
+
             {selectedPengiriman && (
               <div>
-                <p>Jenis Bunga: {selectedPengiriman.jenis_bunga}</p>
-                <p>Kurir: {selectedPengiriman.kurir}</p>
-                {/* Add other details as needed */}
+                <div className="d-flex align-items-center mb-4">
+                  <img style={{ width:"120px", borderRadius:"50%" }} src={selectedPengiriman.image_url} alt="profile picture"></img>
+                  <h3 style={{ fontSize:30, fontWeight:"bold", color:"#29335c", marginLeft:"10%" }}>{selectedPengiriman.jenis_bunga}</h3>
+                </div>
+                <div className='mb-3'>
+                  <strong style={{ color:"#29335c" }}>ID Pengiriman</strong>
+                  <output className='form-control' style={{ color:"#29335c" }}>{selectedPengiriman.id}</output>
+                </div>
+                <div className='mb-3'>
+                  <strong style={{ color:"#29335c" }}>Alamat Pengiriman</strong>
+                  <output className='form-control' style={{ color:"#29335c" }}>{selectedPengiriman.alamat_pengiriman}</output>
+                </div>
+                {/* <div className='mb-3'>
+                  <strong style={{ color:"#29335c" }}>Jenis Bunga</strong>
+                  <output className='form-control' style={{ color:"#29335c" }}>{selectedPengiriman.jenis_bunga}</output>
+                </div> */}
+                <div className='mb-3'>
+                  <strong style={{ color:"#29335c" }}>No. Telp Pelanggan</strong>
+                  <output className='form-control' style={{ color:"#29335c" }}>
+                    {selectedPengiriman.nomor_telp_pelanggan}
+                  </output>
+                </div>
+                <div className='mb-3'>
+                  <strong style={{ color:"#29335c" }}>Catatan</strong>
+                  <output className='form-control' style={{ color:"#29335c" }}>
+                    {selectedPengiriman.catatan ? selectedPengiriman.catatan : '-'}
+                  </output>
+                </div>
+                <div className='mb-3'>
+                  <strong style={{ color:"#29335c" }}>Kurir</strong>
+                  <output className='form-control' style={{ color:"#29335c" }}>
+                    {selectedPengiriman.kurir}
+                  </output>
+                </div>
+                {selectedPengiriman.laporanMasalah != null ? (
+                  <div className='mb-3'>
+                    <strong style={{ color:"#29335c" }}>Laporan Masalah</strong>
+                    <output className='form-control' style={{ color:"#29335c" }}>{selectedPengiriman.laporan_masalah}</output>
+                  </div>
+                ) : null}
+                <div className='mb-4'>
+                  <strong style={{ color:"#29335c" }}>Status Pengiriman</strong>
+                  <output className='form-control' style={{ color:"#29335c" }}>{selectedPengiriman.status_pengiriman}</output>
+                </div>
               </div>
             )}
           </Modal.Body>
@@ -266,7 +350,11 @@ function CardKurir(props) {
   };
 
   if (dataKurir.length === 0) {
-    return <div></div>;
+    return (
+      <div>
+
+      </div>
+    );
   } else if (dataKurir.length <= 3) {
     return (
       <div>
@@ -300,15 +388,47 @@ function CardKurir(props) {
           keyboard={false}
         >
           <Modal.Header closeButton>
-            <Modal.Title>Kurir Detail</Modal.Title>
+            <Modal.Title style={{ fontWeight: "Bold", color:"#29335c" }}>Detail Kurir</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             {/* Render details of selectedKurir */}
             {selectedKurir && (
               <div>
-                <p>Nama Lengkap: {selectedKurir.nama_lengkap}</p>
-                <p>Nomor Telepon: {selectedKurir.phone}</p>
-                <p>Alamat: {selectedKurir.alamat}</p>
+                <div className="profile-header">
+                  <img className="profile-pic" src={selectedKurir.image_url} alt="profile picture"></img>
+                  <h3 className="profile-name">{selectedKurir.username}</h3>
+                </div>
+
+                <div className="profile-data">
+                  <p>
+                    <strong style={{ color:"#29335c" }}>Username</strong> 
+                    <output className='form-control' style={{ color:"#29335c" }}>{selectedKurir.username}</output>
+                  </p>
+                  <p>
+                    <strong style={{ color:"#29335c" }}>Password</strong> 
+                    <output className='form-control' style={{ color:"#29335c" }}>{selectedKurir.password}</output>
+                  </p>
+                  <p>
+                    <strong style={{ color:"#29335c" }}>Nama Lengkap</strong> 
+                    <output className='form-control' style={{ color:"#29335c" }}>{selectedKurir.nama_lengkap}</output>
+                  </p>
+                  <p>
+                    <strong style={{ color:"#29335c" }}>NIK</strong> 
+                    <output className='form-control' style={{ color:"#29335c" }}>{selectedKurir.nik}</output>
+                  </p>
+                  <p>
+                    <strong style={{ color:"#29335c" }}>Tanggal Lahir</strong> 
+                    <output className='form-control' style={{ color:"#29335c" }}>{selectedKurir.tanggal_lahir}</output>
+                  </p>
+                  <p>
+                    <strong style={{ color:"#29335c" }}>Phone</strong> 
+                    <output className='form-control' style={{ color:"#29335c" }}>{selectedKurir.phone}</output>
+                  </p>
+                  <p>
+                    <strong style={{ color:"#29335c" }}>Alamat</strong> 
+                    <output className='form-control' style={{ color:"#29335c" }}>{selectedKurir.alamat}</output>
+                  </p>
+                </div>
                 {/* Add other details as needed */}
               </div>
             )}
