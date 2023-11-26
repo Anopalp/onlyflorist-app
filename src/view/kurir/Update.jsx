@@ -28,8 +28,6 @@ async function updateLaporan(laporan, idPengiriman, idLaporan) {
 		.eq('id', idPengiriman)
 
 	console.log(pengiriman);
-
-	window.location.href = 'http://localhost:5173/daftar-pengiriman-kurir/';
 }
 
 async function updateStatusPengiriman(id, status) {
