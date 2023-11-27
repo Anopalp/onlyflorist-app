@@ -196,13 +196,6 @@ const TambahPengiriman = ({ close, setData }) => {
 						<Button className='rounded-3 w-100' variant='primary' type='submit'>
 							Simpan
 						</Button>
-
-						{/* <button
-              className="w-100 btn btn-lg rounded-3 btn-primary"
-              type="submit"
-            >
-              Simpan
-            </button> */}
 					</form>
 				</div>
 			</div>

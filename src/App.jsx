@@ -51,8 +51,6 @@ function App() {
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat"}}>
 		<BrowserRouter>
-			{/* <NavbarLogin /> */}
-			{/* <NavbarKurir /> */}
 			<Routes>
 				<Route path='/' element={<Login session={session} />}></Route>
 
@@ -100,7 +98,6 @@ function App() {
 				<Route path='/account-kurir' element={<AccountKurir />}></Route>
 				<Route path='/about-manajer' element={<AboutManajer />}></Route>
 				<Route path='/about-kurir' element={<AboutKurir />}></Route>
-				{/* <Route path='/account-kurir' element={<AccountKurir />}></Route> */}
 			</Routes>
 			<Footer />
 		</BrowserRouter>

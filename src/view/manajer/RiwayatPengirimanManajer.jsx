@@ -51,9 +51,6 @@ function RiwayatPengirimanManajer() {
 					Riwayat Pengiriman
 				</h3>
 				<div className='z-0 w-75 h-75 rounded-4 bg-light border shadow px-2 table-responsive'>
-					{/* <div className='d-flex justify-content-end '>
-                    <Link to="/create" className='btn btn-success'>Add +</Link>
-                </div> */}
 					{isDetail ? <ReadRiwayat close={closePopUp} id={selectedId} /> : null}
 
 					{isLoading ? (

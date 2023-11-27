@@ -142,7 +142,6 @@ function Table({ dataKurir }) {
 				<h3 className="my-3" style={{ fontSize: 30, fontWeight: "bold", color:"#29335c" }}>Daftar Kurir</h3>
 					<div className='z-0 w-50 h-75 rounded-4 bg-light border shadow px-2 table-responsive'>
             <AddAccount/>
-            {/* <div className="table"> */}
               <table className="table table-hover table-striped">
                 <thead className='bg-light sticky-top align-middle'>
                   <tr className='table-primary'>
@@ -160,7 +159,6 @@ function Table({ dataKurir }) {
                   ))}
                 </tbody>
               </table>
-            {/* </div> */}
           </div>
         </div>
 
