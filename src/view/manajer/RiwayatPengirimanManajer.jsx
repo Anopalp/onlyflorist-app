@@ -117,6 +117,11 @@ function RiwayatPengirimanManajer() {
 							</table>
 						</>
 					)}
+					{!isLoading && data.length === 0 && (
+						<div className='alert alert-warning text-center'>
+							Tidak ada pengiriman
+						</div>
+					)}
 				</div>
 			</div>
 		</div>
