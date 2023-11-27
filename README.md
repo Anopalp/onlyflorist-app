@@ -158,7 +158,14 @@ Tampilan layar :
     <tr>
         <td>dataKurir</td>
         <td>
-            <br>username: text</br>
+            <p>username: text</p><br/>
+            <p>password: text</p><br/>
+            <p>nama_lengkap: text</p><br/>
+            <p>nik: text</p><br/>
+            <p>phone: text</p><br/>
+            <p>tanggal_lahir: date</p><br/>
+            <p>alamat: text</p><br/>
+            <p>image_url: text</p><br/>
         </td>
     </tr>
     <tr>
