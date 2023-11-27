@@ -12,9 +12,11 @@ const DaftarPengirimanManajer = () => {
 	const [selectedId, setSelectedId] = useState(null)
 	const [search, setSearch] = useState('')
 	const [fetchError, setFetchError] = useState(null)
+	const [isLoading, setIsLoading] = useState(false)
 
 	useEffect(() => {
 		const fetchData = async () => {
+			setIsLoading(true)
 			const { data, error } = await supabase.from('dataPengiriman').select(`
         *, dataKurir (nama_lengkap)
       `)
@@ -26,6 +28,7 @@ const DaftarPengirimanManajer = () => {
 			if (data) {
 				setData(data)
 			}
+			setIsLoading(false)
 		}
 
 		fetchData()
@@ -77,8 +80,10 @@ const DaftarPengirimanManajer = () => {
 						<Read close={closePopUpDetailPengiriman} id={selectedId} />
 					) : null}
 
-					{fetchError ? (
-						<div className='alert alert-danger text-center'>{fetchError}</div>
+					{isLoading ? (
+						<div className='d-flex justify-content-center'>
+							<div className='spinner-border' role='status'></div>
+						</div>
 					) : (
 						<>
 							<Form>
@@ -140,6 +145,10 @@ const DaftarPengirimanManajer = () => {
 								</tbody>
 							</table>
 						</>
+					)}
+
+					{!isLoading && fetchError && (
+						<div className='alert alert-danger text-center'>{fetchError}</div>
 					)}
 				</div>
 			</div>
