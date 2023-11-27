@@ -123,7 +123,6 @@ function DashboardKurir() {
                         </Link>
                       ) : null}
                     </div>
-                    {/* <a href='/daftar-pengiriman-kurir' class="btn btn-primary">see more</a> */}
                   </div>
                 </div>
               </div>
@@ -178,10 +177,6 @@ function DashboardKurir() {
                   {selectedPengiriman.alamat_pengiriman}
                 </output>
               </div>
-              {/* <div className='mb-3'>
-                <strong style={{ color:"#29335c" }}>Jenis Bunga</strong>
-                <output className='form-control' style={{ color:"#29335c" }}>{selectedPengiriman.jenis_bunga}</output>
-              </div> */}
               <div className="mb-3">
                 <strong style={{ color: "#29335c" }}>No. Telp Pelanggan</strong>
                 <output className="form-control" style={{ color: "#29335c" }}>

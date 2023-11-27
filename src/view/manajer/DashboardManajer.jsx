@@ -217,10 +217,6 @@ function CardPengiriman(props) {
                     {selectedPengiriman.alamat_pengiriman}
                   </output>
                 </div>
-                {/* <div className='mb-3'>
-                  <strong style={{ color:"#29335c" }}>Jenis Bunga</strong>
-                  <output className='form-control' style={{ color:"#29335c" }}>{selectedPengiriman.jenis_bunga}</output>
-                </div> */}
                 <div className="mb-3">
                   <strong style={{ color: "#29335c" }}>
                     No. Telp Pelanggan
@@ -353,10 +349,6 @@ function CardPengiriman(props) {
                     {selectedPengiriman.alamat_pengiriman}
                   </output>
                 </div>
-                {/* <div className='mb-3'>
-                  <strong style={{ color:"#29335c" }}>Jenis Bunga</strong>
-                  <output className='form-control' style={{ color:"#29335c" }}>{selectedPengiriman.jenis_bunga}</output>
-                </div> */}
                 <div className="mb-3">
                   <strong style={{ color: "#29335c" }}>
                     No. Telp Pelanggan

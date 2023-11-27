@@ -110,7 +110,6 @@ function ReadRiwayat({ close, id }) {
 							Delivered
 						</output>
 					</div>
-					{/* <Link to={'/daftar-pengiriman-kurir/update/' + id} className='btn btn-lg rounded-3 btn-success'>Edit</Link> */}
 				</div>
 			</div>
 		</div>
