@@ -30,8 +30,7 @@ const tambahKurir = async (dataKurir) => {
         const insertedData = data[0];
 
         console.log("Data Inserted:", insertedData);
-
-        return data[0];
+        
       } catch (error) {
         console.log(error);
         return null;
