@@ -155,11 +155,15 @@
 ## **App Screenshot**
 Tampilan layar :
 <p>Mengelola akun kurir:</p>
+
 ![Mengelola akun kurir](/doc/DaftarKurir%20(1).jpeg){width=50%}
+
 ![Mengelola akun kurir](/doc/TambahAkun%20(1).jpeg){width=50%}
+
 ![Mengelola akun kurir](/doc/TambahAkun%20(2).jpeg){width=50%}
-![Mengelola akun kurir](/doc/TambahAkun%20(1).jpeg){width=50%}
+
 ![Mengelola akun kurir](/doc/DetailKurir.jpeg){width=50%}
+
 <p>Memperbarui status pengiriman</p>
 <p>Melakukan Login</p>
 <p>Mengakses daftar pengiriman keseluruhan</p>
