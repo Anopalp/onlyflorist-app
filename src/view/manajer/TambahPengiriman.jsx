@@ -19,13 +19,13 @@ const readImageAsDataURL = (file) => {
 }
 
 const idTerbesar = (arrOfObjekIdPengiriman) => {
+	const arrOfIdPengiriman = arrOfObjekIdPengiriman.map(
+		(objekIdPengiriman) => objekIdPengiriman.id
+	)
 
-	const arrOfIdPengiriman = arrOfObjekIdPengiriman.map((objekIdPengiriman) => objekIdPengiriman.id);
+	console.log(arrOfIdPengiriman)
 
-	console.log(arrOfIdPengiriman);
-	
-
-	return Math.max(...arrOfIdPengiriman);
+	return Math.max(...arrOfIdPengiriman)
 }
 
 async function findKurirTersantai(daftarPengiriman) {
@@ -65,28 +65,35 @@ const TambahPengiriman = ({ close, setData }) => {
 	const [noTelpPelanggan, setNoTelpPelanggan] = useState('')
 	const [image, setImage] = useState(null)
 	const [catatan, setCatatan] = useState('')
+	const [isLoading, setIsLoading] = useState(false)
 
 	const handlePengiriman = (e) => {
 		e.preventDefault()
 
 		const fetchData = async () => {
+			setIsLoading(true)
 			let imageDataUrl = null
 
 			if (image) {
 				imageDataUrl = await readImageAsDataURL(image)
 			}
 
-			const pengiriman = await supabase.from('dataPengiriman').select();
-			const riwayat = await supabase.from('dataRiwayat').select();
-			const arrOfObjekIdDataPengiriman = pengiriman.data;
-			const arrOfObjekIdDataRiwayat = riwayat.data;
-			
+			const pengiriman = await supabase.from('dataPengiriman').select()
+			const riwayat = await supabase.from('dataRiwayat').select()
+			const arrOfObjekIdDataPengiriman = pengiriman.data
+			const arrOfObjekIdDataRiwayat = riwayat.data
 
 			const daftarPengiriman = pengiriman.data
 			const kurirTersantai = await findKurirTersantai(daftarPengiriman)
 
 			const newPengiriman = {
-				id: daftarPengiriman.length === 0 ? 1 : Math.max(idTerbesar(arrOfObjekIdDataPengiriman), idTerbesar(arrOfObjekIdDataRiwayat)) + 1,
+				id:
+					daftarPengiriman.length === 0
+						? 1
+						: Math.max(
+								idTerbesar(arrOfObjekIdDataPengiriman),
+								idTerbesar(arrOfObjekIdDataRiwayat)
+						  ) + 1,
 				alamat_pengiriman: alamatPengiriman,
 				jenis_bunga: jenisBunga,
 				nomor_telp_pelanggan: noTelpPelanggan,
@@ -108,8 +115,8 @@ const TambahPengiriman = ({ close, setData }) => {
 				setData((oldData) => [...oldData, ...data])
 				close()
 			}
-
-			window.location.reload();
+			setIsLoading(false)
+			window.location.reload()
 		}
 
 		fetchData()
@@ -193,7 +200,12 @@ const TambahPengiriman = ({ close, setData }) => {
 							<br />
 							<input type='file' id='fileInput2' onChange={handleImageChange} />
 						</div>
-						<Button className='rounded-3 w-100' variant='primary' type='submit'>
+						<Button
+							className='rounded-3 w-100'
+							variant='primary'
+							type='submit'
+							disabled={isLoading}
+						>
 							Simpan
 						</Button>
 					</form>
