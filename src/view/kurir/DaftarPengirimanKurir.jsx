@@ -105,6 +105,11 @@ function DaftarPengirimanKurir() {
 					{!isLoading && fetchError && (
 						<div className='alert alert-danger text-center'>{fetchError}</div>
 					)}
+					{!isLoading && data.length === 0 && (
+						<div className='alert alert-warning text-center'>
+							Tidak ada pengiriman
+						</div>
+					)}
 				</div>
 				{isDetail ? <Read close={closePopUp} id={selectedId} /> : null}
 			</div>
