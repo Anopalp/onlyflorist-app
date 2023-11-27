@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import tambahKurir from "../component/testTambahKurir";
 
 test("Test Fitur Tambah Kurir", async () => {
