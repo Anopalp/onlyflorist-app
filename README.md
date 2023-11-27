@@ -153,8 +153,21 @@
 <br>
 
 ## **App Screenshot**
-Tampilan layar : 
-![Test](/doc/DashboardKurir%20(1).jpeg){width=50%}
+Tampilan layar :
+<p>Mengelola akun kurir:</p>
+![Mengelola akun kurir](/doc/DaftarKurir%20(1).jpeg){width=50%}
+![Mengelola akun kurir](/doc/TambahAkun%20(1).jpeg){width=50%}
+![Mengelola akun kurir](/doc/TambahAkun%20(2).jpeg){width=50%}
+![Mengelola akun kurir](/doc/TambahAkun%20(1).jpeg){width=50%}
+![Mengelola akun kurir](/doc/DetailKurir.jpeg){width=50%}
+<p>Memperbarui status pengiriman</p>
+<p>Melakukan Login</p>
+<p>Mengakses daftar pengiriman keseluruhan</p>
+<p>Mengakses daftar pengiriman per kurir</p>
+<p>Mengakses detail pengiriman</p>
+<p>Memasukkan detail pesanan pelanggan</p>
+<p>Mengirimkan laporan masalah pada pengiriman</p>
+<p>Mengakses laporan masalah terkait pengiriman</p>
 
 <br>
 
