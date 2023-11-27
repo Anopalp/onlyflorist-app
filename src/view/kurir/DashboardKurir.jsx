@@ -91,7 +91,7 @@ function DashboardKurir() {
             >
               Halo {namaKurir}, selamat {getWaktu()}!
             </h3>
-            <div className="container vh-100 overflow-hidden">
+            <div className="container min-vh-100">
               <div className="card-container w-75 mx-auto my-4">
                 <div>
                   <h3

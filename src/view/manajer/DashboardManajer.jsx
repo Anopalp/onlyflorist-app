@@ -56,7 +56,7 @@ function DashboardManajer() {
       {dataKurir && dataPengiriman && (
         <div>
           <NavbarManajer />
-          <div className="container overflow-hidden">
+          <div className="container min-vh-100">
             <div className="pengiriman-co">
               <h4 className="text-center text-danger p-3"></h4>
               <div className="card-container mx-auto my-5">
