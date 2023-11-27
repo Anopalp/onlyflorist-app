@@ -105,7 +105,8 @@ function Update() {
 
 		updateData()
 
-		navigate('/daftar-pengiriman-kurir')
+		const backButton = document.querySelector('.back-button');
+		backButton.click();
 	}
 
 	return (
@@ -115,7 +116,7 @@ function Update() {
 				<div className='w-50 bg-white p-3 rounded-4'>
 					<div className='d-flex align-items-center p-1 pb-4 border-bottom-0'>
 						<Link to={'/daftar-pengiriman-kurir/'}>
-							<button type='button' className='btn'>
+							<button type='button' className='btn back-button'>
 								<FaArrowLeft />
 							</button>
 						</Link>
