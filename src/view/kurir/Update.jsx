@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import supabase from '../../config/supabaseClient'
 import NavbarKurir from '../NavbarKurir'
+import { FaArrowLeft } from 'react-icons/fa6'
 
 async function generateIdLaporan() {
 	const awalDataLaporan = await supabase.from('dataLaporan').select()
@@ -27,7 +28,7 @@ async function updateLaporan(laporan, idPengiriman, idLaporan) {
 		.update({ laporan_masalah: laporanObj.id })
 		.eq('id', idPengiriman)
 
-	console.log(pengiriman);
+	console.log(pengiriman)
 }
 
 async function updateStatusPengiriman(id, status) {
@@ -110,21 +111,24 @@ function Update() {
 	return (
 		<div>
 			<NavbarKurir />
-			<div className='d-flex w-100 vh-100 justify-content-center align-items-center'>
-				<div className='w-50 border bg-white shadow p-3 rounded-4'>
-					<div className='modal-header p-1 pb-4 border-bottom-0'>
-						<h3 style={{ fontSize: 30, fontWeight: 'bold', color: '#29335c' }}>
+			<div className='d-flex w-100 vh-75 justify-content-center align-items-center'>
+				<div className='w-50 bg-white p-3 rounded-4'>
+					<div className='d-flex align-items-center p-1 pb-4 border-bottom-0'>
+						<Link to={'/daftar-pengiriman-kurir/'}>
+							<button type='button' className='btn'>
+								<FaArrowLeft />
+							</button>
+						</Link>
+						<h3
+							style={{
+								fontSize: 30,
+								fontWeight: 'bold',
+								color: '#29335c',
+								marginLeft: '10px',
+							}}
+						>
 							Update Pengiriman
 						</h3>
-						<Link to={'/daftar-pengiriman-kurir/'}>
-							<button
-								type='button'
-								className='btn-close'
-								data-bs-dismiss='modal'
-								aria-label='Close'
-								onClick={close}
-							></button>
-						</Link>
 					</div>
 					<form onSubmit={handleUpdate}>
 						<div className='d-flex align-items-center mb-4'>
@@ -230,7 +234,7 @@ function Update() {
 								))}
 							</select>
 						</div>
-						<button className='btn btn-lg rounded-3 btn-success'>Update</button>
+						<button className='btn rounded-3 btn-success w-100'>Update</button>
 					</form>
 				</div>
 			</div>

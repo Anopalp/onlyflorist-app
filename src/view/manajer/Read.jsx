@@ -97,7 +97,7 @@ function Read({ close, id }) {
 							{data.dataKurir?.nama_lengkap}
 						</output>
 					</div>
-					{data.laporanMasalah !== null ? (
+					{data.laporan_masalah !== null ? (
 						<div className='mb-3'>
 							<strong style={{ color: '#29335c' }}>Laporan Masalah</strong>
 							<output className='form-control' style={{ color: '#29335c' }}>

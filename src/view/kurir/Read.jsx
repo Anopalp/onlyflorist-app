@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import supabase from '../../config/supabaseClient'
 
 function Read({ close, id }) {
@@ -97,7 +97,7 @@ function Read({ close, id }) {
 							{data.dataKurir?.nama_lengkap}
 						</output>
 					</div>
-					{data.laporanMasalah !== null ? (
+					{data.laporan_masalah !== null ? (
 						<div className='mb-3'>
 							<strong style={{ color: '#29335c' }}>Laporan Masalah</strong>
 							<output className='form-control' style={{ color: '#29335c' }}>
