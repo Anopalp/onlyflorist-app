@@ -63,7 +63,7 @@
     OnlyFlorist dapat membantu manajer pemiliki toko bunga ini.
 </p>
 
-</br>
+<br>
 
 ## **How to Run**
 1. Open terminal</br>
@@ -92,7 +92,7 @@
 
 ## **Implemented Use Case**
 
-<p className="d-flex justify-content-center" align="center"> 
+<p align="center"> 
 <table>
     <tr>
         <td colspan=4 align="center">List of Use Case</td>
@@ -154,7 +154,8 @@
 
 ## **App Screenshot**
 Tampilan layar : 
-<br></br>
+
+<br>
 
 ## **Implemented Database Tables**
 <p align="center"> 
@@ -163,8 +164,8 @@ Tampilan layar :
         <td colspan=4 align="center">List of Database Tables</td>
     </tr>
     <tr>
-        <td>Nama</td>
-        <td>Atribut</td>
+        <td align="center">Nama</td>
+        <td align="center">Atribut</td>
     </tr>
     <tr>
         <td>dataKurir</td>
