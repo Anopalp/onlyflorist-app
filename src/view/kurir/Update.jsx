@@ -115,7 +115,7 @@ function Update() {
 
     setTimeout(() => {
       window.location.reload();
-    }, 500);
+    }, 1000);
   };
 
   return (
