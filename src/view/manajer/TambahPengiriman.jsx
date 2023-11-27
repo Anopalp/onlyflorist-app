@@ -76,14 +76,17 @@ const TambahPengiriman = ({ close, setData }) => {
 				imageDataUrl = await readImageAsDataURL(image)
 			}
 
-			const pengiriman = await supabase.from('dataPengiriman').select()
-			const arrOfObjekIdPengiriman = pengiriman.data
+			const pengiriman = await supabase.from('dataPengiriman').select();
+			const riwayat = await supabase.from('dataRiwayat').select();
+			const arrOfObjekIdDataPengiriman = pengiriman.data;
+			const arrOfObjekIdDataRiwayat = riwayat.data;
+			
 
 			const daftarPengiriman = pengiriman.data
 			const kurirTersantai = await findKurirTersantai(daftarPengiriman)
 
 			const newPengiriman = {
-				id: idTerbesar(arrOfObjekIdPengiriman) + 1,
+				id: Math.max(idTerbesar(arrOfObjekIdDataPengiriman), idTerbesar(arrOfObjekIdDataRiwayat)) + 1,
 				alamat_pengiriman: alamatPengiriman,
 				jenis_bunga: jenisBunga,
 				nomor_telp_pelanggan: noTelpPelanggan,
