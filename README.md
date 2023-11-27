@@ -154,7 +154,7 @@
 
 ## **App Screenshot**
 Tampilan layar : 
-![Test](/doc/DashboardKurir%20(1).jpeg)
+![Test](/doc/DashboardKurir%20(1).jpeg){width=50%}
 
 <br>
 
