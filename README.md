@@ -92,15 +92,15 @@
 
 ## **Implemented Use Case**
 
-<p align="center"> 
+<p className="d-flex justify-content-center" align="center"> 
 <table>
     <tr>
         <td colspan=4 align="center">List of Use Case</td>
     </tr>
     <tr>
-        <td>Nama</td>
-        <td>NIM PJ</td>
-        <td>Nama PJ</td>
+        <td align="center">Nama</td>
+        <td align="center">NIM PJ</td>
+        <td align="center">Nama PJ</td>
     </tr>
     <tr>
         <td>Mengelola akun kurir</td>
