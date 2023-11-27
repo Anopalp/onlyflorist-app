@@ -18,7 +18,7 @@ function DashboardManajer() {
     const fetchDataPengiriman = async () => {
       const { data, error } = await supabase
         .from("dataPengiriman")
-        .select('*, dataKurir (nama_lengkap)');
+        .select("*, dataKurir (nama_lengkap)");
 
       if (error) {
         setFetchErrorPengiriman("Could not fetch dataPengiriman");
@@ -45,10 +45,8 @@ function DashboardManajer() {
       }
     };
 
-
     fetchDataKurir();
     fetchDataPengiriman();
-    
   }, []);
 
   return (
@@ -58,59 +56,67 @@ function DashboardManajer() {
       {dataKurir && dataPengiriman && (
         <div>
           <NavbarManajer />
-          <div className="pengiriman-co">
-            <h4 className="text-center text-danger p-3"></h4>
-            <div className="card-container mx-auto my-5">
-              <div className="mx-5">
-                <h3
-                  className="my-2"
-                  style={{
-                    fontSize: 30,
-                    fontWeight: "bold",
-                    color: "aliceblue",
-                  }}
-                >
-                  {dataPengiriman.length ? 'Pengiriman teratas' : 'Tidak ada pengiriman'}
-                </h3>
-              </div>
-              <div className="row card-row">
-                <CardPengiriman dataPengiriman={dataPengiriman} />
-                <div className="buttons-container mt-3">
-                  <div>
-                    {dataPengiriman.length ? <Link to={"/daftar-pengiriman-manajer"}>
-                      <Button variant="outline-light" className="rounded-5">
-                        See More
-                      </Button>
-                    </Link> : null}
+          <div className="container overflow-hidden">
+            <div className="pengiriman-co">
+              <h4 className="text-center text-danger p-3"></h4>
+              <div className="card-container mx-auto my-5">
+                <div className="mx-5">
+                  <h3
+                    className="my-2"
+                    style={{
+                      fontSize: 30,
+                      fontWeight: "bold",
+                      color: "aliceblue",
+                    }}
+                  >
+                    {dataPengiriman.length
+                      ? "Pengiriman teratas"
+                      : "Tidak ada pengiriman"}
+                  </h3>
+                </div>
+                <div className="row card-row">
+                  <CardPengiriman dataPengiriman={dataPengiriman} />
+                  <div className="buttons-container mt-3">
+                    <div>
+                      {dataPengiriman.length ? (
+                        <Link to={"/daftar-pengiriman-manajer"}>
+                          <Button variant="outline-light" className="rounded-5">
+                            See More
+                          </Button>
+                        </Link>
+                      ) : null}
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          <div className="akun-co">
-            <div className="card-container mx-auto my-5">
-              <div className="mx-5">
-                <h3
-                  className="my-2"
-                  style={{
-                    fontSize: 30,
-                    fontWeight: "bold",
-                    color: "aliceblue",
-                  }}
-                >
-                  {dataKurir.length ? 'Akun kurir' : 'Tidak ada kurir'}
-                </h3>
-              </div>
-              <div className="row card-row">
-                <CardKurir dataKurir={dataKurir} />
-                <div className="buttons-container mt-3">
-                  <div>
-                    {dataKurir.length ? <Link to={"/daftar-kurir"}>
-                      <Button variant="outline-light" className="rounded-5">
-                        See More
-                      </Button>
-                    </Link> : null}
+            <div className="akun-co">
+              <div className="card-container mx-auto my-5">
+                <div className="mx-5">
+                  <h3
+                    className="my-2"
+                    style={{
+                      fontSize: 30,
+                      fontWeight: "bold",
+                      color: "aliceblue",
+                    }}
+                  >
+                    {dataKurir.length ? "Akun kurir" : "Tidak ada kurir"}
+                  </h3>
+                </div>
+                <div className="row card-row">
+                  <CardKurir dataKurir={dataKurir} />
+                  <div className="buttons-container mt-3">
+                    <div>
+                      {dataKurir.length ? (
+                        <Link to={"/daftar-kurir"}>
+                          <Button variant="outline-light" className="rounded-5">
+                            See More
+                          </Button>
+                        </Link>
+                      ) : null}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -137,11 +143,7 @@ function CardPengiriman(props) {
   };
 
   if (dataPengiriman.length === 0) {
-    return (
-      <div style={{ height: "30vh" }}>
-        
-      </div>
-    );
+    return <div style={{ height: "30vh" }}></div>;
   } else if (dataPengiriman.length <= 3) {
     return (
       <div>
@@ -175,7 +177,9 @@ function CardPengiriman(props) {
           keyboard={false}
         >
           <Modal.Header closeButton>
-            <Modal.Title style={{ fontWeight: "Bold", color:"#29335c" }}>Detail Pengiriman</Modal.Title>
+            <Modal.Title style={{ fontWeight: "Bold", color: "#29335c" }}>
+              Detail Pengiriman
+            </Modal.Title>
           </Modal.Header>
           <Modal.Body>
             {/* Render details of selectedPengiriman */}
@@ -183,48 +187,82 @@ function CardPengiriman(props) {
             {selectedPengiriman && (
               <div>
                 <div className="d-flex align-items-center mb-4">
-                  <img style={{ width:"120px", borderRadius:"50%" }} src={selectedPengiriman.image_url} alt="profile picture"></img>
-                  <h3 style={{ fontSize:30, fontWeight:"bold", color:"#29335c", marginLeft:"10%" }}>{selectedPengiriman.jenis_bunga}</h3>
+                  <img
+                    style={{ width: "120px", borderRadius: "50%" }}
+                    src={selectedPengiriman.image_url}
+                    alt="profile picture"
+                  ></img>
+                  <h3
+                    style={{
+                      fontSize: 30,
+                      fontWeight: "bold",
+                      color: "#29335c",
+                      marginLeft: "10%",
+                    }}
+                  >
+                    {selectedPengiriman.jenis_bunga}
+                  </h3>
                 </div>
-                <div className='mb-3'>
-                  <strong style={{ color:"#29335c" }}>ID Pengiriman</strong>
-                  <output className='form-control' style={{ color:"#29335c" }}>{selectedPengiriman.id}</output>
+                <div className="mb-3">
+                  <strong style={{ color: "#29335c" }}>ID Pengiriman</strong>
+                  <output className="form-control" style={{ color: "#29335c" }}>
+                    {selectedPengiriman.id}
+                  </output>
                 </div>
-                <div className='mb-3'>
-                  <strong style={{ color:"#29335c" }}>Alamat Pengiriman</strong>
-                  <output className='form-control' style={{ color:"#29335c" }}>{selectedPengiriman.alamat_pengiriman}</output>
+                <div className="mb-3">
+                  <strong style={{ color: "#29335c" }}>
+                    Alamat Pengiriman
+                  </strong>
+                  <output className="form-control" style={{ color: "#29335c" }}>
+                    {selectedPengiriman.alamat_pengiriman}
+                  </output>
                 </div>
                 {/* <div className='mb-3'>
                   <strong style={{ color:"#29335c" }}>Jenis Bunga</strong>
                   <output className='form-control' style={{ color:"#29335c" }}>{selectedPengiriman.jenis_bunga}</output>
                 </div> */}
-                <div className='mb-3'>
-                  <strong style={{ color:"#29335c" }}>No. Telp Pelanggan</strong>
-                  <output className='form-control' style={{ color:"#29335c" }}>
+                <div className="mb-3">
+                  <strong style={{ color: "#29335c" }}>
+                    No. Telp Pelanggan
+                  </strong>
+                  <output className="form-control" style={{ color: "#29335c" }}>
                     {selectedPengiriman.nomor_telp_pelanggan}
                   </output>
                 </div>
-                <div className='mb-3'>
-                  <strong style={{ color:"#29335c" }}>Catatan</strong>
-                  <output className='form-control' style={{ color:"#29335c" }}>
-                    {selectedPengiriman.catatan ? selectedPengiriman.catatan : '-'}
+                <div className="mb-3">
+                  <strong style={{ color: "#29335c" }}>Catatan</strong>
+                  <output className="form-control" style={{ color: "#29335c" }}>
+                    {selectedPengiriman.catatan
+                      ? selectedPengiriman.catatan
+                      : "-"}
                   </output>
                 </div>
-                <div className='mb-3'>
-                  <strong style={{ color:"#29335c" }}>Kurir</strong>
-                  <output className='form-control' style={{ color:"#29335c" }}>
+                <div className="mb-3">
+                  <strong style={{ color: "#29335c" }}>Kurir</strong>
+                  <output className="form-control" style={{ color: "#29335c" }}>
                     {selectedPengiriman.dataKurir?.nama_lengkap}
                   </output>
                 </div>
                 {selectedPengiriman.laporanMasalah != null ? (
-                  <div className='mb-3'>
-                    <strong style={{ color:"#29335c" }}>Laporan Masalah</strong>
-                    <output className='form-control' style={{ color:"#29335c" }}>{selectedPengiriman.laporan_masalah}</output>
+                  <div className="mb-3">
+                    <strong style={{ color: "#29335c" }}>
+                      Laporan Masalah
+                    </strong>
+                    <output
+                      className="form-control"
+                      style={{ color: "#29335c" }}
+                    >
+                      {selectedPengiriman.laporan_masalah}
+                    </output>
                   </div>
                 ) : null}
-                <div className='mb-4'>
-                  <strong style={{ color:"#29335c" }}>Status Pengiriman</strong>
-                  <output className='form-control' style={{ color:"#29335c" }}>{selectedPengiriman.status_pengiriman}</output>
+                <div className="mb-4">
+                  <strong style={{ color: "#29335c" }}>
+                    Status Pengiriman
+                  </strong>
+                  <output className="form-control" style={{ color: "#29335c" }}>
+                    {selectedPengiriman.status_pengiriman}
+                  </output>
                 </div>
               </div>
             )}
@@ -275,7 +313,9 @@ function CardPengiriman(props) {
           keyboard={false}
         >
           <Modal.Header closeButton>
-            <Modal.Title style={{ fontWeight: "Bold", color:"#29335c" }}>Detail Pengiriman</Modal.Title>
+            <Modal.Title style={{ fontWeight: "Bold", color: "#29335c" }}>
+              Detail Pengiriman
+            </Modal.Title>
           </Modal.Header>
           <Modal.Body>
             {/* Render details of selectedPengiriman */}
@@ -283,48 +323,82 @@ function CardPengiriman(props) {
             {selectedPengiriman && (
               <div>
                 <div className="d-flex align-items-center mb-4">
-                  <img style={{ width:"120px", borderRadius:"50%" }} src={selectedPengiriman.image_url} alt="profile picture"></img>
-                  <h3 style={{ fontSize:30, fontWeight:"bold", color:"#29335c", marginLeft:"10%" }}>{selectedPengiriman.jenis_bunga}</h3>
+                  <img
+                    style={{ width: "120px", borderRadius: "50%" }}
+                    src={selectedPengiriman.image_url}
+                    alt="profile picture"
+                  ></img>
+                  <h3
+                    style={{
+                      fontSize: 30,
+                      fontWeight: "bold",
+                      color: "#29335c",
+                      marginLeft: "10%",
+                    }}
+                  >
+                    {selectedPengiriman.jenis_bunga}
+                  </h3>
                 </div>
-                <div className='mb-3'>
-                  <strong style={{ color:"#29335c" }}>ID Pengiriman</strong>
-                  <output className='form-control' style={{ color:"#29335c" }}>{selectedPengiriman.id}</output>
+                <div className="mb-3">
+                  <strong style={{ color: "#29335c" }}>ID Pengiriman</strong>
+                  <output className="form-control" style={{ color: "#29335c" }}>
+                    {selectedPengiriman.id}
+                  </output>
                 </div>
-                <div className='mb-3'>
-                  <strong style={{ color:"#29335c" }}>Alamat Pengiriman</strong>
-                  <output className='form-control' style={{ color:"#29335c" }}>{selectedPengiriman.alamat_pengiriman}</output>
+                <div className="mb-3">
+                  <strong style={{ color: "#29335c" }}>
+                    Alamat Pengiriman
+                  </strong>
+                  <output className="form-control" style={{ color: "#29335c" }}>
+                    {selectedPengiriman.alamat_pengiriman}
+                  </output>
                 </div>
                 {/* <div className='mb-3'>
                   <strong style={{ color:"#29335c" }}>Jenis Bunga</strong>
                   <output className='form-control' style={{ color:"#29335c" }}>{selectedPengiriman.jenis_bunga}</output>
                 </div> */}
-                <div className='mb-3'>
-                  <strong style={{ color:"#29335c" }}>No. Telp Pelanggan</strong>
-                  <output className='form-control' style={{ color:"#29335c" }}>
+                <div className="mb-3">
+                  <strong style={{ color: "#29335c" }}>
+                    No. Telp Pelanggan
+                  </strong>
+                  <output className="form-control" style={{ color: "#29335c" }}>
                     {selectedPengiriman.nomor_telp_pelanggan}
                   </output>
                 </div>
-                <div className='mb-3'>
-                  <strong style={{ color:"#29335c" }}>Catatan</strong>
-                  <output className='form-control' style={{ color:"#29335c" }}>
-                    {selectedPengiriman.catatan ? selectedPengiriman.catatan : '-'}
+                <div className="mb-3">
+                  <strong style={{ color: "#29335c" }}>Catatan</strong>
+                  <output className="form-control" style={{ color: "#29335c" }}>
+                    {selectedPengiriman.catatan
+                      ? selectedPengiriman.catatan
+                      : "-"}
                   </output>
                 </div>
-                <div className='mb-3'>
-                  <strong style={{ color:"#29335c" }}>Kurir</strong>
-                  <output className='form-control' style={{ color:"#29335c" }}>
+                <div className="mb-3">
+                  <strong style={{ color: "#29335c" }}>Kurir</strong>
+                  <output className="form-control" style={{ color: "#29335c" }}>
                     {selectedPengiriman.kurir}
                   </output>
                 </div>
                 {selectedPengiriman.laporanMasalah != null ? (
-                  <div className='mb-3'>
-                    <strong style={{ color:"#29335c" }}>Laporan Masalah</strong>
-                    <output className='form-control' style={{ color:"#29335c" }}>{selectedPengiriman.laporan_masalah}</output>
+                  <div className="mb-3">
+                    <strong style={{ color: "#29335c" }}>
+                      Laporan Masalah
+                    </strong>
+                    <output
+                      className="form-control"
+                      style={{ color: "#29335c" }}
+                    >
+                      {selectedPengiriman.laporan_masalah}
+                    </output>
                   </div>
                 ) : null}
-                <div className='mb-4'>
-                  <strong style={{ color:"#29335c" }}>Status Pengiriman</strong>
-                  <output className='form-control' style={{ color:"#29335c" }}>{selectedPengiriman.status_pengiriman}</output>
+                <div className="mb-4">
+                  <strong style={{ color: "#29335c" }}>
+                    Status Pengiriman
+                  </strong>
+                  <output className="form-control" style={{ color: "#29335c" }}>
+                    {selectedPengiriman.status_pengiriman}
+                  </output>
                 </div>
               </div>
             )}
@@ -354,11 +428,7 @@ function CardKurir(props) {
   };
 
   if (dataKurir.length === 0) {
-    return (
-      <div>
-
-      </div>
-    );
+    return <div></div>;
   } else if (dataKurir.length <= 3) {
     return (
       <div>
@@ -392,45 +462,86 @@ function CardKurir(props) {
           keyboard={false}
         >
           <Modal.Header closeButton>
-            <Modal.Title style={{ fontWeight: "Bold", color:"#29335c" }}>Detail Kurir</Modal.Title>
+            <Modal.Title style={{ fontWeight: "Bold", color: "#29335c" }}>
+              Detail Kurir
+            </Modal.Title>
           </Modal.Header>
           <Modal.Body>
             {/* Render details of selectedKurir */}
             {selectedKurir && (
               <div>
                 <div className="profile-header">
-                  <img className="profile-pic" src={selectedKurir.image_url} alt="profile picture"></img>
+                  <img
+                    className="profile-pic"
+                    src={selectedKurir.image_url}
+                    alt="profile picture"
+                  ></img>
                   <h3 className="profile-name">{selectedKurir.username}</h3>
                 </div>
 
                 <div className="profile-data">
                   <p>
-                    <strong style={{ color:"#29335c" }}>Username</strong> 
-                    <output className='form-control' style={{ color:"#29335c" }}>{selectedKurir.username}</output>
+                    <strong style={{ color: "#29335c" }}>Username</strong>
+                    <output
+                      className="form-control"
+                      style={{ color: "#29335c" }}
+                    >
+                      {selectedKurir.username}
+                    </output>
                   </p>
                   <p>
-                    <strong style={{ color:"#29335c" }}>Password</strong> 
-                    <output className='form-control' style={{ color:"#29335c" }}>{selectedKurir.password}</output>
+                    <strong style={{ color: "#29335c" }}>Password</strong>
+                    <output
+                      className="form-control"
+                      style={{ color: "#29335c" }}
+                    >
+                      {selectedKurir.password}
+                    </output>
                   </p>
                   <p>
-                    <strong style={{ color:"#29335c" }}>Nama Lengkap</strong> 
-                    <output className='form-control' style={{ color:"#29335c" }}>{selectedKurir.nama_lengkap}</output>
+                    <strong style={{ color: "#29335c" }}>Nama Lengkap</strong>
+                    <output
+                      className="form-control"
+                      style={{ color: "#29335c" }}
+                    >
+                      {selectedKurir.nama_lengkap}
+                    </output>
                   </p>
                   <p>
-                    <strong style={{ color:"#29335c" }}>NIK</strong> 
-                    <output className='form-control' style={{ color:"#29335c" }}>{selectedKurir.nik}</output>
+                    <strong style={{ color: "#29335c" }}>NIK</strong>
+                    <output
+                      className="form-control"
+                      style={{ color: "#29335c" }}
+                    >
+                      {selectedKurir.nik}
+                    </output>
                   </p>
                   <p>
-                    <strong style={{ color:"#29335c" }}>Tanggal Lahir</strong> 
-                    <output className='form-control' style={{ color:"#29335c" }}>{selectedKurir.tanggal_lahir}</output>
+                    <strong style={{ color: "#29335c" }}>Tanggal Lahir</strong>
+                    <output
+                      className="form-control"
+                      style={{ color: "#29335c" }}
+                    >
+                      {selectedKurir.tanggal_lahir}
+                    </output>
                   </p>
                   <p>
-                    <strong style={{ color:"#29335c" }}>Phone</strong> 
-                    <output className='form-control' style={{ color:"#29335c" }}>{selectedKurir.phone}</output>
+                    <strong style={{ color: "#29335c" }}>Phone</strong>
+                    <output
+                      className="form-control"
+                      style={{ color: "#29335c" }}
+                    >
+                      {selectedKurir.phone}
+                    </output>
                   </p>
                   <p>
-                    <strong style={{ color:"#29335c" }}>Alamat</strong> 
-                    <output className='form-control' style={{ color:"#29335c" }}>{selectedKurir.alamat}</output>
+                    <strong style={{ color: "#29335c" }}>Alamat</strong>
+                    <output
+                      className="form-control"
+                      style={{ color: "#29335c" }}
+                    >
+                      {selectedKurir.alamat}
+                    </output>
                   </p>
                 </div>
                 {/* Add other details as needed */}
