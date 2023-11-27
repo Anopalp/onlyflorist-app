@@ -592,15 +592,88 @@ function CardKurir(props) {
           keyboard={false}
         >
           <Modal.Header closeButton>
-            <Modal.Title>Kurir Detail</Modal.Title>
+            <Modal.Title style={{ fontWeight: "Bold", color: "#29335c" }}>
+              Detail Kurir
+            </Modal.Title>
           </Modal.Header>
           <Modal.Body>
             {/* Render details of selectedKurir */}
             {selectedKurir && (
               <div>
-                <p>Nama Lengkap: {selectedKurir.nama_lengkap}</p>
-                <p>Nomor Telepon: {selectedKurir.phone}</p>
-                <p>Alamat: {selectedKurir.alamat}</p>
+                <div className="profile-header">
+                  <img
+                    className="profile-pic"
+                    src={selectedKurir.image_url}
+                    alt="profile picture"
+                  ></img>
+                  <h3 className="profile-name">{selectedKurir.username}</h3>
+                </div>
+
+                <div className="profile-data">
+                  <p>
+                    <strong style={{ color: "#29335c" }}>Username</strong>
+                    <output
+                      className="form-control"
+                      style={{ color: "#29335c" }}
+                    >
+                      {selectedKurir.username}
+                    </output>
+                  </p>
+                  <p>
+                    <strong style={{ color: "#29335c" }}>Password</strong>
+                    <output
+                      className="form-control"
+                      style={{ color: "#29335c" }}
+                    >
+                      {selectedKurir.password}
+                    </output>
+                  </p>
+                  <p>
+                    <strong style={{ color: "#29335c" }}>Nama Lengkap</strong>
+                    <output
+                      className="form-control"
+                      style={{ color: "#29335c" }}
+                    >
+                      {selectedKurir.nama_lengkap}
+                    </output>
+                  </p>
+                  <p>
+                    <strong style={{ color: "#29335c" }}>NIK</strong>
+                    <output
+                      className="form-control"
+                      style={{ color: "#29335c" }}
+                    >
+                      {selectedKurir.nik}
+                    </output>
+                  </p>
+                  <p>
+                    <strong style={{ color: "#29335c" }}>Tanggal Lahir</strong>
+                    <output
+                      className="form-control"
+                      style={{ color: "#29335c" }}
+                    >
+                      {selectedKurir.tanggal_lahir}
+                    </output>
+                  </p>
+                  <p>
+                    <strong style={{ color: "#29335c" }}>Phone</strong>
+                    <output
+                      className="form-control"
+                      style={{ color: "#29335c" }}
+                    >
+                      {selectedKurir.phone}
+                    </output>
+                  </p>
+                  <p>
+                    <strong style={{ color: "#29335c" }}>Alamat</strong>
+                    <output
+                      className="form-control"
+                      style={{ color: "#29335c" }}
+                    >
+                      {selectedKurir.alamat}
+                    </output>
+                  </p>
+                </div>
                 {/* Add other details as needed */}
               </div>
             )}
