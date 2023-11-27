@@ -164,37 +164,37 @@ Tampilan layar :
 
 ![Mengelola akun kurir](/doc/DetailKurir.jpeg){width=70%}
 
-<p>Memperbarui status pengiriman</p>
+<p>Memperbarui status pengiriman:</p>
 
 ![Memperbarui status pengiriman](/doc/UpdatePengiriman%20(1).jpeg){width=70%}
 
-<p>Melakukan Login</p>
+<p>Melakukan Login:</p>
 
 ![Melakukan Login](/doc/Login%20(1).jpeg){width=70%}
 
-<p>Mengakses daftar pengiriman keseluruhan</p>
+<p>Mengakses daftar pengiriman keseluruhan:</p>
 
 ![Mengakses daftar pengiriman keseluruhan](/doc/DaftarPengirimanManajer%20(3).jpeg){width=70%}
 
-<p>Mengakses daftar pengiriman per kurir</p>
+<p>Mengakses daftar pengiriman per kurir:</p>
 
 ![Mengakses daftar pengiriman per kurir](/doc/DaftarPengirimanKurir%20(1).jpeg){width=70%}
 
-<p>Mengakses detail pengiriman</p>
+<p>Mengakses detail pengiriman:</p>
 
 ![Mengakses detail pengiriman](/doc/DetailPengirimanKurir%20(1).jpeg){width=70%}
 
 ![Mengakses detail pengiriman](/doc/DetailPengirimanManajer%20(1).jpeg){width=70%}
 
-<p>Memasukkan detail pesanan pelanggan</p>
+<p>Memasukkan detail pesanan pelanggan:</p>
 
 ![Memasukkan detail pesanan pelanggan](/doc/TambahPengiriman%20(1).jpeg){width=70%}
 
-<p>Mengirimkan laporan masalah pada pengiriman</p>
+<p>Mengirimkan laporan masalah pada pengiriman:</p>
 
 ![Mengirimkan laporan masalah pada pengiriman](/doc/UpdatePengiriman%20(3).jpeg){width=70%}
 
-<p>Mengakses laporan masalah terkait pengiriman</p>
+<p>Mengakses laporan masalah terkait pengiriman:</p>
 
 ![Mengakses laporan masalah terkait pengiriman](/doc/DetailPengirimanManajer%20(2).jpeg){width=70%}
 
