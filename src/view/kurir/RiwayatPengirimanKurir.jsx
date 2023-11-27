@@ -10,9 +10,11 @@ function RiwayatPengirimanKurir() {
 	const [data, setData] = useState([])
 	const [isDetail, setIsDetail] = useState(false)
 	const [selectedId, setSelectedId] = useState(null)
+	const [isLoading, setIsLoading] = useState(false)
 
 	useEffect(() => {
 		const fetchData = async () => {
+			setIsLoading(true)
 			const {
 				data: {
 					session: {
@@ -37,6 +39,7 @@ function RiwayatPengirimanKurir() {
 			if (data) {
 				setData(data)
 			}
+			setIsLoading(false)
 		}
 
 		fetchData()
@@ -55,7 +58,10 @@ function RiwayatPengirimanKurir() {
 		<div>
 			<NavbarKurir />
 			<div className='d-flex flex-column justify-content-left align-items-center vh-100'>
-				<h3 className="my-3" style={{ fontSize: 30, fontWeight: "bold", color:"#29335c" }}>
+				<h3
+					className='my-3'
+					style={{ fontSize: 30, fontWeight: 'bold', color: '#29335c' }}
+				>
 					Riwayat Pengiriman
 				</h3>
 				<div className='z-0 w-75 h-75 rounded-4 bg-light border shadow px-2 table-responsive'>
@@ -63,30 +69,40 @@ function RiwayatPengirimanKurir() {
                     <Link to="/create" className='btn btn-success'>Add +</Link>
                 </div> */}
 					{isDetail ? <ReadRiwayat close={closePopUp} id={selectedId} /> : null}
-					<table className='table table-striped table-hover'>
-						<thead className='bg-light sticky-top align-middle'>
-							<tr className='table-primary'>
-								<th style={{color: "#29335c"}}>ID</th>
-								<th style={{color: "#29335c"}}>Alamat Pelanggan</th>
-								<th style={{color: "#29335c"}}>Bunga</th>
-								<th style={{color: "#29335c"}}>Telp</th>
-								<th style={{color: "#29335c"}}>Catatan</th>
-								<th style={{color: "#29335c"}}>Status Pengiriman</th>
-							</tr>
-						</thead>
-						<tbody>
-							{data.map((d) => (
-								<tr key={d.id} onClick={() => handleDetailPengiriman(d.id)}>
-									<td style={{color: "#29335c"}}>{d.id}</td>
-									<td style={{color: "#29335c"}}>{d.alamat_pengiriman}</td>
-									<td style={{color: "#29335c"}}>{d.jenis_bunga}</td>
-									<td style={{color: "#29335c"}}>{d.nomor_telp_pelanggan}</td>
-									<td style={{ width: '500px', color: "#29335c" }}>{d.catatan || '-'}</td>
-									<td style={{color: "#29335c"}}>Delivered</td>
+					{isLoading ? (
+						<div className='d-flex justify-content-center py-5'>
+							<div className='spinner-border' role='status'></div>
+						</div>
+					) : (
+						<table className='table table-striped table-hover'>
+							<thead className='bg-light sticky-top align-middle'>
+								<tr className='table-primary'>
+									<th style={{ color: '#29335c' }}>ID</th>
+									<th style={{ color: '#29335c' }}>Alamat Pelanggan</th>
+									<th style={{ color: '#29335c' }}>Bunga</th>
+									<th style={{ color: '#29335c' }}>Telp</th>
+									<th style={{ color: '#29335c' }}>Catatan</th>
+									<th style={{ color: '#29335c' }}>Status Pengiriman</th>
 								</tr>
-							))}
-						</tbody>
-					</table>
+							</thead>
+							<tbody>
+								{data.map((d) => (
+									<tr key={d.id} onClick={() => handleDetailPengiriman(d.id)}>
+										<td style={{ color: '#29335c' }}>{d.id}</td>
+										<td style={{ color: '#29335c' }}>{d.alamat_pengiriman}</td>
+										<td style={{ color: '#29335c' }}>{d.jenis_bunga}</td>
+										<td style={{ color: '#29335c' }}>
+											{d.nomor_telp_pelanggan}
+										</td>
+										<td style={{ width: '500px', color: '#29335c' }}>
+											{d.catatan || '-'}
+										</td>
+										<td style={{ color: '#29335c' }}>Delivered</td>
+									</tr>
+								))}
+							</tbody>
+						</table>
+					)}
 				</div>
 			</div>
 		</div>

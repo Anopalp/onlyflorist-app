@@ -7,9 +7,12 @@ function DaftarPengirimanKurir() {
 	const [data, setData] = useState([])
 	const [isDetail, setIsDetail] = useState(false)
 	const [selectedId, setSelectedId] = useState(null)
+	const [fetchError, setFetchError] = useState(null)
+	const [isLoading, setIsLoading] = useState(false)
 
 	useEffect(() => {
 		const fetchData = async () => {
+			setIsLoading(true)
 			const {
 				data: {
 					session: {
@@ -27,12 +30,13 @@ function DaftarPengirimanKurir() {
 				.eq('kurir', username)
 
 			if (error) {
-				console.log(error)
+				setFetchError(error.message)
 			}
 
 			if (data) {
 				setData(data)
 			}
+			setIsLoading(false)
 		}
 
 		fetchData()
@@ -58,37 +62,51 @@ function DaftarPengirimanKurir() {
 					Daftar Pengiriman
 				</h3>
 				<div className='z-0 w-75 h-75 rounded-4 bg-light border shadow px-2 table-responsive'>
-					{/* <div className='d-flex justify-content-end '>
-                    <Link to="/create" className='btn btn-success'>Add +</Link>
-                </div> */}
-					{isDetail ? <Read close={closePopUp} id={selectedId} /> : null}
-					<table className='table table-striped table-hover'>
-						<thead className='bg-light sticky-top align-middle'>
-							<tr className='table-primary'>
-								<th style={{ color: '#29335c' }}>ID</th>
-								<th style={{ color: '#29335c' }}>Alamat Pelanggan</th>
-								<th style={{ color: '#29335c' }}>Bunga</th>
-								<th style={{ color: '#29335c' }}>Telp</th>
-								<th style={{ color: '#29335c' }}>Catatan</th>
-								<th style={{ color: '#29335c' }}>Status Pengiriman</th>
-							</tr>
-						</thead>
-						<tbody>
-							{data.map((d) => (
-								<tr key={d.id} onClick={() => handleDetailPengiriman(d.id)}>
-									<td style={{ color: '#29335c' }}>{d.id}</td>
-									<td style={{ color: '#29335c' }}>{d.alamat_pengiriman}</td>
-									<td style={{ color: '#29335c' }}>{d.jenis_bunga}</td>
-									<td style={{ color: '#29335c' }}>{d.nomor_telp_pelanggan}</td>
-									<td style={{ width: '600px', color: '#29335c' }}>
-										{d.catatan ? d.catatan : '-'}
-									</td>
-									<td style={{ color: '#29335c' }}>{d.status_pengiriman}</td>
-								</tr>
-							))}
-						</tbody>
-					</table>
+					{isLoading ? (
+						<div className='d-flex justify-content-center py-5'>
+							<div className='spinner-border' role='status'></div>
+						</div>
+					) : (
+						<>
+							<table className='table table-striped table-hover'>
+								<thead className='bg-light sticky-top align-middle'>
+									<tr className='table-primary'>
+										<th style={{ color: '#29335c' }}>ID</th>
+										<th style={{ color: '#29335c' }}>Alamat Pelanggan</th>
+										<th style={{ color: '#29335c' }}>Bunga</th>
+										<th style={{ color: '#29335c' }}>Telp</th>
+										<th style={{ color: '#29335c' }}>Catatan</th>
+										<th style={{ color: '#29335c' }}>Status Pengiriman</th>
+									</tr>
+								</thead>
+								<tbody>
+									{data.map((d) => (
+										<tr key={d.id} onClick={() => handleDetailPengiriman(d.id)}>
+											<td style={{ color: '#29335c' }}>{d.id}</td>
+											<td style={{ color: '#29335c' }}>
+												{d.alamat_pengiriman}
+											</td>
+											<td style={{ color: '#29335c' }}>{d.jenis_bunga}</td>
+											<td style={{ color: '#29335c' }}>
+												{d.nomor_telp_pelanggan}
+											</td>
+											<td style={{ width: '600px', color: '#29335c' }}>
+												{d.catatan ? d.catatan : '-'}
+											</td>
+											<td style={{ color: '#29335c' }}>
+												{d.status_pengiriman}
+											</td>
+										</tr>
+									))}
+								</tbody>
+							</table>
+						</>
+					)}
+					{!isLoading && fetchError && (
+						<div className='alert alert-danger text-center'>{fetchError}</div>
+					)}
 				</div>
+				{isDetail ? <Read close={closePopUp} id={selectedId} /> : null}
 			</div>
 		</div>
 	)

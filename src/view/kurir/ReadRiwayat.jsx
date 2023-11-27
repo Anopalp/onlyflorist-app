@@ -1,12 +1,14 @@
 import supabase from '../../config/supabaseClient'
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 function ReadRiwayat({ close, id }) {
 	const [data, setData] = useState([])
+	const [isLoading, setIsLoading] = useState(false)
 	// const {id} = useParams();
 
 	useEffect(() => {
 		const fetchData = async () => {
+			setIsLoading(true)
 			const {
 				data: {
 					session: {
@@ -43,6 +45,7 @@ function ReadRiwayat({ close, id }) {
 			} else {
 				setData(...data)
 			}
+			setIsLoading(false)
 		}
 
 		fetchData()
@@ -65,67 +68,75 @@ function ReadRiwayat({ close, id }) {
 						></button>
 					</div>
 
-					<div className='d-flex align-items-center mb-4'>
-						<img
-							style={{ width: '120px', borderRadius: '50%' }}
-							src={data.image_url}
-							alt='profile picture'
-						></img>
-						<h3
-							style={{
-								fontSize: 30,
-								fontWeight: 'bold',
-								color: '#29335c',
-								marginLeft: '10%',
-							}}
-						>
-							{data.jenis_bunga}
-						</h3>
-					</div>
-					<div className='mb-3'>
-						<strong style={{ color: '#29335c' }}>ID Pengiriman</strong>
-						<output className='form-control' style={{ color: '#29335c' }}>
-							{data.id}
-						</output>
-					</div>
-					<div className='mb-3'>
-						<strong style={{ color: '#29335c' }}>Alamat Pengiriman</strong>
-						<output className='form-control' style={{ color: '#29335c' }}>
-							{data.alamat_pengiriman}
-						</output>
-					</div>
-					<div className='mb-3'>
-						<strong style={{ color: '#29335c' }}>No. Telp Pelanggan</strong>
-						<output className='form-control' style={{ color: '#29335c' }}>
-							{data.nomor_telp_pelanggan}
-						</output>
-					</div>
-					<div className='mb-3'>
-						<strong style={{ color: '#29335c' }}>Catatan</strong>
-						<output className='form-control' style={{ color: '#29335c' }}>
-							{data.catatan}
-						</output>
-					</div>
-					<div className='mb-3'>
-						<strong style={{ color: '#29335c' }}>Kurir</strong>
-						<output className='form-control' style={{ color: '#29335c' }}>
-							{data.dataKurir?.nama_lengkap}
-						</output>
-					</div>
-					{data.laporan_masalah !== null ? (
-						<div className='mb-3'>
-							<strong style={{ color: '#29335c' }}>Laporan Masalah</strong>
-							<output className='form-control' style={{ color: '#29335c' }}>
-								{data.laporan_masalah}
-							</output>
+					{isLoading ? (
+						<div className='d-flex justify-content-center py-5'>
+							<div className='spinner-border' role='status'></div>
 						</div>
-					) : null}
-					<div className='mb-4'>
-						<strong style={{ color: '#29335c' }}>Status Pengiriman</strong>
-						<output className='form-control' style={{ color: '#29335c' }}>
-							Delivered
-						</output>
-					</div>
+					) : (
+						<>
+							<div className='d-flex align-items-center mb-4'>
+								<img
+									style={{ width: '120px', borderRadius: '50%' }}
+									src={data.image_url}
+									alt='profile picture'
+								></img>
+								<h3
+									style={{
+										fontSize: 30,
+										fontWeight: 'bold',
+										color: '#29335c',
+										marginLeft: '10%',
+									}}
+								>
+									{data.jenis_bunga}
+								</h3>
+							</div>
+							<div className='mb-3'>
+								<strong style={{ color: '#29335c' }}>ID Pengiriman</strong>
+								<output className='form-control' style={{ color: '#29335c' }}>
+									{data.id}
+								</output>
+							</div>
+							<div className='mb-3'>
+								<strong style={{ color: '#29335c' }}>Alamat Pengiriman</strong>
+								<output className='form-control' style={{ color: '#29335c' }}>
+									{data.alamat_pengiriman}
+								</output>
+							</div>
+							<div className='mb-3'>
+								<strong style={{ color: '#29335c' }}>No. Telp Pelanggan</strong>
+								<output className='form-control' style={{ color: '#29335c' }}>
+									{data.nomor_telp_pelanggan}
+								</output>
+							</div>
+							<div className='mb-3'>
+								<strong style={{ color: '#29335c' }}>Catatan</strong>
+								<output className='form-control' style={{ color: '#29335c' }}>
+									{data.catatan}
+								</output>
+							</div>
+							<div className='mb-3'>
+								<strong style={{ color: '#29335c' }}>Kurir</strong>
+								<output className='form-control' style={{ color: '#29335c' }}>
+									{data.dataKurir?.nama_lengkap}
+								</output>
+							</div>
+							{data.laporan_masalah !== null ? (
+								<div className='mb-3'>
+									<strong style={{ color: '#29335c' }}>Laporan Masalah</strong>
+									<output className='form-control' style={{ color: '#29335c' }}>
+										{data.laporan_masalah}
+									</output>
+								</div>
+							) : null}
+							<div className='mb-4'>
+								<strong style={{ color: '#29335c' }}>Status Pengiriman</strong>
+								<output className='form-control' style={{ color: '#29335c' }}>
+									Delivered
+								</output>
+							</div>
+						</>
+					)}
 				</div>
 			</div>
 		</div>
