@@ -156,15 +156,21 @@ Tampilan layar :
         <td>Atribut</td>
     </tr>
     <tr>
-        <td></td>
+        <td>dataKurir</td>
+        <td>
+            <br>username: text</br>
+        </td>
+    </tr>
+    <tr>
+        <td>dataLaporan</td>
         <td></td>
     </tr>
     <tr>
-        <td></td>
+        <td>dataPengiriman</td>
         <td></td>
     </tr>
     <tr>
-        <td></td>
+        <td>dataRiwayat</td>
         <td></td>
     </tr>
 </table>
