@@ -86,7 +86,7 @@ const TambahPengiriman = ({ close, setData }) => {
 			const kurirTersantai = await findKurirTersantai(daftarPengiriman)
 
 			const newPengiriman = {
-				id: Math.max(idTerbesar(arrOfObjekIdDataPengiriman), idTerbesar(arrOfObjekIdDataRiwayat)) + 1,
+				id: daftarPengiriman.length === 0 ? 1 : Math.max(idTerbesar(arrOfObjekIdDataPengiriman), idTerbesar(arrOfObjekIdDataRiwayat)) + 1,
 				alamat_pengiriman: alamatPengiriman,
 				jenis_bunga: jenisBunga,
 				nomor_telp_pelanggan: noTelpPelanggan,
