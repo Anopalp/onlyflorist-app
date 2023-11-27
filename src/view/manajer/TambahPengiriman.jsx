@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-mixed-spaces-and-tabs */
 import { useState } from 'react'
 import supabase from '../../config/supabaseClient'
@@ -15,6 +16,16 @@ const readImageAsDataURL = (file) => {
 		}
 		reader.readAsDataURL(file)
 	})
+}
+
+const idTerbesar = (arrOfObjekIdPengiriman) => {
+
+	const arrOfIdPengiriman = arrOfObjekIdPengiriman.map((objekIdPengiriman) => objekIdPengiriman.id);
+
+	console.log(arrOfIdPengiriman);
+	
+
+	return Math.max(...arrOfIdPengiriman);
 }
 
 async function findKurirTersantai(daftarPengiriman) {
@@ -66,11 +77,13 @@ const TambahPengiriman = ({ close, setData }) => {
 			}
 
 			const pengiriman = await supabase.from('dataPengiriman').select()
+			const arrOfObjekIdPengiriman = pengiriman.data
+
 			const daftarPengiriman = pengiriman.data
 			const kurirTersantai = await findKurirTersantai(daftarPengiriman)
 
 			const newPengiriman = {
-				id: daftarPengiriman.length + 1,
+				id: idTerbesar(arrOfObjekIdPengiriman) + 1,
 				alamat_pengiriman: alamatPengiriman,
 				jenis_bunga: jenisBunga,
 				nomor_telp_pelanggan: noTelpPelanggan,
@@ -93,7 +106,7 @@ const TambahPengiriman = ({ close, setData }) => {
 				close()
 			}
 
-			window.location.reload()
+			window.location.reload();
 		}
 
 		fetchData()

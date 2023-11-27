@@ -14,9 +14,9 @@ const DaftarPengirimanManajer = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const { data, error } = await supabase.from("dataPengiriman").select(`
-        *, dataKurir (nama_lengkap)
-      `);
+      const { data, error } = await supabase
+        .from("dataPengiriman")
+        .select(`*, dataKurir (nama_lengkap)`);
 
       if (error) {
         console.log(error);
