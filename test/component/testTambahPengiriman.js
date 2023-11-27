@@ -28,11 +28,6 @@ const tambahPengiriman = async (dataPengiriman) => {
 
         const returnedData = {...data[0]}
 
-        // await supabase
-        //     .from('dataPengiriman')
-        //     .delete()
-        //     .eq('id', id)
-
         delete returnedData.waktu_dibuat
 
         return returnedData;
