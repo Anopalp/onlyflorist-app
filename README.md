@@ -154,7 +154,7 @@
 
 ## **App Screenshot**
 Tampilan layar : 
-<img src='../if3152-2023-k01-9-onlyflorist/doc/DashboardKurir (1).jpeg' width='250' style="display: inline-block;">
+![Test](/doc/DashboardKurir%20(1).jpeg)
 
 <br>
 
