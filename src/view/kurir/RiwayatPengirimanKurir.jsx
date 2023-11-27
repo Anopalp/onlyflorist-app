@@ -102,7 +102,7 @@ function RiwayatPengirimanKurir() {
 					)}
 					{!isLoading && data.length === 0 && (
 						<div className='alert alert-warning text-center'>
-							Tidak ada pengiriman
+							Tidak ada riwayat
 						</div>
 					)}
 				</div>
