@@ -24,6 +24,8 @@ function LayarDaftarKurir() {
               setDataKurir(data);
               setFetchError(null);
             }
+
+            console.log(data);
         }
     
         fetchDataKurir();

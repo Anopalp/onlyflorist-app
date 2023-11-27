@@ -1,0 +1,39 @@
+/* eslint-disable no-unused-vars */
+import { createClient } from "@supabase/supabase-js";
+
+const supabaseUrl = "https://eluxpwnltqxkphfkolza.supabase.co";
+const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVsdXhwd25sdHF4a3BoZmtvbHphIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDA0NjEyMDksImV4cCI6MjAxNjAzNzIwOX0.2nmqqBa8VVkbzWtGJq4zA0nvMQxEWrR-6mYKJBAVaEY";
+
+const supabase = createClient(supabaseUrl, supabaseKey);
+
+const tambahKurir = async (dataKurir) => {
+
+    const {username, password, nama_lengkap, nik, phone, alamat, tanggal_lahir, image_url} = dataKurir;
+
+    try {
+  
+        const { data, error } = await supabase
+        .from('dataKurir')
+        .insert([{username: username.toLowerCase(), password, nama_lengkap, nik, phone, alamat, tanggal_lahir, image_url}]).select()
+  
+        if (error) {
+            console.error("Error Inserting Data:", error);
+            throw new Error("Failed to insert data into Supabase");
+        }
+
+        // Check if data is null or an empty array
+        if (!data || data.length === 0) {
+            console.error("No Data Inserted");
+            throw new Error("No data inserted into Supabase");
+        }
+
+        const insertedData = data[0];
+
+        return data[0];
+      } catch (error) {
+        console.log(error);
+        return null;
+      }
+}
+
+export default tambahKurir;
