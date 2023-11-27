@@ -54,7 +54,13 @@
 
 ## **App Specification**
 <p>
-    OnlyFlorist merupakan babibubebo mamimumemo
+    OnlyFlorist merupakan sebuah aplikasi manajemen pengiriman bunga
+    yang dibuat atas dasar kebutuhan manajer pemilik sebuah toko bunga
+    terkenal di Kota Bandung. OnlyFlorist bekerja dengan mengolah data
+    pengiriman agar pengiriman bunga dapat lebih efisien dan efektif.
+    Onlyflorist ditujukan sebagai aplikasi berbasis web agar dapat
+    kompatibel dengan semua perangkat pengguna. Diharapkan adanya
+    OnlyFlorist dapat membantu manajer pemiliki toko bunga ini.
 </p>
 
 </br>
@@ -97,44 +103,49 @@
         <td>Nama PJ</td>
     </tr>
     <tr>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>Mengelola akun kurir</td>
+        <td>18221091</td>
+        <td>Ibnu Khairy Algifari</td>
     </tr>
     <tr>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>Memperbarui status pengiriman</td>
+        <td>18221091</td>
+        <td>Ibnu Khairy Algifari</td>
     </tr>
     <tr>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>Melakukan Login</td>
+        <td>18221133</td>
+        <td>Samuel Eric Yonatan</td>
     </tr>
     <tr>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>Mengakses daftar pengiriman keseluruhan</td>
+        <td>18221133</td>
+        <td>Samuel Eric Yonatan</td>
     </tr>
     <tr>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>Mengakses daftar pengiriman per kurir</td>
+        <td>18221133</td>
+        <td>Samuel Eric Yonatan</td>
     </tr>
     <tr>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>Mengakses detail pengiriman</td>
+        <td>18221105</td>
+        <td>Muhammad Aliefnaufal Permana</td>
     </tr>
     <tr>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>Memasukkan detail pesanan pelanggan</td>
+        <td>18221105</td>
+        <td>Muhammad Aliefnaufal Permana</td>
     </tr>
     <tr>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>Mengirimkan laporan masalah pada pengiriman</td>
+        <td>18221151</td>
+        <td>Luthfi Hanif</td>
+    </tr>
+    <tr>
+        <td>Mengakses laporan masalah terkait pengiriman</td>
+        <td>18221151</td>
+        <td>Luthfi Hanif</td>
     </tr>
 </table>
 </p>
@@ -158,27 +169,52 @@ Tampilan layar :
     <tr>
         <td>dataKurir</td>
         <td>
-            <p>username: text</p><br/>
-            <p>password: text</p><br/>
-            <p>nama_lengkap: text</p><br/>
-            <p>nik: text</p><br/>
-            <p>phone: text</p><br/>
-            <p>tanggal_lahir: date</p><br/>
-            <p>alamat: text</p><br/>
-            <p>image_url: text</p><br/>
+            <p>username: text</p>
+            <p>password: text</p>
+            <p>nama_lengkap: text</p>
+            <p>nik: text</p>
+            <p>phone: text</p>
+            <p>tanggal_lahir: date</p>
+            <p>alamat: text</p>
+            <p>image_url: text</p>
         </td>
     </tr>
     <tr>
         <td>dataLaporan</td>
-        <td></td>
+        <td>
+            <p>id: int8</p>
+            <p>laporan_masalah: text</p>
+            <p>waktu: timestamptz</p>
+        </td>
     </tr>
     <tr>
         <td>dataPengiriman</td>
-        <td></td>
+        <td>
+            <p>id: int8</p>
+            <p>alamat_pengiriman: text</p>
+            <p>jenis_bunga: text</p>
+            <p>no_telp_pelanggan: text</p>
+            <p>kurir: varchar</p>
+            <p>status_pengiriman: text</p>
+            <p>laporan_masalah: int8</p>
+            <p>catatan: text</p>
+            <p>waktu_dibuat: timestamptz</p>
+            <p>image_url: text</p>
+        </td>
     </tr>
     <tr>
         <td>dataRiwayat</td>
-        <td></td>
+        <td>
+            <p>id: int8</p>
+            <p>waktu_selesai: timestamptz</p>
+            <p>alamat_pengiriman: text</p>
+            <p>jenis_bunga: text</p>
+            <p>nomor_telp_pelanggan: text</p>
+            <p>catatan: text</p>
+            <p>kurir: varchar</p>
+            <p>laporan_masalah: int8</p> 
+            <p>image_url: text</p> 
+        </td>
     </tr>
 </table>
 </p>
